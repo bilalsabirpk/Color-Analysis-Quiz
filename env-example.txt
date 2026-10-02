@@ -1,0 +1,33 @@
+# Copy this file to .env.local for local development, and set the same
+# values in your Vercel project's Environment Variables for production.
+# Nothing here is required to build or run the site — everything has a safe
+# fallback — but SEO and AdSense both need the real domain before launch.
+
+# Your real, live domain (no trailing slash). Required before you apply for
+# AdSense — Google will not approve a site on localhost or a default Vercel
+# *.vercel.app subdomain.
+NEXT_PUBLIC_SITE_URL=https://your-domain.com
+
+# Set this ONLY after Google approves your AdSense account and gives you a
+# publisher ID (format: pub-XXXXXXXXXXXXXXXX). Leave unset until then — see
+# README.md for the full AdSense steps.
+# NEXT_PUBLIC_ADSENSE_CLIENT=pub-XXXXXXXXXXXXXXXX
+
+# Optional: Google Analytics 4 measurement ID (format: G-XXXXXXXXXX).
+# NEXT_PUBLIC_GA_ID=G-XXXXXXXXXX
+
+# Optional
+# NEXT_PUBLIC_TWITTER_HANDLE=@yourhandle
+NEXT_PUBLIC_CONTACT_EMAIL=hello@your-domain.com
+
+# --- Contact form (optional) ---------------------------------------------
+# Without these, the contact form opens the visitor's own email app with the
+# message pre-filled. To receive messages straight in your inbox instead:
+#  1. Create a free account at https://resend.com and an API key.
+#  2. (Recommended) verify your domain in Resend, then set CONTACT_FROM_EMAIL
+#     to an address on it, e.g. "Color Analysis <contact@your-domain.com>".
+RESEND_API_KEY=
+CONTACT_TO_EMAIL=
+CONTACT_FROM_EMAIL=
+# Text shown on the Contact page, e.g. "1–2 business days"
+NEXT_PUBLIC_RESPONSE_TIME=

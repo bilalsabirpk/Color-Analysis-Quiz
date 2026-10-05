@@ -1,0 +1,43 @@
+/* Layout only — colors, fonts and link styles come from the site's
+   existing .content-card and .prose classes in globals.css. */
+
+.card {
+  max-width: 1000px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px 48px;
+}
+
+.group h2 {
+  margin-top: 0;
+}
+
+.group ul {
+  margin-bottom: 28px;
+}
+
+.group li a {
+  overflow-wrap: anywhere;
+}
+
+.count {
+  font-weight: 500;
+  font-size: 15px;
+  color: var(--ink-soft);
+}
+
+.meta {
+  display: block;
+  font-size: 13px;
+  color: var(--ink-soft);
+  line-height: 1.5;
+}
+
+@media (max-width: 720px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}

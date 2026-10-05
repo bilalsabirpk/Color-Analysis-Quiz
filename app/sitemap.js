@@ -1,31 +1,33 @@
 import { siteConfig } from '@/lib/site-config';
-import { GUIDES } from '@/lib/guides-data';
+import { SITE_PAGES, getGuidePages } from '@/lib/site-pages';
+
+// Serves /sitemap.xml for search engines, in the same format as
+// kibbybody.app/sitemap.xml: one <url> per page with a fixed <lastmod>,
+// <changefreq>, <priority>, and <image:image> where a page has an image.
+// The page list lives in lib/site-pages.js; guides come from lib/guides-data.js
+// automatically.
+
+const abs = (path) => (path === '/' ? siteConfig.url : `${siteConfig.url}${path}`);
+const toDate = (iso) => new Date(`${iso}T00:00:00.000Z`);
 
 export default function sitemap() {
-  const now = new Date();
+  const guides = getGuidePages(); // newest first
+  const latestGuide = guides[0]?.date;
 
-  const staticRoutes = [
-    { url: '/', changeFrequency: 'weekly', priority: 1 },
-    { url: '/guides', changeFrequency: 'weekly', priority: 0.8 },
-    { url: '/faq', changeFrequency: 'monthly', priority: 0.7 },
-    { url: '/about', changeFrequency: 'monthly', priority: 0.6 },
-    { url: '/contact', changeFrequency: 'yearly', priority: 0.4 },
-    { url: '/privacy-policy', changeFrequency: 'yearly', priority: 0.3 },
-    { url: '/terms', changeFrequency: 'yearly', priority: 0.3 },
-    { url: '/cookie-policy', changeFrequency: 'yearly', priority: 0.3 },
-  ].map((r) => ({
-    url: `${siteConfig.url}${r.url}`,
-    lastModified: now,
-    changeFrequency: r.changeFrequency,
-    priority: r.priority,
+  const pages = SITE_PAGES.map((p) => ({
+    url: abs(p.path),
+    lastModified: toDate(p.lastModified === 'latest-guide' ? latestGuide : p.lastModified),
+    changeFrequency: p.changeFrequency,
+    priority: p.priority,
+    ...(p.images?.length ? { images: p.images.map(abs) } : {}),
   }));
 
-  const guideRoutes = GUIDES.map((g) => ({
-    url: `${siteConfig.url}/guides/${g.slug}`,
-    lastModified: now,
-    changeFrequency: 'monthly',
-    priority: 0.7,
+  const guideEntries = guides.map((g) => ({
+    url: abs(g.path),
+    lastModified: toDate(g.date),
+    changeFrequency: g.changeFrequency,
+    priority: g.priority,
   }));
 
-  return [...staticRoutes, ...guideRoutes];
+  return [...pages, ...guideEntries];
 }

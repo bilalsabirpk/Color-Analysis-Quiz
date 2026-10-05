@@ -82,6 +82,7 @@ export default function Footer() {
               <li><Link href="/privacy-policy">Privacy Policy</Link></li>
               <li><Link href="/terms">Terms of Use</Link></li>
               <li><Link href="/cookie-policy">Cookie Policy</Link></li>
+              <li><a href="/sitemap.xml">Sitemap</a></li>
             </ul>
           </div>
         </div>

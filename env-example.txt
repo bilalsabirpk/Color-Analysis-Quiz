@@ -6,7 +6,7 @@
 # Your real, live domain (no trailing slash). Required before you apply for
 # AdSense — Google will not approve a site on localhost or a default Vercel
 # *.vercel.app subdomain.
-NEXT_PUBLIC_SITE_URL=https://your-domain.com
+NEXT_PUBLIC_SITE_URL=https://coloranalyzerquiz.com
 
 # Set this ONLY after Google approves your AdSense account and gives you a
 # publisher ID (format: pub-XXXXXXXXXXXXXXXX). Leave unset until then — see
@@ -18,14 +18,14 @@ NEXT_PUBLIC_SITE_URL=https://your-domain.com
 
 # Optional
 # NEXT_PUBLIC_TWITTER_HANDLE=@yourhandle
-NEXT_PUBLIC_CONTACT_EMAIL=hello@your-domain.com
+NEXT_PUBLIC_CONTACT_EMAIL=info@coloranalyzerquiz.com
 
 # --- Contact form (optional) ---------------------------------------------
 # Without these, the contact form opens the visitor's own email app with the
 # message pre-filled. To receive messages straight in your inbox instead:
 #  1. Create a free account at https://resend.com and an API key.
 #  2. (Recommended) verify your domain in Resend, then set CONTACT_FROM_EMAIL
-#     to an address on it, e.g. "Color Analysis <contact@your-domain.com>".
+#     to an address on it, e.g. "Color Analysis <info@coloranalyzerquiz.com>".
 RESEND_API_KEY=
 CONTACT_TO_EMAIL=
 CONTACT_FROM_EMAIL=

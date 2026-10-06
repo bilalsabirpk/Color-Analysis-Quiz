@@ -12,7 +12,7 @@ export default function BlogPreview({ limit = 3 }) {
     <section id="blog" aria-labelledby="blogHeading">
       <div className="container">
         <div className="section-head">
-          <h2 id="blogHeading">Color Season Style Guides</h2>
+          <h2 id="blogHeading">Seasonal Color Analysis Guides</h2>
         </div>
 
         <div className="guide-list">

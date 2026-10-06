@@ -12,6 +12,7 @@ import BlogPreview from '@/components/BlogPreview';
 import UploadCta from '@/components/UploadCta';
 import HeroSection from '@/components/HeroSection';
 import QuizLaunchers from '@/components/QuizLaunchers';
+import SubSeasons from '@/components/SubSeasons';
 import {
   HowItWorks,
   WhyUs,
@@ -74,6 +75,9 @@ export default function HomePage() {
 
         {/* Interactive palette explorer — visually part of the section above. */}
         <div dangerouslySetInnerHTML={{ __html: QUIZ_SEASONS_HTML }} />
+
+        {/* 12 sub-seasons (soft autumn, deep winter…), crawlable content. */}
+        <SubSeasons />
 
         <div dangerouslySetInnerHTML={{ __html: QUIZ_HARMONY_HTML }} />
 

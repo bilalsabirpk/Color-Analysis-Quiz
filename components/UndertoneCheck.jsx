@@ -167,7 +167,7 @@ export default function UndertoneCheck() {
     <section id="undertone-test" className="alt-bg" aria-labelledby="undertoneHeading">
       <div className="container">
         <div className="section-head">
-          <h2 id="undertoneHeading">Undertone Test: Are You Warm or Cool?</h2>
+          <h2 id="undertoneHeading">Skin Undertone Test: Warm, Cool or Neutral?</h2>
           <p>Six questions, no photo needed.</p>
         </div>
 

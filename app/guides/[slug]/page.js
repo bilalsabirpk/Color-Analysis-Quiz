@@ -44,9 +44,12 @@ export default async function GuideArticlePage({ params }) {
     mainEntityOfPage: `${siteConfig.url}/guides/${guide.slug}`,
   };
 
-  const related = getLatestGuides()
-    .filter((g) => g.slug !== guide.slug)
-    .slice(0, 3);
+  // Same-category guides first (e.g. the other Autumn sub-seasons), then newest.
+  const others = getLatestGuides().filter((g) => g.slug !== guide.slug);
+  const related = [
+    ...others.filter((g) => g.category === guide.category),
+    ...others.filter((g) => g.category !== guide.category),
+  ].slice(0, 3);
 
   const formattedDate = new Date(guide.date).toLocaleDateString('en-US', {
     year: 'numeric',

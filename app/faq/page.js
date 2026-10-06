@@ -4,9 +4,9 @@ import { FAQ, getFaqByCategory } from '@/lib/faq-data';
 import FaqAccordion from '@/components/FaqAccordion';
 
 export const metadata = {
-  title: 'FAQ',
+  title: 'Color Analysis FAQ & 16 Season Color Guide',
   description:
-    'Answers to common color analysis questions: what the 4 seasons are, how to find your undertone, which colors and metals suit you, and how our free, private color analysis tool works.',
+    'Color analysis questions answered: the 4 color seasons, 12 and 16 season color analysis, warm vs cool undertones, and how our free color analysis quiz works.',
   alternates: { canonical: '/faq' },
   openGraph: {
     url: '/faq',

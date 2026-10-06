@@ -13,6 +13,10 @@ export const CATEGORY_ICONS = {
   Makeup: '💄',
   Accessories: '💍',
   Hair: '💇',
+  Spring: '🌷',
+  Summer: '🌊',
+  Autumn: '🍂',
+  Winter: '❄️',
 };
 
 export default function GuideCard({ guide, headingLevel = 'h3' }) {

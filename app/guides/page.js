@@ -2,6 +2,7 @@ import Link from 'next/link';
 import { siteConfig, founder } from '@/lib/site-config';
 import { getLatestGuides } from '@/lib/guides-data';
 import BlogList from '@/components/BlogList';
+import AllGuidesIndex from '@/components/AllGuidesIndex';
 import ShareLink from '@/components/ShareLink';
 
 const DESCRIPTION =
@@ -73,6 +74,8 @@ export default function GuidesIndexPage() {
         <section className="blog-body">
           <div className="container">
             <BlogList guides={guides} />
+
+            <AllGuidesIndex guides={guides} />
 
             <div className="blog-cta">
               <div>

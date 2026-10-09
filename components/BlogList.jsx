@@ -1,20 +1,36 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import GuideCard, { CATEGORY_ICONS } from '@/components/GuideCard';
 
 const PAGE_SIZE = 9;
 
 // Client-side category filter + "Show more" for the /guides index.
-// All cards are still in the server HTML on first load (default = All,
-// first PAGE_SIZE shown), so crawlers see real links.
+// Every card is always in the HTML (cards past the first PAGE_SIZE just get
+// the `hidden` attribute), so Google sees a real link to every guide, not
+// only the first page. "Show more" only reveals cards that are already there.
 export default function BlogList({ guides }) {
   const categories = [...new Set(guides.map((g) => g.category).filter(Boolean))];
   const [active, setActive] = useState('All');
   const [visible, setVisible] = useState(PAGE_SIZE);
 
   const filtered = active === 'All' ? guides : guides.filter((g) => g.category === active);
-  const shown = filtered.slice(0, visible);
+  const shownCount = Math.min(visible, filtered.length);
+  const listRef = useRef(null);
+  const focusFrom = useRef(null);
+
+  // After "Show more", move keyboard focus to the first newly shown article.
+  useEffect(() => {
+    if (focusFrom.current == null || !listRef.current) return;
+    const links = listRef.current.querySelectorAll('article:not([hidden]) .guide-link');
+    links[focusFrom.current]?.focus();
+    focusFrom.current = null;
+  }, [visible]);
+
+  function showMore() {
+    focusFrom.current = visible;
+    setVisible((v) => v + PAGE_SIZE);
+  }
 
   function pick(cat) {
     setActive(cat);
@@ -45,19 +61,19 @@ export default function BlogList({ guides }) {
       )}
 
       <p className="visually-hidden" aria-live="polite">
-        Showing {shown.length} of {filtered.length} articles{active !== 'All' ? ` in ${active}` : ''}.
+        Showing {shownCount} of {filtered.length} articles{active !== 'All' ? ` in ${active}` : ''}.
       </p>
 
-      <div className="guide-list blog-grid">
-        {shown.map((g) => (
-          <GuideCard key={g.slug} guide={g} headingLevel="h2" />
+      <div className="guide-list blog-grid" ref={listRef}>
+        {filtered.map((g, i) => (
+          <GuideCard key={g.slug} guide={g} headingLevel="h2" hidden={i >= visible} />
         ))}
       </div>
 
       {filtered.length > visible && (
         <div className="blog-more">
-          <button type="button" className="btn btn-outline" onClick={() => setVisible((v) => v + PAGE_SIZE)}>
-            Show more articles
+          <button type="button" className="btn btn-outline" onClick={showMore}>
+            Show more articles ({filtered.length - visible} more)
           </button>
         </div>
       )}

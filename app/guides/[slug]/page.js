@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { siteConfig } from '@/lib/site-config';
-import { GUIDES, getGuide, getLatestGuides } from '@/lib/guides-data';
+import { GUIDES, getGuide, getRelatedGuides } from '@/lib/guides-data';
 import ArticleBody from '@/components/ArticleBody';
 import GuideCard from '@/components/GuideCard';
 
@@ -44,12 +44,7 @@ export default async function GuideArticlePage({ params }) {
     mainEntityOfPage: `${siteConfig.url}/guides/${guide.slug}`,
   };
 
-  // Same-category guides first (e.g. the other Autumn sub-seasons), then newest.
-  const others = getLatestGuides().filter((g) => g.slug !== guide.slug);
-  const related = [
-    ...others.filter((g) => g.category === guide.category),
-    ...others.filter((g) => g.category !== guide.category),
-  ].slice(0, 3);
+  const related = getRelatedGuides(guide);
 
   const formattedDate = new Date(guide.date).toLocaleDateString('en-US', {
     year: 'numeric',

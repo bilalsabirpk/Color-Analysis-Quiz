@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { siteConfig, founder } from '@/lib/site-config';
+import { siteConfig, founder, DEFAULT_OG_IMAGE } from '@/lib/site-config';
 import { getLatestGuides } from '@/lib/guides-data';
 import BlogList from '@/components/BlogList';
 import AllGuidesIndex from '@/components/AllGuidesIndex';
@@ -13,6 +13,7 @@ export const metadata = {
   description: DESCRIPTION,
   alternates: { canonical: '/guides' },
   openGraph: {
+    images: [DEFAULT_OG_IMAGE],
     url: '/guides',
     title: `Color Analysis Blog | ${siteConfig.name}`,
     description: DESCRIPTION,

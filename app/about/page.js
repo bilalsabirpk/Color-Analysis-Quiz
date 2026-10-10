@@ -1,11 +1,12 @@
 import Link from 'next/link';
-import { siteConfig, founder } from '@/lib/site-config';
+import { siteConfig, founder, DEFAULT_OG_IMAGE } from '@/lib/site-config';
 
 export const metadata = {
   title: `About Us: Built by ${founder.name}`,
   description: `${siteConfig.name} is a free, private, in-browser color analysis tool built by ${founder.name}. Learn our mission, values, and what makes this seasonal color analysis tool different.`,
   alternates: { canonical: '/about' },
   openGraph: {
+    images: [DEFAULT_OG_IMAGE],
     url: '/about',
     title: `About | ${siteConfig.name}`,
     description: `Why ${siteConfig.name} exists, who built it, and how it keeps your photos private.`,

@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import { siteConfig } from '@/lib/site-config';
 import {
   QUIZ_SECTIONS_HTML,
@@ -82,7 +83,14 @@ export default function HomePage() {
         <div dangerouslySetInnerHTML={{ __html: QUIZ_HARMONY_HTML }} />
 
         {/* No-photo 6-question undertone / season self-check. */}
-        <UndertoneCheck />
+        <UndertoneCheck
+          sub={
+            <>
+              Six questions, no photo needed. Want the full breakdown?{' '}
+              <Link href="/what-season-am-i">What season am I?</Link>
+            </>
+          }
+        />
 
         {/* Saved palettes — stays hidden until the visitor saves a result. */}
         <div dangerouslySetInnerHTML={{ __html: QUIZ_FAVORITES_HTML }} />

@@ -1,11 +1,12 @@
 import Link from 'next/link';
-import { siteConfig, adsenseClientId, gaId } from '@/lib/site-config';
+import { siteConfig, adsenseClientId, gaId, DEFAULT_OG_IMAGE } from '@/lib/site-config';
 
 export const metadata = {
   title: 'Cookie Policy',
   description: `Cookie Policy for ${siteConfig.name}: which cookies and browser storage the site uses, why, how long they last, and how to control or delete them.`,
   alternates: { canonical: '/cookie-policy' },
   openGraph: {
+    images: [DEFAULT_OG_IMAGE],
     url: '/cookie-policy',
     title: `Cookie Policy | ${siteConfig.name}`,
   },

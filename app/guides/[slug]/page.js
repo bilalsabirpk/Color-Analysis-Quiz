@@ -21,6 +21,8 @@ export async function generateMetadata({ params }) {
     alternates: { canonical: `/guides/${guide.slug}` },
     openGraph: {
       type: 'article',
+      siteName: siteConfig.name,
+      locale: siteConfig.locale,
       url: `/guides/${guide.slug}`,
       title: guide.title,
       description: guide.description,

@@ -58,7 +58,7 @@ export function HowItWorks() {
     <section id="how-it-works" aria-labelledby="howHeading">
       <div className="container">
         <div className="section-head">
-          <h2 id="howHeading">How Our Online Color Analysis Quiz Works</h2>
+          <h2 id="howHeading">How Our Photo Color Analysis Test Works</h2>
         </div>
 
         <ol className="hs-steps">
@@ -141,6 +141,14 @@ export function ColorAnalysisGuide() {
               color palette. Prefer more detail? The 12 and 16 season color analysis systems
               split each of the four color seasons into sub-seasons, and your four-season
               result is the right starting point for both.
+            </p>
+            <p>
+              Think of it as a seasonal color analysis quiz and a personal color test in one.
+              Many AI color analysis apps upload your selfie to a server; this one reads your
+              photo directly in your browser, so you can find your color palette and answer
+              &ldquo;what is my color season?&rdquo; without your picture ever leaving your
+              device. No photo handy? Try the{' '}
+              <Link href="/what-season-am-i">6-question color season quiz</Link> instead.
             </p>
           </div>
 

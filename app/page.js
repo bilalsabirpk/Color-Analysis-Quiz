@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { siteConfig } from '@/lib/site-config';
+import { siteConfig, OG_DEFAULTS } from '@/lib/site-config';
 import {
   QUIZ_SECTIONS_HTML,
   QUIZ_SEASONS_HTML,
@@ -27,6 +27,7 @@ export const metadata = {
   description: siteConfig.description,
   alternates: { canonical: '/' },
   openGraph: {
+    ...OG_DEFAULTS,
     url: '/',
     title: siteConfig.title,
     description: siteConfig.description,

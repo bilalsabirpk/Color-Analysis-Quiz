@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { siteConfig, DEFAULT_OG_IMAGE } from '@/lib/site-config';
+import { siteConfig, OG_DEFAULTS } from '@/lib/site-config';
 import UndertoneCheck from '@/components/UndertoneCheck';
 import FaqAccordion from '@/components/FaqAccordion';
 
@@ -18,7 +18,7 @@ export const metadata = {
   description: DESCRIPTION,
   alternates: { canonical: PATH },
   openGraph: {
-    images: [DEFAULT_OG_IMAGE], url: PATH, title: TITLE, description: DESCRIPTION },
+    ...OG_DEFAULTS, url: PATH, title: TITLE, description: DESCRIPTION },
 };
 
 const SEASON_SIGNS = [
@@ -57,6 +57,41 @@ const SEASON_SIGNS = [
     look: 'High contrast, clear and bold',
     hair: 'Dark brown, black, or cool silver',
     eyes: 'Dark brown, black-brown, icy blue, cool grey',
+  },
+];
+
+const BEST_COLORS = [
+  {
+    season: 'Spring',
+    emoji: '🌷',
+    href: '/guides/warm-spring-color-palette',
+    swatches: ['#F6A94A', '#FF7F6E', '#2EC4B6', '#8CC084', '#FFF4DE'],
+    wear: 'Clear warm colors: coral, peach, golden yellow, turquoise, warm green and ivory.',
+    avoid: 'Black, stark white and dusty, greyed shades that dull warm skin.',
+  },
+  {
+    season: 'Summer',
+    emoji: '🌊',
+    href: '/guides/cool-summer-color-palette',
+    swatches: ['#A7C6DA', '#C9A9D9', '#E58FAF', '#7F95D1', '#8E9AAF'],
+    wear: 'Soft cool colors: powder blue, lavender, rose pink, periwinkle and soft navy.',
+    avoid: 'Orange, mustard and very bright, saturated colors that overpower soft coloring.',
+  },
+  {
+    season: 'Autumn',
+    emoji: '🍂',
+    href: '/guides/warm-autumn-color-palette',
+    swatches: ['#B7410E', '#D4A017', '#6B8E23', '#2A7F7A', '#C19A6B'],
+    wear: 'Rich warm earth tones: rust, mustard, olive, teal, camel and chocolate brown.',
+    avoid: 'Icy pastels, fuchsia and cool bright blues that make warm skin look grey.',
+  },
+  {
+    season: 'Winter',
+    emoji: '❄️',
+    href: '/guides/cool-winter-color-palette',
+    swatches: ['#141414', '#FAFAFA', '#D6177E', '#2541B2', '#00704A'],
+    wear: 'Bold cool colors: true black, pure white, fuchsia, royal blue and emerald.',
+    avoid: 'Beige, camel, orange and muted earth tones that wash out high contrast.',
   },
 ];
 
@@ -199,7 +234,36 @@ export default function WhatSeasonAmIPage() {
           </div>
         </section>
 
-        <section className="alt-bg" aria-labelledby="stepsHeading">
+        <section className="alt-bg" aria-labelledby="bestHeading">
+          <div className="container">
+            <div className="section-head">
+              <h2 id="bestHeading">What Colors Look Good on Me? Best Colors for Your Skin Tone</h2>
+              <p>
+                Once you know your season, you know your color palette. Here is a quick
+                version for each one. Open a palette guide for the full list of shades.
+              </p>
+            </div>
+            <div className="wsai-best">
+              {BEST_COLORS.map((b) => (
+                <div key={b.season} className="wsai-best-card">
+                  <h3>
+                    <span aria-hidden="true">{b.emoji}</span> {b.season}
+                  </h3>
+                  <div className="wsai-swatches" aria-hidden="true">
+                    {b.swatches.map((c) => (
+                      <i key={c} style={{ background: c }} />
+                    ))}
+                  </div>
+                  <p><strong>Wear:</strong> {b.wear}</p>
+                  <p><strong>Avoid:</strong> {b.avoid}</p>
+                  <Link href={b.href}>{b.season} palette guide →</Link>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section aria-labelledby="stepsHeading">
           <div className="container prose">
             <h2 id="stepsHeading">Find Your Color Season in 3 Steps</h2>
             <h3>1. Check your undertone</h3>
@@ -208,7 +272,7 @@ export default function WhatSeasonAmIPage() {
               mean a warm undertone (Spring or Autumn). Blue or purple veins usually mean a cool
               undertone (Summer or Winter). If gold and silver jewelry both look good on you,
               you may be neutral. Our{' '}
-              <Link href="/guides/warm-vs-cool-undertones">warm vs cool undertones guide</Link>{' '}
+              <Link href="/guides/warm-vs-cool-undertones">skin undertone test guide</Link>{' '}
               has five more ways to check.
             </p>
             <h3>2. Judge your depth and contrast</h3>
@@ -227,7 +291,7 @@ export default function WhatSeasonAmIPage() {
           </div>
         </section>
 
-        <section aria-labelledby="subHeading">
+        <section className="alt-bg" aria-labelledby="subHeading">
           <div className="container">
             <div className="section-head">
               <h2 id="subHeading">Found Your Season? Pick Your Sub-Season</h2>
@@ -250,7 +314,7 @@ export default function WhatSeasonAmIPage() {
           </div>
         </section>
 
-        <section className="alt-bg" aria-labelledby="wsaiFaqHeading">
+        <section aria-labelledby="wsaiFaqHeading">
           <div className="container">
             <div className="section-head">
               <h2 id="wsaiFaqHeading">What Season Am I? FAQ</h2>

@@ -12,7 +12,7 @@ const toDate = (iso) => new Date(`${iso}T00:00:00.000Z`);
 
 export default function sitemap() {
   const guides = getGuidePages(); // newest first
-  const latestGuide = guides[0]?.date;
+  const latestGuide = guides.reduce((max, g) => (g.date > max ? g.date : max), guides[0]?.date);
 
   const pages = SITE_PAGES.map((p) => ({
     url: abs(p.path),

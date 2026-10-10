@@ -132,7 +132,7 @@ function score(answers) {
 
 export default function UndertoneCheck({
   id = 'undertone-test',
-  heading = 'Skin Undertone Test: Warm, Cool or Neutral?',
+  heading = 'Quick Undertone Quiz: Warm, Cool or Neutral?',
   sub = 'Six questions, no photo needed.',
   className = 'alt-bg',
 } = {}) {

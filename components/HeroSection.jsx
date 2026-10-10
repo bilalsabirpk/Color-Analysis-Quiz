@@ -71,7 +71,7 @@ export default function HeroSection() {
           <i style={{ background: '#0B1F3A' }} />
         </div>
         <p className="lead">
-          Upload a selfie for a free seasonal color analysis online. Find your color season, personal color palette, best colors and colors to avoid in seconds.
+          Upload a selfie for a free color analysis test online. Find your color season, personal color palette, best colors and colors to avoid in seconds.
         </p>
         <div className="hero-ctas">
           <button type="button" className="btn btn-primary btn-lg" data-quiz-upload>

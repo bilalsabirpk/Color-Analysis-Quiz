@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { siteConfig, DEFAULT_OG_IMAGE } from '@/lib/site-config';
+import { siteConfig, OG_DEFAULTS } from '@/lib/site-config';
 import ContactForm from '@/components/ContactForm';
 
 export const metadata = {
@@ -7,7 +7,7 @@ export const metadata = {
   description: `Contact ${siteConfig.name}: ask about your color analysis result, report a bug, suggest a feature or send a privacy question. We usually reply within ${siteConfig.responseTime.toLowerCase()}.`,
   alternates: { canonical: '/contact' },
   openGraph: {
-    images: [DEFAULT_OG_IMAGE],
+    ...OG_DEFAULTS,
     url: '/contact',
     title: `Contact Us | ${siteConfig.name}`,
   },

@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { siteConfig, DEFAULT_OG_IMAGE } from '@/lib/site-config';
+import { siteConfig, OG_DEFAULTS } from '@/lib/site-config';
 import { FAQ, getFaqByCategory } from '@/lib/faq-data';
 import FaqAccordion from '@/components/FaqAccordion';
 
@@ -9,7 +9,7 @@ export const metadata = {
     'Color analysis questions answered: the 4 color seasons, 12 and 16 season color analysis, warm vs cool undertones, and how our free color analysis quiz works.',
   alternates: { canonical: '/faq' },
   openGraph: {
-    images: [DEFAULT_OG_IMAGE],
+    ...OG_DEFAULTS,
     url: '/faq',
     title: `FAQ | ${siteConfig.name}`,
     description:

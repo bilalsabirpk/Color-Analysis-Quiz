@@ -71,6 +71,7 @@ export default function Footer() {
             <h4>Free Tools</h4>
             <ul>
               <li><Link href="/#quiz">Color Analysis Quiz</Link></li>
+              <li><Link href="/what-season-am-i">What Season Am I? Quiz</Link></li>
               <li><Link href="/#undertone-test">Undertone Check</Link></li>
               <li><Link href="/#harmony">Color Harmony Generator</Link></li>
               <li><Link href="/#seasons">Season Palettes</Link></li>

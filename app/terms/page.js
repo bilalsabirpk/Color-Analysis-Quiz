@@ -3,7 +3,7 @@ import { siteConfig } from '@/lib/site-config';
 
 export const metadata = {
   title: 'Terms of Use',
-  description: `Terms of Use for ${siteConfig.name}.`,
+  description: `Terms of Use for ${siteConfig.name}: the rules for using the free color analysis quiz and guides, our disclaimer on results, and your responsibilities.`,
   alternates: { canonical: '/terms' },
 };
 

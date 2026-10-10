@@ -130,7 +130,12 @@ function score(answers) {
   return { undertone, season, meter: Math.min(100, Math.max(0, meter)) };
 }
 
-export default function UndertoneCheck() {
+export default function UndertoneCheck({
+  id = 'undertone-test',
+  heading = 'Skin Undertone Test: Warm, Cool or Neutral?',
+  sub = 'Six questions, no photo needed.',
+  className = 'alt-bg',
+} = {}) {
   const uid = useId();
   const [answers, setAnswers] = useState({});
   const [result, setResult] = useState(null);
@@ -164,11 +169,11 @@ export default function UndertoneCheck() {
   const season = result ? SEASONS[result.season] : null;
 
   return (
-    <section id="undertone-test" className="alt-bg" aria-labelledby="undertoneHeading">
+    <section id={id} className={className} aria-labelledby={`${uid}-heading`}>
       <div className="container">
         <div className="section-head">
-          <h2 id="undertoneHeading">Skin Undertone Test: Warm, Cool or Neutral?</h2>
-          <p>Six questions, no photo needed.</p>
+          <h2 id={`${uid}-heading`}>{heading}</h2>
+          <p>{sub}</p>
         </div>
 
         <form className="ut-card" onSubmit={showResult} noValidate>

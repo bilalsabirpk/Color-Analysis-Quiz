@@ -62,7 +62,7 @@ export default function HeroSection() {
       <HeroVisuals />
       <div className="container hero-inner">
         <h1 id="heroHeading">
-          Free Color Analysis Quiz: <span className="grad-text">What Season Am I?</span>
+          Free Color Analysis Quiz: <span className="grad-text">Find Your Color Season</span>
         </h1>
         <div className="hero-seasonbar" aria-hidden="true">
           <i style={{ background: '#F6A94A' }} />

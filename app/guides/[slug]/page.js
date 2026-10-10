@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
-import { siteConfig } from '@/lib/site-config';
+import { siteConfig, founder } from '@/lib/site-config';
 import { GUIDES, getGuide, getRelatedGuides } from '@/lib/guides-data';
 import ArticleBody from '@/components/ArticleBody';
 import GuideCard from '@/components/GuideCard';
@@ -14,7 +14,9 @@ export async function generateMetadata({ params }) {
   const guide = getGuide(slug);
   if (!guide) return {};
   return {
-    title: guide.title,
+    // Absolute title (no " | Color Analysis" suffix) so the full title fits
+    // in Google results without being cut off.
+    title: { absolute: guide.title },
     description: guide.description,
     alternates: { canonical: `/guides/${guide.slug}` },
     openGraph: {
@@ -32,17 +34,36 @@ export default async function GuideArticlePage({ params }) {
   const guide = getGuide(slug);
   if (!guide) notFound();
 
-  const articleJsonLd = {
-    '@context': 'https://schema.org',
-    '@type': 'Article',
-    headline: guide.title,
-    description: guide.description,
-    datePublished: guide.date,
-    dateModified: guide.date,
-    author: { '@type': 'Organization', name: siteConfig.name },
-    publisher: { '@type': 'Organization', name: siteConfig.name },
-    mainEntityOfPage: `${siteConfig.url}/guides/${guide.slug}`,
-  };
+  const pageUrl = `${siteConfig.url}/guides/${guide.slug}`;
+  const articleJsonLd = [
+    {
+      '@context': 'https://schema.org',
+      '@type': 'Article',
+      headline: guide.title,
+      description: guide.description,
+      image: [`${pageUrl}/opengraph-image`],
+      datePublished: guide.date,
+      dateModified: guide.updated || guide.date,
+      author: { '@type': 'Person', name: founder.name, url: `${siteConfig.url}/about` },
+      publisher: {
+        '@type': 'Organization',
+        name: siteConfig.name,
+        url: siteConfig.url,
+        logo: { '@type': 'ImageObject', url: `${siteConfig.url}/icon.svg` },
+      },
+      mainEntityOfPage: pageUrl,
+      articleSection: guide.category,
+    },
+    {
+      '@context': 'https://schema.org',
+      '@type': 'BreadcrumbList',
+      itemListElement: [
+        { '@type': 'ListItem', position: 1, name: 'Home', item: siteConfig.url },
+        { '@type': 'ListItem', position: 2, name: 'Blog', item: `${siteConfig.url}/guides` },
+        { '@type': 'ListItem', position: 3, name: guide.title, item: pageUrl },
+      ],
+    },
+  ];
 
   const related = getRelatedGuides(guide);
 
@@ -63,9 +84,10 @@ export default async function GuideArticlePage({ params }) {
       <main id="main">
         <section className="page-hero">
           <div className="container">
-            <p className="breadcrumb-nav">
-              <Link href="/guides">Blog</Link> / {guide.title}
-            </p>
+            <nav aria-label="Breadcrumb" className="breadcrumb-nav">
+              <Link href="/">Home</Link> / <Link href="/guides">Blog</Link> /{' '}
+              <span aria-current="page">{guide.title}</span>
+            </nav>
             <h1>{guide.title}</h1>
             <p className="article-meta">
               <span>{formattedDate}</span>

@@ -41,7 +41,7 @@ const ICONS = {
 const STEPS = [
   {
     title: 'Upload or take a photo',
-    text: 'Use a front-facing photo or take a selfie.',
+    text: 'Use a front-facing photo or take a selfie in daylight.',
   },
   {
     title: 'We sample your skin, eyes & hair',
@@ -49,7 +49,7 @@ const STEPS = [
   },
   {
     title: 'Get your season & color palette',
-    text: 'Best colors, colors to avoid, metals and makeup tones.',
+    text: 'A color palette from your image: best colors, colors to avoid, metals and makeup tones.',
   },
 ];
 

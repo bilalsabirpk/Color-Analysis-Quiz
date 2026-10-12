@@ -41,7 +41,6 @@ export const metadata = {
     'image color changer',
     'color harmony generator',
     'color wheel',
-    'what season am i',
     'color palette for skin tone',
     'what colors look good on me',
     'skin undertone test',

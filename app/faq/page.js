@@ -4,7 +4,7 @@ import { FAQ, getFaqByCategory } from '@/lib/faq-data';
 import FaqAccordion from '@/components/FaqAccordion';
 
 export const metadata = {
-  title: 'Color Analysis FAQ & 16 Season Color Guide',
+  title: { absolute: 'Color Analysis FAQ: Seasons, Undertones & the Quiz' },
   description:
     'Color analysis questions answered: the 4 color seasons, 12 and 16 season color analysis, warm vs cool undertones, and how our free color analysis quiz works.',
   alternates: { canonical: '/faq' },
@@ -46,7 +46,7 @@ export default function FaqPage() {
           <div className="container">
             <p className="faq-kicker">Help Center</p>
             <h1>
-              Frequently Asked <span className="faq-hero-grad">Questions</span>
+              Color Analysis <span className="faq-hero-grad">FAQ</span>
             </h1>
             <p className="faq-hero-lead">
               Everything you need to know about seasonal color analysis: the four

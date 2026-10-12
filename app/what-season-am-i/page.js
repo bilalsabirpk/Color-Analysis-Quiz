@@ -239,8 +239,8 @@ export default function WhatSeasonAmIPage() {
             <div className="section-head">
               <h2 id="bestHeading">What Colors Look Good on Me? Best Colors for Your Skin Tone</h2>
               <p>
-                Once you know your season, you know your color palette. Here is a quick
-                version for each one. Open a palette guide for the full list of shades.
+                Once you know your season, you know the color palette for your skin tone.
+                Here is a quick version for each one. Open a palette guide for the full list of shades.
               </p>
             </div>
             <div className="wsai-best">

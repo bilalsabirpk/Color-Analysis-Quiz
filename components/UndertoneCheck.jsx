@@ -96,6 +96,13 @@ const SEASONS = {
   },
 };
 
+// Best jewelry metal for each undertone (shown in every result).
+const METALS = {
+  Warm: 'Gold, brass and bronze',
+  Cool: 'Silver, white gold and platinum',
+  Neutral: 'Both work: rose gold and mixed metals are safe picks',
+};
+
 function score(answers) {
   const t = { warm: 0, cool: 0, light: 0, deep: 0, bright: 0, soft: 0 };
   QUESTIONS.forEach((q) => {
@@ -255,6 +262,9 @@ export default function UndertoneCheck({
                 </div>
 
                 <p className="ut-tip">{season.tip}</p>
+                <p className="ut-metal">
+                  <strong>Best jewelry metal:</strong> {METALS[result.undertone]}
+                </p>
                 {result.undertone === 'Neutral' && (
                   <p className="ut-note">
                     Neutral undertones can often borrow from a neighbouring season — the

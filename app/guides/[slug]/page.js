@@ -4,6 +4,7 @@ import { siteConfig, founder } from '@/lib/site-config';
 import { GUIDES, getGuide, getRelatedGuides } from '@/lib/guides-data';
 import ArticleBody from '@/components/ArticleBody';
 import GuideCard from '@/components/GuideCard';
+import UndertoneCheck from '@/components/UndertoneCheck';
 
 export function generateStaticParams() {
   return GUIDES.map((g) => ({ slug: g.slug }));
@@ -99,7 +100,15 @@ export default async function GuideArticlePage({ params }) {
           </div>
         </section>
 
-        <section style={{ paddingTop: 0 }}>
+        {guide.quiz && (
+          <UndertoneCheck
+            id="guide-quiz"
+            heading={guide.quiz.heading}
+            sub={guide.quiz.sub}
+          />
+        )}
+
+        <section style={guide.quiz ? undefined : { paddingTop: 0 }}>
           <div className="container">
             <ArticleBody blocks={guide.body} />
 

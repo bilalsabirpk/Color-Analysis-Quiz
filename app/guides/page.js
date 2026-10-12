@@ -9,7 +9,7 @@ const DESCRIPTION =
   'Free guides on seasonal color analysis: how the 4 seasons work, how to find your undertone, and how to use your palette for clothes, makeup, hair color and jewelry.';
 
 export const metadata = {
-  title: 'Color Analysis Blog & Hair Color Ideas',
+  title: { absolute: 'Color Analysis Blog: 12 Season Palettes & Style Guides' },
   description: DESCRIPTION,
   alternates: { canonical: '/guides' },
   openGraph: {

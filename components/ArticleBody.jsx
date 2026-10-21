@@ -1,14 +1,39 @@
+import Link from 'next/link';
+
+// Turns "[text](/path)" inside guide text into real internal links, so
+// guides can link to each other in context (not only via cards).
+const LINK_RE = /\[([^\]]+)\]\((\/[^)\s]*)\)/g;
+
+function withLinks(text) {
+  if (!text || !text.includes('](/')) return text;
+  const out = [];
+  let last = 0;
+  let m;
+  LINK_RE.lastIndex = 0;
+  while ((m = LINK_RE.exec(text))) {
+    if (m.index > last) out.push(text.slice(last, m.index));
+    out.push(
+      <Link key={m.index} href={m[2]}>
+        {m[1]}
+      </Link>
+    );
+    last = m.index + m[0].length;
+  }
+  if (last < text.length) out.push(text.slice(last));
+  return out;
+}
+
 export default function ArticleBody({ blocks }) {
   return (
     <div className="prose">
       {blocks.map((block, i) => {
         if (block.type === 'h2') return <h2 key={i}>{block.text}</h2>;
-        if (block.type === 'p') return <p key={i}>{block.text}</p>;
+        if (block.type === 'p') return <p key={i}>{withLinks(block.text)}</p>;
         if (block.type === 'ul') {
           return (
             <ul key={i}>
               {block.items.map((item, j) => (
-                <li key={j}>{item}</li>
+                <li key={j}>{withLinks(item)}</li>
               ))}
             </ul>
           );

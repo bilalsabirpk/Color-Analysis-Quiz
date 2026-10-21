@@ -70,11 +70,9 @@ export default async function GuideArticlePage({ params }) {
 
   const related = getRelatedGuides(guide);
 
-  const formattedDate = new Date(guide.date).toLocaleDateString('en-US', {
-    year: 'numeric',
-    month: 'long',
-    day: 'numeric',
-  });
+  const fmt = (d) =>
+    new Date(d).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC' });
+  const showUpdated = guide.updated && guide.updated !== guide.date;
 
   return (
     <>
@@ -93,8 +91,18 @@ export default async function GuideArticlePage({ params }) {
             </nav>
             <h1>{guide.title}</h1>
             <p className="article-meta">
-              <span>{formattedDate}</span>
+              <span>
+                By <Link href="/about" rel="author">{founder.name}</Link>
+              </span>
               <span className="dot" aria-hidden="true"></span>
+              {showUpdated ? (
+                <span>
+                  Updated <time dateTime={guide.updated}>{fmt(guide.updated)}</time>
+                </span>
+              ) : (
+                <time dateTime={guide.date}>{fmt(guide.date)}</time>
+              )}
+              <span className="dot dot-wrap" aria-hidden="true"></span>
               <span>{guide.readTime}</span>
             </p>
           </div>

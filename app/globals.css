@@ -417,6 +417,9 @@
   .blog-preview-more{text-align:center;margin-top:34px;}
 
   .article-meta{display:flex;gap:14px;flex-wrap:wrap;align-items:center;color:var(--ink-soft);font-size:13.5px;margin:0 0 30px;}
+  .article-meta a{color:var(--ink);font-weight:600;text-decoration:underline;text-underline-offset:3px;}
+  .article-meta a:hover,.article-meta a:focus-visible{color:var(--purple);}
+  @media (max-width:480px){.article-meta{gap:6px 12px;}.article-meta .dot-wrap{display:none;}}
   .article-meta .dot{width:4px;height:4px;border-radius:50%;background:var(--ink-soft);}
 
   .cta-banner{max-width:860px;margin:44px auto 0;background:var(--grad-soft);border:1px solid var(--line);border-radius:18px;padding:26px 30px;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;}

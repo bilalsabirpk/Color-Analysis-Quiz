@@ -23,20 +23,36 @@ function withLinks(text) {
   return out;
 }
 
-export default function ArticleBody({ blocks, paletteImage }) {
+export default function ArticleBody({ blocks, paletteImage, outfitImage }) {
   return (
     <div className="prose">
       {blocks.map((block, i) => {
         if (block.type === 'h2') return <h2 key={i}>{block.text}</h2>;
         if (block.type === 'p') return <p key={i}>{withLinks(block.text)}</p>;
         if (block.type === 'ul') {
-          return (
+          const prev = blocks[i - 1];
+          const isOutfits = outfitImage && prev?.type === 'h2' && /outfit color combinations$/i.test(prev.text);
+          const ul = (
             <ul key={i}>
               {block.items.map((item, j) => (
                 <li key={j}>{withLinks(item)}</li>
               ))}
             </ul>
           );
+          if (!isOutfits) return ul;
+          return [
+            ul,
+            <figure key={`${i}-img`} className="palette-figure">
+              <img
+                src={outfitImage.src}
+                alt={outfitImage.alt}
+                width={outfitImage.width}
+                height={outfitImage.height}
+                loading="lazy"
+                decoding="async"
+              />
+            </figure>,
+          ];
         }
         // Named swatches with hex codes as real text (searchable, copyable).
         if (block.type === 'palette') {

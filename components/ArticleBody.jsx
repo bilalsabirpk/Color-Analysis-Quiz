@@ -23,7 +23,7 @@ function withLinks(text) {
   return out;
 }
 
-export default function ArticleBody({ blocks }) {
+export default function ArticleBody({ blocks, paletteImage }) {
   return (
     <div className="prose">
       {blocks.map((block, i) => {
@@ -40,7 +40,7 @@ export default function ArticleBody({ blocks }) {
         }
         // Named swatches with hex codes as real text (searchable, copyable).
         if (block.type === 'palette') {
-          return (
+          const list = (
             <ul key={i} className="hex-palette" aria-label={block.label || 'Color palette with hex codes'}>
               {block.colors.map((c) => (
                 <li key={c.hex + c.name}>
@@ -51,6 +51,26 @@ export default function ArticleBody({ blocks }) {
               ))}
             </ul>
           );
+          if (!paletteImage) return list;
+          return [
+            list,
+            <figure key={`${i}-img`} className="palette-figure">
+              <img
+                src={paletteImage.src}
+                alt={paletteImage.alt}
+                width={paletteImage.width}
+                height={paletteImage.height}
+                loading="lazy"
+                decoding="async"
+              />
+              <figcaption>
+                Save this chart for shopping or pin it for later.{' '}
+                <a href={paletteImage.src} download>
+                  Download the palette image (PNG)
+                </a>
+              </figcaption>
+            </figure>,
+          ];
         }
         return null;
       })}

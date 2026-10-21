@@ -36,6 +36,10 @@ export const metadata = {
     'bright spring color palette',
     'light summer color palette',
   ],
+  // Pinterest website claim (Settings → Claimed accounts → Websites).
+  verification: {
+    other: { 'p:domain_verify': '4dd35d484c651d2efe177509856cda0d' },
+  },
   authors: [{ name: siteConfig.name }],
   creator: siteConfig.name,
   publisher: siteConfig.name,

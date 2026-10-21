@@ -1,6 +1,6 @@
 import { siteConfig } from '@/lib/site-config';
 import { SITE_PAGES, getGuidePages } from '@/lib/site-pages';
-import { getGuide, getPaletteImage } from '@/lib/palette-image';
+import { getGuide, getPaletteImage, getOutfitImage } from '@/lib/palette-image';
 
 // Serves /sitemap.xml for search engines, in the same format as
 // kibbybody.app/sitemap.xml: one <url> per page with a fixed <lastmod>,
@@ -24,13 +24,14 @@ export default function sitemap() {
   }));
 
   const guideEntries = guides.map((g) => {
-    const img = getPaletteImage(getGuide(g.path.split('/').pop()));
+    const guide = getGuide(g.path.split('/').pop());
+    const imgs = [getPaletteImage(guide), getOutfitImage(guide)].filter(Boolean);
     return {
       url: abs(g.path),
       lastModified: toDate(g.date),
       changeFrequency: g.changeFrequency,
       priority: g.priority,
-      ...(img ? { images: [abs(img.src)] } : {}),
+      ...(imgs.length ? { images: imgs.map((x) => abs(x.src)) } : {}),
     };
   });
 

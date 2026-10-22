@@ -1251,7 +1251,7 @@ function renderHarmony(hex){
         '<div class="copied-badge">Applied!</div>'+
       '</button>';
     }).join('');
-    return '<div class="harmony-group"><h4>'+label+'</h4><div class="palette-row">'+html+'</div></div>';
+    return '<div class="harmony-group"><h3>'+label+'</h3><div class="palette-row">'+html+'</div></div>';
   }
 
   mount.innerHTML =

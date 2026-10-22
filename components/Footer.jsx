@@ -58,7 +58,7 @@ export default function Footer() {
             </Link>
           </div>
           <div>
-            <h4>Explore</h4>
+            <h3>Explore</h3>
             <ul>
               <li><Link href="/about">About Us</Link></li>
               <li><Link href="/#season-types">All Color Seasons</Link></li>
@@ -68,7 +68,7 @@ export default function Footer() {
             </ul>
           </div>
           <div>
-            <h4>Free Tools</h4>
+            <h3>Free Tools</h3>
             <ul>
               <li><Link href="/#quiz">Color Analysis Quiz</Link></li>
               <li><Link href="/what-season-am-i">What Season Am I? Quiz</Link></li>
@@ -78,7 +78,7 @@ export default function Footer() {
             </ul>
           </div>
           <div>
-            <h4>Legal</h4>
+            <h3>Legal</h3>
             <ul>
               <li><Link href="/privacy-policy">Privacy Policy</Link></li>
               <li><Link href="/terms">Terms of Use</Link></li>

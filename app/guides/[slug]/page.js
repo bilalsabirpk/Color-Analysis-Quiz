@@ -5,7 +5,7 @@ import { GUIDES, getGuide, getRelatedGuides } from '@/lib/guides-data';
 import ArticleBody from '@/components/ArticleBody';
 import GuideCard from '@/components/GuideCard';
 import UndertoneCheck from '@/components/UndertoneCheck';
-import { getPaletteImage, getOutfitImage } from '@/lib/palette-image';
+import { getPaletteImage, getOutfitImage, getCompareImage } from '@/lib/palette-image';
 
 export function generateStaticParams() {
   return GUIDES.map((g) => ({ slug: g.slug }));
@@ -41,13 +41,14 @@ export default async function GuideArticlePage({ params }) {
   const pageUrl = `${siteConfig.url}/guides/${guide.slug}`;
   const paletteImage = getPaletteImage(guide);
   const outfitImage = getOutfitImage(guide);
+  const compareImage = getCompareImage(guide);
   const articleJsonLd = [
     {
       '@context': 'https://schema.org',
       '@type': 'Article',
       headline: guide.title,
       description: guide.description,
-      image: [`${pageUrl}/opengraph-image`, ...(paletteImage ? [`${siteConfig.url}${paletteImage.src}`] : []), ...(outfitImage ? [`${siteConfig.url}${outfitImage.src}`] : [])],
+      image: [`${pageUrl}/opengraph-image`, ...(paletteImage ? [`${siteConfig.url}${paletteImage.src}`] : []), ...(outfitImage ? [`${siteConfig.url}${outfitImage.src}`] : []), ...(compareImage ? [`${siteConfig.url}${compareImage.src}`] : [])],
       datePublished: guide.date,
       dateModified: guide.updated || guide.date,
       author: { '@type': 'Person', name: founder.name, url: `${siteConfig.url}/about` },
@@ -121,7 +122,7 @@ export default async function GuideArticlePage({ params }) {
 
         <section style={guide.quiz ? undefined : { paddingTop: 0 }}>
           <div className="container">
-            <ArticleBody blocks={guide.body} paletteImage={paletteImage} outfitImage={outfitImage} />
+            <ArticleBody blocks={guide.body} paletteImage={paletteImage} outfitImage={outfitImage} compareImage={compareImage} />
 
             <div className="cta-banner">
               <p>Curious what your own season is?</p>

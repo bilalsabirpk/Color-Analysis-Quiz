@@ -1,6 +1,6 @@
 import { ImageResponse } from 'next/og';
 import { siteConfig } from '@/lib/site-config';
-import { getGuide, getOutfitCombos, guidesWithPaletteImage } from '@/lib/palette-image';
+import { getGuide, getOutfitCombos, guidesWithPaletteImage, imageHeading } from '@/lib/palette-image';
 
 // Second Pinterest design (1000x1500): the guide's outfit color pairings.
 
@@ -19,7 +19,7 @@ export async function GET(_req, { params }) {
   const combos = guide ? getOutfitCombos(guide).slice(0, 4) : [];
   if (combos.length < 3) return new Response('Not found', { status: 404 });
 
-  const season = guide.title.split(' Color Palette')[0];
+  const season = imageHeading(guide);
   const host = new URL(siteConfig.url).host;
 
   return new ImageResponse(

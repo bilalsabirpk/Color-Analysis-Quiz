@@ -1,6 +1,6 @@
 import { ImageResponse } from 'next/og';
 import { siteConfig } from '@/lib/site-config';
-import { getGuide, getPaletteBlock, guidesWithPaletteImage } from '@/lib/palette-image';
+import { getGuide, getPaletteBlock, guidesWithPaletteImage, imageHeading } from '@/lib/palette-image';
 
 // Pinterest-friendly 2:3 palette chart (1000x1500) for each sub-season guide.
 // Prerendered at build time, so it is a plain static PNG.
@@ -25,7 +25,7 @@ export async function GET(_req, { params }) {
   const block = getPaletteBlock(guide);
   if (!block) return new Response('Not found', { status: 404 });
 
-  const season = guide.title.split(' Color Palette')[0];
+  const season = imageHeading(guide);
   const colors = block.colors.slice(0, 12);
   const host = new URL(siteConfig.url).host;
 

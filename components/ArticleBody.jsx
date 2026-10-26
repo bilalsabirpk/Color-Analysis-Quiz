@@ -23,7 +23,7 @@ function withLinks(text) {
   return out;
 }
 
-export default function ArticleBody({ blocks, paletteImage, outfitImage }) {
+export default function ArticleBody({ blocks, paletteImage, outfitImage, compareImage }) {
   return (
     <div className="prose">
       {blocks.map((block, i) => {
@@ -87,6 +87,47 @@ export default function ArticleBody({ blocks, paletteImage, outfitImage }) {
               </figcaption>
             </figure>,
           ];
+        }
+        // Two seasons side by side: hex codes as text, plus the saveable image.
+        if (block.type === 'compare') {
+          return (
+            <div key={i}>
+              <div className="compare-grid">
+                {block.sides.map((s) => (
+                  <div key={s.name}>
+                    <h3>{s.name}</h3>
+                    <ul className="hex-palette" aria-label={`${s.name} colors with hex codes`}>
+                      {s.colors.map((c) => (
+                        <li key={c.hex + c.name}>
+                          <span className="hex-chip" style={{ background: c.hex }} aria-hidden="true" />
+                          <span className="hex-name">{c.name}</span>
+                          <code className="hex-code">{c.hex}</code>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                ))}
+              </div>
+              {compareImage && (
+                <figure className="palette-figure">
+                  <img
+                    src={compareImage.src}
+                    alt={compareImage.alt}
+                    width={compareImage.width}
+                    height={compareImage.height}
+                    loading="lazy"
+                    decoding="async"
+                  />
+                  <figcaption>
+                    Save this comparison or pin it for later.{' '}
+                    <a href={compareImage.src} download>
+                      Download the comparison image (PNG)
+                    </a>
+                  </figcaption>
+                </figure>
+              )}
+            </div>
+          );
         }
         return null;
       })}

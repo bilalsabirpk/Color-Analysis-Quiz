@@ -26,11 +26,10 @@ export default function Footer() {
                 {socialLinks.map((s) => (
                   <li key={s.key}>
                     <a
-                      href={s.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      aria-label={`${siteConfig.name} on ${s.label} (opens in a new tab)`}
-                      title={s.label}
+                      href={s.url || '/'}
+                      {...(s.url ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
+                      aria-label={s.url ? `${siteConfig.name} on ${s.label} (opens in a new tab)` : `${s.label}: coming soon (goes to home page)`}
+                      title={s.url ? s.label : `${s.label} (coming soon)`}
                     >
                       <svg viewBox="0 0 24 24" width="17" height="17" aria-hidden="true" focusable="false">
                         <path d={SOCIAL_ICON_PATHS[s.key]} fill="currentColor" />

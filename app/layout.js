@@ -2,7 +2,7 @@ import Script from 'next/script';
 import './globals.css';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
-import { siteConfig, adsenseClientId, gaId, socialLinks } from '@/lib/site-config';
+import { siteConfig, adsenseClientId, gaId, socialProfiles } from '@/lib/site-config';
 
 export const metadata = {
   metadataBase: new URL(siteConfig.url),
@@ -91,7 +91,7 @@ const organizationJsonLd = {
   url: siteConfig.url,
   logo: `${siteConfig.url}/icon.svg`,
   // Only real profile URLs (not a bare social-network homepage).
-  sameAs: socialLinks.map((s) => s.url).filter((u) => new URL(u).pathname.length > 1),
+  sameAs: socialProfiles.map((s) => s.url),
 };
 
 const websiteJsonLd = {

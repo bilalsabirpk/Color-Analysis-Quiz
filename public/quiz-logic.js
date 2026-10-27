@@ -1245,10 +1245,10 @@ function renderHarmony(hex){
     var items = [hex].concat(colors);
     var html = items.map(function(c, i){
       var isBase = i === 0;
-      return '<button type="button" class="swatch harmony-swatch" data-hex="'+c+'" aria-label="'+c+(isBase?' (base color)':'')+' — click to copy and try on your photo">'+
+      return '<button type="button" class="swatch harmony-swatch" data-hex="'+c+'" aria-label="'+c+(isBase?' · base':'')+' — click to copy and try on your photo">'+
         '<div class="sw-color" style="background:'+c+'"></div>'+
         '<div class="sw-label">'+c+(isBase?' · base':'')+'</div>'+
-        '<div class="copied-badge">Applied!</div>'+
+        '<div class="copied-badge" aria-hidden="true">Applied!</div>'+
       '</button>';
     }).join('');
     return '<div class="harmony-group"><h3>'+label+'</h3><div class="palette-row">'+html+'</div></div>';

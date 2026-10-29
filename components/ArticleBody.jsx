@@ -129,6 +129,19 @@ export default function ArticleBody({ blocks, paletteImage, outfitImage, compare
             </div>
           );
         }
+        // Short question-and-answer pairs (also emitted as FAQPage JSON-LD).
+        if (block.type === 'faq') {
+          return (
+            <div key={i} className="guide-faq">
+              {block.items.map((f) => (
+                <div key={f.q} className="guide-faq-item">
+                  <h3>{f.q}</h3>
+                  <p>{withLinks(f.a)}</p>
+                </div>
+              ))}
+            </div>
+          );
+        }
         return null;
       })}
     </div>

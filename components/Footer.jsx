@@ -102,8 +102,15 @@ export default function Footer() {
               loading="lazy"
             />
           </a>
-          <a className="footer-featured-text" href="https://fazier.com" target="_blank" rel="noopener noreferrer">
-            Fazier
+          <a href="https://fazier.com" target="_blank" rel="noopener noreferrer">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="https://fazier.com/api/v1//public/badges/launch_badges.svg?badge_type=launched&theme=light"
+              alt="Fazier badge"
+              width="120"
+              height="40"
+              loading="lazy"
+            />
           </a>
         </div>
         <div className="footer-bottom">

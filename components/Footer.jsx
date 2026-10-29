@@ -86,6 +86,26 @@ export default function Footer() {
             </ul>
           </div>
         </div>
+        <div className="footer-featured" aria-label="Featured on">
+          <span className="footer-featured-label">Featured on</span>
+          <a
+            href="https://findly.tools/color-analysis-quiz-1?utm_source=color-analysis-quiz-1"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="https://findly.tools/badges/findly-tools-badge-light.svg"
+              alt="Featured on Findly.tools"
+              width="175"
+              height="55"
+              loading="lazy"
+            />
+          </a>
+          <a className="footer-featured-text" href="https://fazier.com" target="_blank" rel="noopener noreferrer">
+            Fazier
+          </a>
+        </div>
         <div className="footer-bottom">
           © <span id="year">{year}</span> Color Analysis. All rights reserved.
         </div>

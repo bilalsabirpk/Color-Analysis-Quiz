@@ -20,6 +20,7 @@ export async function generateMetadata({ params }) {
     // in Google results without being cut off.
     title: { absolute: guide.title },
     description: guide.description,
+    ...(guide.keywords?.length ? { keywords: guide.keywords } : {}),
     alternates: { canonical: `/guides/${guide.slug}` },
     openGraph: {
       type: 'article',
@@ -71,6 +72,20 @@ export default async function GuideArticlePage({ params }) {
       ],
     },
   ];
+
+  // FAQPage schema from any { type: 'faq' } blocks (links stripped to plain text).
+  const faqItems = guide.body.filter((b) => b.type === 'faq').flatMap((b) => b.items);
+  if (faqItems.length) {
+    articleJsonLd.push({
+      '@context': 'https://schema.org',
+      '@type': 'FAQPage',
+      mainEntity: faqItems.map((f) => ({
+        '@type': 'Question',
+        name: f.q,
+        acceptedAnswer: { '@type': 'Answer', text: f.a.replace(/\[([^\]]+)\]\([^)]*\)/g, '$1') },
+      })),
+    });
+  }
 
   const related = getRelatedGuides(guide);
 

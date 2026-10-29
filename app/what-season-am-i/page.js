@@ -16,6 +16,19 @@ const DESCRIPTION =
 export const metadata = {
   title: { absolute: TITLE },
   description: DESCRIPTION,
+  // Search Console queries this page is targeting.
+  keywords: [
+    'what season are you',
+    'colour season finder',
+    'what season am i',
+    'color season quiz',
+    'color season quiz free',
+    'color season finder',
+    'what season am i quiz',
+    'free color season quiz',
+    'what season am i colors',
+    'what season is my color',
+  ],
   alternates: { canonical: PATH },
   openGraph: {
     ...OG_DEFAULTS, url: PATH, title: TITLE, description: DESCRIPTION },
@@ -119,6 +132,14 @@ const FAQS = [
   {
     q: 'Can people with dark skin or olive skin be any season?',
     a: 'Yes. Seasons depend on undertone, depth and contrast, not on how light or dark your skin is. Deep skin tones are often Winter or Autumn, and olive skin is frequently Autumn or Soft Summer, but any skin tone can fall in any season.',
+  },
+  {
+    q: 'What season are you if you have warm skin and dark hair?',
+    a: 'Warm skin with dark brown hair and medium to deep eyes most often points to Autumn, usually Deep Autumn or Warm Autumn. If your eyes are very bright and clear against the dark hair, Bright Spring is also possible. Compare rich rust and forest green with clear coral and kelly green in daylight: the richer colors point to Autumn, the clearer ones to Bright Spring.',
+  },
+  {
+    q: 'Which season am I if black looks good on me?',
+    a: 'If black makes your face look sharper rather than tired, you probably have high contrast, which points to Winter (Deep, Cool or Bright Winter) or, less often, Bright Spring or Deep Autumn. If black makes you look pale or shadowed, you are more likely a Summer, a soft season or a light season, and navy or charcoal will suit you better.',
   },
   {
     q: 'What if my result is between two seasons?',

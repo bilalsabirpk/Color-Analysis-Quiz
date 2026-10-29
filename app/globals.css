@@ -324,6 +324,10 @@
   footer ul{list-style:none;padding:0;margin:0;display:grid;gap:8px;font-size:13.5px;}
   footer a{text-decoration:none;color:#cbb9e0;}
   footer a:hover{color:#fff;}
+  .guide-faq{display:grid;gap:12px;margin:8px 0 24px;}
+  .guide-faq-item{border:1px solid var(--line, #e7e0f0);border-radius:14px;padding:16px 18px;background:#fff;}
+  .prose .guide-faq .guide-faq-item h3{font-size:1.02rem;margin:0 0 6px;line-height:1.35;}
+  .prose .guide-faq .guide-faq-item p{margin:0;}
   .footer-featured{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:10px 16px;padding:0 0 18px;font-size:12.5px;color:#8a76a8;}
   .footer-featured a{display:inline-flex;align-items:center;border-radius:8px;}
   .footer-featured img{height:40px;width:auto;display:block;}

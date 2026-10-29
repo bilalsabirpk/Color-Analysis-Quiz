@@ -25,6 +25,19 @@ import {
 export const metadata = {
   title: siteConfig.title,
   description: siteConfig.description,
+  // Search Console queries the homepage is targeting.
+  keywords: [
+    'colour analysis free',
+    'color analysis test free',
+    'seasonal color analysis quiz',
+    'color analysis free',
+    'color analysis quiz',
+    'color analysis quiz free',
+    '12 season colour analysis test',
+    'color analysis free online',
+    'seasonal color analysis quiz free',
+    'colour analysis test',
+  ],
   alternates: { canonical: '/' },
   openGraph: {
     ...OG_DEFAULTS,

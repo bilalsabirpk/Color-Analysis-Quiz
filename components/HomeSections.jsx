@@ -41,15 +41,15 @@ const ICONS = {
 const STEPS = [
   {
     title: 'Upload or take a photo',
-    text: 'Use a front-facing photo or take a selfie.',
+    text: 'Use a front-facing photo or take a selfie in daylight.',
   },
   {
     title: 'We sample your skin, eyes & hair',
     text: 'Points are placed automatically. Click to adjust.',
   },
   {
-    title: 'Get your season & palette',
-    text: 'Best colors, colors to avoid, metals and makeup tones.',
+    title: 'Get your season & color palette',
+    text: 'A color palette from your image: best colors, colors to avoid, metals and makeup tones.',
   },
 ];
 
@@ -58,7 +58,7 @@ export function HowItWorks() {
     <section id="how-it-works" aria-labelledby="howHeading">
       <div className="container">
         <div className="section-head">
-          <h2 id="howHeading">How Online Color Analysis Works</h2>
+          <h2 id="howHeading">How Our Photo Color Analysis Test Works</h2>
         </div>
 
         <ol className="hs-steps">
@@ -134,6 +134,21 @@ export function ColorAnalysisGuide() {
               your <strong>undertone</strong> (warm or cool), <strong>depth</strong> (light
               or deep), <strong>chroma</strong> (clear or soft) and{' '}
               <strong>contrast</strong> between skin, hair and eyes.
+            </p>
+            <p>
+              Our free color analysis quiz runs this personal color analysis from a single
+              photo: it samples real colors from your skin, eyes and hair, then builds your
+              color palette. Prefer more detail? The 12 and 16 season color analysis systems
+              split each of the four color seasons into sub-seasons, and your four-season
+              result is the right starting point for both.
+            </p>
+            <p>
+              Think of it as a seasonal color analysis quiz and a personal color test in one.
+              Many AI color analysis apps upload your selfie to a server; this one reads your
+              photo directly in your browser, so you can find your color palette and answer
+              &ldquo;what is my color season?&rdquo; without your picture ever leaving your
+              device. No photo handy? Try the{' '}
+              <Link href="/what-season-am-i">6-question color season quiz</Link> instead.
             </p>
           </div>
 
@@ -224,9 +239,12 @@ export function SeasonsExplained() {
 const PREVIEW_QUESTIONS = [
   'What is seasonal color analysis?',
   'What are the 4 color seasons?',
+  'How do I know what season I am?',
+  'What colors look good on me?',
   'How does this color analysis tool work?',
   'How do I know if I have a warm or cool undertone?',
-  'Is this tool free? Do I need an account?',
+  'Is this color analysis quiz free? Do I need an account?',
+  'Is there color analysis near me, or can I do it online?',
   'Is my photo uploaded or stored anywhere?',
   'How accurate is online color analysis?',
   'What if I seem to fit two seasons?',
@@ -253,7 +271,7 @@ export function FaqPreview() {
       />
       <div className="container">
         <div className="section-head">
-          <h2 id="faqPreviewHeading">Color Analysis FAQ</h2>
+          <h2 id="faqPreviewHeading">Color Analysis Quiz FAQ</h2>
         </div>
         <FaqAccordion items={items} idPrefix="home-faq" />
         <div className="hs-center">

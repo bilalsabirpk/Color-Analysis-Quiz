@@ -1,4 +1,5 @@
-import { siteConfig } from '@/lib/site-config';
+import Link from 'next/link';
+import { siteConfig, OG_DEFAULTS } from '@/lib/site-config';
 import {
   QUIZ_SECTIONS_HTML,
   QUIZ_SEASONS_HTML,
@@ -12,6 +13,7 @@ import BlogPreview from '@/components/BlogPreview';
 import UploadCta from '@/components/UploadCta';
 import HeroSection from '@/components/HeroSection';
 import QuizLaunchers from '@/components/QuizLaunchers';
+import SubSeasons from '@/components/SubSeasons';
 import {
   HowItWorks,
   WhyUs,
@@ -23,8 +25,22 @@ import {
 export const metadata = {
   title: siteConfig.title,
   description: siteConfig.description,
+  // Search Console queries the homepage is targeting.
+  keywords: [
+    'colour analysis free',
+    'color analysis test free',
+    'seasonal color analysis quiz',
+    'color analysis free',
+    'color analysis quiz',
+    'color analysis quiz free',
+    '12 season colour analysis test',
+    'color analysis free online',
+    'seasonal color analysis quiz free',
+    'colour analysis test',
+  ],
   alternates: { canonical: '/' },
   openGraph: {
+    ...OG_DEFAULTS,
     url: '/',
     title: siteConfig.title,
     description: siteConfig.description,
@@ -75,10 +91,20 @@ export default function HomePage() {
         {/* Interactive palette explorer — visually part of the section above. */}
         <div dangerouslySetInnerHTML={{ __html: QUIZ_SEASONS_HTML }} />
 
+        {/* 12 sub-seasons (soft autumn, deep winter…), crawlable content. */}
+        <SubSeasons />
+
         <div dangerouslySetInnerHTML={{ __html: QUIZ_HARMONY_HTML }} />
 
         {/* No-photo 6-question undertone / season self-check. */}
-        <UndertoneCheck />
+        <UndertoneCheck
+          sub={
+            <>
+              Six questions, no photo needed. Want the full breakdown?{' '}
+              <Link href="/what-season-am-i">What season am I?</Link>
+            </>
+          }
+        />
 
         {/* Saved palettes — stays hidden until the visitor saves a result. */}
         <div dangerouslySetInnerHTML={{ __html: QUIZ_FAVORITES_HTML }} />

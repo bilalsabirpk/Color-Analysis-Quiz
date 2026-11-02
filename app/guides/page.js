@@ -1,17 +1,19 @@
 import Link from 'next/link';
-import { siteConfig, founder } from '@/lib/site-config';
+import { siteConfig, founder, OG_DEFAULTS } from '@/lib/site-config';
 import { getLatestGuides } from '@/lib/guides-data';
 import BlogList from '@/components/BlogList';
+import AllGuidesIndex from '@/components/AllGuidesIndex';
 import ShareLink from '@/components/ShareLink';
 
 const DESCRIPTION =
   'Free guides on seasonal color analysis: how the 4 seasons work, how to find your undertone, and how to use your palette for clothes, makeup, hair color and jewelry.';
 
 export const metadata = {
-  title: 'Color Analysis Blog: Guides & Tips',
+  title: { absolute: 'Color Analysis Blog: 12 Season Palettes & Style Guides' },
   description: DESCRIPTION,
   alternates: { canonical: '/guides' },
   openGraph: {
+    ...OG_DEFAULTS,
     url: '/guides',
     title: `Color Analysis Blog | ${siteConfig.name}`,
     description: DESCRIPTION,
@@ -73,6 +75,8 @@ export default function GuidesIndexPage() {
         <section className="blog-body">
           <div className="container">
             <BlogList guides={guides} />
+
+            <AllGuidesIndex guides={guides} />
 
             <div className="blog-cta">
               <div>

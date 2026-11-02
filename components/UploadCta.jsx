@@ -27,9 +27,9 @@ export default function UploadCta() {
       <div className="container">
         <div className="upload-cta">
           <div className="upload-cta-text">
-            <h2 id="uploadCtaHeading">Not sure which season you are?</h2>
+            <h2 id="uploadCtaHeading">Not sure which color season you are?</h2>
             <p>
-              Find out in seconds. Your photo never leaves your device.
+              Take the free color analysis quiz and find out in seconds. Your photo never leaves your device.
             </p>
           </div>
           <div className="upload-cta-actions">

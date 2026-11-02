@@ -96,6 +96,13 @@ const SEASONS = {
   },
 };
 
+// Best jewelry metal for each undertone (shown in every result).
+const METALS = {
+  Warm: 'Gold, brass and bronze',
+  Cool: 'Silver, white gold and platinum',
+  Neutral: 'Both work: rose gold and mixed metals are safe picks',
+};
+
 function score(answers) {
   const t = { warm: 0, cool: 0, light: 0, deep: 0, bright: 0, soft: 0 };
   QUESTIONS.forEach((q) => {
@@ -130,7 +137,12 @@ function score(answers) {
   return { undertone, season, meter: Math.min(100, Math.max(0, meter)) };
 }
 
-export default function UndertoneCheck() {
+export default function UndertoneCheck({
+  id = 'undertone-test',
+  heading = 'Quick Undertone Quiz: Warm, Cool or Neutral?',
+  sub = 'Six questions, no photo needed.',
+  className = 'alt-bg',
+} = {}) {
   const uid = useId();
   const [answers, setAnswers] = useState({});
   const [result, setResult] = useState(null);
@@ -164,11 +176,11 @@ export default function UndertoneCheck() {
   const season = result ? SEASONS[result.season] : null;
 
   return (
-    <section id="undertone-test" className="alt-bg" aria-labelledby="undertoneHeading">
+    <section id={id} className={className} aria-labelledby={`${uid}-heading`}>
       <div className="container">
         <div className="section-head">
-          <h2 id="undertoneHeading">Undertone Test: Are You Warm or Cool?</h2>
-          <p>Six questions, no photo needed.</p>
+          <h2 id={`${uid}-heading`}>{heading}</h2>
+          <p>{sub}</p>
         </div>
 
         <form className="ut-card" onSubmit={showResult} noValidate>
@@ -250,6 +262,9 @@ export default function UndertoneCheck() {
                 </div>
 
                 <p className="ut-tip">{season.tip}</p>
+                <p className="ut-metal">
+                  <strong>Best jewelry metal:</strong> {METALS[result.undertone]}
+                </p>
                 {result.undertone === 'Neutral' && (
                   <p className="ut-note">
                     Neutral undertones can often borrow from a neighbouring season — the

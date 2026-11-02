@@ -1,14 +1,15 @@
 import Link from 'next/link';
-import { siteConfig } from '@/lib/site-config';
+import { siteConfig, OG_DEFAULTS } from '@/lib/site-config';
 import { FAQ, getFaqByCategory } from '@/lib/faq-data';
 import FaqAccordion from '@/components/FaqAccordion';
 
 export const metadata = {
-  title: 'FAQ',
+  title: { absolute: 'Color Analysis FAQ: Seasons, Undertones & the Quiz' },
   description:
-    'Answers to common color analysis questions: what the 4 seasons are, how to find your undertone, which colors and metals suit you, and how our free, private color analysis tool works.',
+    'Color analysis questions answered: the 4 color seasons, 12 and 16 season color analysis, warm vs cool undertones, and how our free color analysis quiz works.',
   alternates: { canonical: '/faq' },
   openGraph: {
+    ...OG_DEFAULTS,
     url: '/faq',
     title: `FAQ | ${siteConfig.name}`,
     description:
@@ -45,7 +46,7 @@ export default function FaqPage() {
           <div className="container">
             <p className="faq-kicker">Help Center</p>
             <h1>
-              Frequently Asked <span className="faq-hero-grad">Questions</span>
+              Color Analysis <span className="faq-hero-grad">FAQ</span>
             </h1>
             <p className="faq-hero-lead">
               Everything you need to know about seasonal color analysis: the four

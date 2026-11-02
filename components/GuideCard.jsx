@@ -13,15 +13,19 @@ export const CATEGORY_ICONS = {
   Makeup: '💄',
   Accessories: '💍',
   Hair: '💇',
+  Spring: '🌷',
+  Summer: '🌊',
+  Autumn: '🍂',
+  Winter: '❄️',
 };
 
-export default function GuideCard({ guide, headingLevel = 'h3' }) {
+export default function GuideCard({ guide, headingLevel = 'h3', hidden = false }) {
   const Heading = headingLevel;
   const swatches = guide.swatches?.length ? guide.swatches : ['#7b2ff7', '#c026d3', '#f3e8ff', '#241536'];
   const icon = CATEGORY_ICONS[guide.category] || '📝';
 
   return (
-    <article className="guide-card">
+    <article className="guide-card" hidden={hidden || undefined}>
       <div className="guide-cover" aria-hidden="true">
         <div className="guide-cover-stripes">
           {swatches.map((hex) => (

@@ -1,9 +1,11 @@
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
-import { siteConfig } from '@/lib/site-config';
-import { GUIDES, getGuide, getLatestGuides } from '@/lib/guides-data';
+import { siteConfig, founder } from '@/lib/site-config';
+import { GUIDES, getGuide, getRelatedGuides } from '@/lib/guides-data';
 import ArticleBody from '@/components/ArticleBody';
 import GuideCard from '@/components/GuideCard';
+import UndertoneCheck from '@/components/UndertoneCheck';
+import { getPaletteImage, getOutfitImage, getCompareImage } from '@/lib/palette-image';
 
 export function generateStaticParams() {
   return GUIDES.map((g) => ({ slug: g.slug }));
@@ -14,11 +16,16 @@ export async function generateMetadata({ params }) {
   const guide = getGuide(slug);
   if (!guide) return {};
   return {
-    title: guide.title,
+    // Absolute title (no " | Color Analysis" suffix) so the full title fits
+    // in Google results without being cut off.
+    title: { absolute: guide.title },
     description: guide.description,
+    ...(guide.keywords?.length ? { keywords: guide.keywords } : {}),
     alternates: { canonical: `/guides/${guide.slug}` },
     openGraph: {
       type: 'article',
+      siteName: siteConfig.name,
+      locale: siteConfig.locale,
       url: `/guides/${guide.slug}`,
       title: guide.title,
       description: guide.description,
@@ -32,27 +39,59 @@ export default async function GuideArticlePage({ params }) {
   const guide = getGuide(slug);
   if (!guide) notFound();
 
-  const articleJsonLd = {
-    '@context': 'https://schema.org',
-    '@type': 'Article',
-    headline: guide.title,
-    description: guide.description,
-    datePublished: guide.date,
-    dateModified: guide.date,
-    author: { '@type': 'Organization', name: siteConfig.name },
-    publisher: { '@type': 'Organization', name: siteConfig.name },
-    mainEntityOfPage: `${siteConfig.url}/guides/${guide.slug}`,
-  };
+  const pageUrl = `${siteConfig.url}/guides/${guide.slug}`;
+  const paletteImage = getPaletteImage(guide);
+  const outfitImage = getOutfitImage(guide);
+  const compareImage = getCompareImage(guide);
+  const articleJsonLd = [
+    {
+      '@context': 'https://schema.org',
+      '@type': 'Article',
+      headline: guide.title,
+      description: guide.description,
+      image: [`${pageUrl}/opengraph-image`, ...(paletteImage ? [`${siteConfig.url}${paletteImage.src}`] : []), ...(outfitImage ? [`${siteConfig.url}${outfitImage.src}`] : []), ...(compareImage ? [`${siteConfig.url}${compareImage.src}`] : [])],
+      datePublished: guide.date,
+      dateModified: guide.updated || guide.date,
+      author: { '@type': 'Person', name: founder.name, url: `${siteConfig.url}/about` },
+      publisher: {
+        '@type': 'Organization',
+        name: siteConfig.name,
+        url: siteConfig.url,
+        logo: { '@type': 'ImageObject', url: `${siteConfig.url}/icon.svg` },
+      },
+      mainEntityOfPage: pageUrl,
+      articleSection: guide.category,
+    },
+    {
+      '@context': 'https://schema.org',
+      '@type': 'BreadcrumbList',
+      itemListElement: [
+        { '@type': 'ListItem', position: 1, name: 'Home', item: siteConfig.url },
+        { '@type': 'ListItem', position: 2, name: 'Blog', item: `${siteConfig.url}/guides` },
+        { '@type': 'ListItem', position: 3, name: guide.title, item: pageUrl },
+      ],
+    },
+  ];
 
-  const related = getLatestGuides()
-    .filter((g) => g.slug !== guide.slug)
-    .slice(0, 3);
+  // FAQPage schema from any { type: 'faq' } blocks (links stripped to plain text).
+  const faqItems = guide.body.filter((b) => b.type === 'faq').flatMap((b) => b.items);
+  if (faqItems.length) {
+    articleJsonLd.push({
+      '@context': 'https://schema.org',
+      '@type': 'FAQPage',
+      mainEntity: faqItems.map((f) => ({
+        '@type': 'Question',
+        name: f.q,
+        acceptedAnswer: { '@type': 'Answer', text: f.a.replace(/\[([^\]]+)\]\([^)]*\)/g, '$1') },
+      })),
+    });
+  }
 
-  const formattedDate = new Date(guide.date).toLocaleDateString('en-US', {
-    year: 'numeric',
-    month: 'long',
-    day: 'numeric',
-  });
+  const related = getRelatedGuides(guide);
+
+  const fmt = (d) =>
+    new Date(d).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC' });
+  const showUpdated = guide.updated && guide.updated !== guide.date;
 
   return (
     <>
@@ -65,21 +104,40 @@ export default async function GuideArticlePage({ params }) {
       <main id="main">
         <section className="page-hero">
           <div className="container">
-            <p className="breadcrumb-nav">
-              <Link href="/guides">Blog</Link> / {guide.title}
-            </p>
+            <nav aria-label="Breadcrumb" className="breadcrumb-nav">
+              <Link href="/">Home</Link> / <Link href="/guides">Blog</Link> /{' '}
+              <span aria-current="page">{guide.title}</span>
+            </nav>
             <h1>{guide.title}</h1>
             <p className="article-meta">
-              <span>{formattedDate}</span>
+              <span>
+                By <Link href="/about" rel="author">{founder.name}</Link>
+              </span>
               <span className="dot" aria-hidden="true"></span>
+              {showUpdated ? (
+                <span>
+                  Updated <time dateTime={guide.updated}>{fmt(guide.updated)}</time>
+                </span>
+              ) : (
+                <time dateTime={guide.date}>{fmt(guide.date)}</time>
+              )}
+              <span className="dot dot-wrap" aria-hidden="true"></span>
               <span>{guide.readTime}</span>
             </p>
           </div>
         </section>
 
-        <section style={{ paddingTop: 0 }}>
+        {guide.quiz && (
+          <UndertoneCheck
+            id="guide-quiz"
+            heading={guide.quiz.heading}
+            sub={guide.quiz.sub}
+          />
+        )}
+
+        <section style={guide.quiz ? undefined : { paddingTop: 0 }}>
           <div className="container">
-            <ArticleBody blocks={guide.body} />
+            <ArticleBody blocks={guide.body} paletteImage={paletteImage} outfitImage={outfitImage} compareImage={compareImage} />
 
             <div className="cta-banner">
               <p>Curious what your own season is?</p>

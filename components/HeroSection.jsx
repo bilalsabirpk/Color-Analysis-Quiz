@@ -62,7 +62,7 @@ export default function HeroSection() {
       <HeroVisuals />
       <div className="container hero-inner">
         <h1 id="heroHeading">
-          Free Color Analysis Quiz: <span className="grad-text">What Season Am I?</span>
+          Free Color Analysis Quiz: <span className="grad-text">Find Your Color Season</span>
         </h1>
         <div className="hero-seasonbar" aria-hidden="true">
           <i style={{ background: '#F6A94A' }} />
@@ -71,7 +71,7 @@ export default function HeroSection() {
           <i style={{ background: '#0B1F3A' }} />
         </div>
         <p className="lead">
-          Upload a selfie for a free AI color analysis. Find your color season, best colors and colors to avoid in seconds.
+          Upload a selfie for a free color analysis test online. Find your color season, personal color palette, best colors and colors to avoid in seconds.
         </p>
         <div className="hero-ctas">
           <button type="button" className="btn btn-primary btn-lg" data-quiz-upload>

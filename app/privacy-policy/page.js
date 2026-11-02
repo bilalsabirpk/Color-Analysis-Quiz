@@ -3,7 +3,7 @@ import { siteConfig } from '@/lib/site-config';
 
 export const metadata = {
   title: 'Privacy Policy',
-  description: `Privacy Policy for ${siteConfig.name}: what data this site collects, how photos are processed locally in your browser, and how advertising and analytics cookies are used.`,
+  description: `Privacy Policy for ${siteConfig.name}: what data we collect, how your photo is processed only in your browser, and how ad and analytics cookies are used.`,
   alternates: { canonical: '/privacy-policy' },
 };
 

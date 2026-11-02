@@ -2,7 +2,7 @@ import Script from 'next/script';
 import './globals.css';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
-import { siteConfig, adsenseClientId, gaId } from '@/lib/site-config';
+import { siteConfig, adsenseClientId, gaId, socialProfiles } from '@/lib/site-config';
 
 export const metadata = {
   metadataBase: new URL(siteConfig.url),
@@ -14,19 +14,32 @@ export const metadata = {
   applicationName: siteConfig.name,
   keywords: [
     'color analysis quiz',
-    'free color analysis',
+    'free color analysis quiz',
+    'seasonal color analysis',
+    'seasonal color analysis quiz',
     'what season am i',
     'color season quiz',
-    'seasonal color analysis',
-    'AI color analysis',
-    'online color analysis',
-    'color analysis test',
-    'personal color analysis',
-    'undertone test',
+    '12 season color analysis',
+    'skin undertone test',
     'warm or cool undertone',
-    'what colors suit me',
-    'spring summer autumn winter colors',
+    'gold or silver jewelry quiz',
+    'soft summer color palette',
+    'soft autumn color palette',
+    'deep autumn color palette',
+    'warm autumn color palette',
+    'cool summer color palette',
+    'cool winter color palette',
+    'deep winter color palette',
+    'bright winter color palette',
+    'light spring color palette',
+    'warm spring color palette',
+    'bright spring color palette',
+    'light summer color palette',
   ],
+  // Pinterest website claim (Settings → Claimed accounts → Websites).
+  verification: {
+    other: { 'p:domain_verify': '4dd35d484c651d2efe177509856cda0d' },
+  },
   authors: [{ name: siteConfig.name }],
   creator: siteConfig.name,
   publisher: siteConfig.name,
@@ -77,7 +90,8 @@ const organizationJsonLd = {
   name: siteConfig.name,
   url: siteConfig.url,
   logo: `${siteConfig.url}/icon.svg`,
-  sameAs: [],
+  // Only real profile URLs (not a bare social-network homepage).
+  sameAs: socialProfiles.map((s) => s.url),
 };
 
 const websiteJsonLd = {

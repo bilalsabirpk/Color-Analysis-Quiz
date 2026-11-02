@@ -26,11 +26,10 @@ export default function Footer() {
                 {socialLinks.map((s) => (
                   <li key={s.key}>
                     <a
-                      href={s.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      aria-label={`${siteConfig.name} on ${s.label} (opens in a new tab)`}
-                      title={s.label}
+                      href={s.url || '/'}
+                      {...(s.url ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
+                      aria-label={s.url ? `${siteConfig.name} on ${s.label} (opens in a new tab)` : `${s.label}: coming soon (goes to home page)`}
+                      title={s.url ? s.label : `${s.label} (coming soon)`}
                     >
                       <svg viewBox="0 0 24 24" width="17" height="17" aria-hidden="true" focusable="false">
                         <path d={SOCIAL_ICON_PATHS[s.key]} fill="currentColor" />
@@ -58,7 +57,7 @@ export default function Footer() {
             </Link>
           </div>
           <div>
-            <h4>Explore</h4>
+            <h3>Explore</h3>
             <ul>
               <li><Link href="/about">About Us</Link></li>
               <li><Link href="/#season-types">All Color Seasons</Link></li>
@@ -68,22 +67,51 @@ export default function Footer() {
             </ul>
           </div>
           <div>
-            <h4>Free Tools</h4>
+            <h3>Free Tools</h3>
             <ul>
               <li><Link href="/#quiz">Color Analysis Quiz</Link></li>
+              <li><Link href="/what-season-am-i">What Season Am I? Quiz</Link></li>
               <li><Link href="/#undertone-test">Undertone Check</Link></li>
               <li><Link href="/#harmony">Color Harmony Generator</Link></li>
               <li><Link href="/#seasons">Season Palettes</Link></li>
             </ul>
           </div>
           <div>
-            <h4>Legal</h4>
+            <h3>Legal</h3>
             <ul>
               <li><Link href="/privacy-policy">Privacy Policy</Link></li>
               <li><Link href="/terms">Terms of Use</Link></li>
               <li><Link href="/cookie-policy">Cookie Policy</Link></li>
+              <li><a href="/sitemap.xml">Sitemap</a></li>
             </ul>
           </div>
+        </div>
+        <div className="footer-featured" aria-label="Featured on">
+          <span className="footer-featured-label">Featured on</span>
+          <a
+            href="https://findly.tools/color-analysis-quiz-1?utm_source=color-analysis-quiz-1"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="https://findly.tools/badges/findly-tools-badge-light.svg"
+              alt="Featured on Findly.tools"
+              width="175"
+              height="55"
+              loading="lazy"
+            />
+          </a>
+          <a href="https://fazier.com" target="_blank" rel="noopener noreferrer">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="https://fazier.com/api/v1//public/badges/launch_badges.svg?badge_type=launched&theme=light"
+              alt="Fazier badge"
+              width="120"
+              height="40"
+              loading="lazy"
+            />
+          </a>
         </div>
         <div className="footer-bottom">
           © <span id="year">{year}</span> Color Analysis. All rights reserved.

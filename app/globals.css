@@ -1485,3 +1485,33 @@
     .nav-tools-menu{width:620px;display:grid;grid-template-columns:1fr 1fr;gap:2px;}
     .nav-tools-menu[hidden]{display:none;}
   }
+
+  /* =========================================================
+     TOOL GUIDES + RATING BOX (components/ToolGuide.jsx, RatingBox.jsx)
+     ========================================================= */
+  .prose ol{margin:0 0 16px;padding-left:22px;color:var(--ink-soft);line-height:1.7;}
+  .prose ol li::marker{color:var(--purple);font-weight:800;}
+  .tool-guide h3{margin-top:30px;}
+  .tool-guide .tg-table{margin:4px 0 22px;}
+  .tool-guide .cp-table{min-width:560px;}
+  .tool-guide .cp-table th[scope="row"]{background:#fff;white-space:normal;font-weight:700;border-bottom:1px solid var(--line);}
+  .tool-guide .cp-table tr:last-child th{border-bottom:0;}
+  .tool-guide .cp-table a,.tool-guide .cp-table th[scope="row"] a{font-weight:700;color:var(--purple);text-decoration:underline;text-decoration-color:#d8c6f5;text-underline-offset:2px;}
+  section.rating-section{padding-top:0;}
+  .rating-box{max-width:1040px;margin:0 auto;display:flex;justify-content:center;}
+  .rating-field{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:6px 14px;background:#fff;border:1px solid var(--line);border-radius:999px;padding:8px 10px 8px 22px;box-shadow:var(--shadow-sm);}
+  .rating-q{margin:0;font-weight:800;font-size:14.5px;color:var(--ink);}
+  .rating-stars{display:flex;gap:2px;}
+  .rating-stars button{display:grid;place-items:center;width:40px;height:40px;padding:0;border:0;border-radius:50%;background:none;cursor:pointer;font-size:26px;line-height:1;color:#d9cfe8;transition:color .12s,transform .12s;}
+  .rating-stars button.is-on{color:#f5a623;}
+  .rating-stars button:hover{transform:scale(1.12);}
+  .rating-stars button:focus-visible{outline:3px solid var(--focus);outline-offset:1px;}
+  .rating-hint{min-width:112px;font-size:13px;font-weight:700;color:var(--ink-soft);padding-right:12px;}
+  .rating-thanks{margin:0;background:#fff;border:1px solid var(--line);border-radius:999px;padding:12px 22px;font-weight:700;font-size:14.5px;color:var(--ink);text-align:center;}
+  .rating-thanks a{color:var(--purple);}
+  @media (max-width:520px){
+    .rating-field{border-radius:18px;padding:12px;flex-direction:column;}
+    .rating-hint{padding:0;text-align:center;}
+    .rating-thanks{border-radius:18px;}
+  }
+  @media (prefers-reduced-motion:reduce){ .rating-stars button{transition:none;} .rating-stars button:hover{transform:none;} }

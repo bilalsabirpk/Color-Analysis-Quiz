@@ -3,6 +3,8 @@ import { siteConfig, OG_DEFAULTS } from '@/lib/site-config';
 import HarmonyGenerator from '@/components/HarmonyGenerator';
 import FaqAccordion from '@/components/FaqAccordion';
 import RelatedTools from '@/components/RelatedTools';
+import RatingBox from '@/components/RatingBox';
+import ToolGuide, { guideFaqs } from '@/components/ToolGuide';
 
 // Tool page for "color harmony generator" / "what colors go together"
 // searches. The homepage version also recolors your own photo; this page
@@ -37,7 +39,7 @@ const OUTFITS = [
   { name: 'Monochromatic', tip: 'Light and dark versions of one shade look expensive and lengthen the body. Add texture so it does not look flat.' },
 ];
 
-const FAQS = [
+const BASE_FAQS = [
   {
     q: 'What is a color harmony?',
     a: 'A color harmony is a group of colors that look good together because of where they sit on the color wheel. The main types are complementary (opposites), analogous (neighbors), triadic (three evenly spaced), split-complementary, square and monochromatic.',
@@ -59,6 +61,8 @@ const FAQS = [
     a: 'Yes. The color harmony tool on the homepage can recolor the clothing or background in your selfie, so you can see a color on you before you buy it.',
   },
 ];
+
+const FAQS = [...BASE_FAQS, ...guideFaqs('/color-harmony-generator')];
 
 export default function ColorHarmonyPage() {
   const url = `${siteConfig.url}${PATH}`;
@@ -121,6 +125,11 @@ export default function ColorHarmonyPage() {
         </section>
 
         <HarmonyGenerator />
+        <section className="alt-bg rating-section" aria-label="Rate this tool">
+          <div className="container">
+            <RatingBox tool="/color-harmony-generator" />
+          </div>
+        </section>
 
         <section aria-labelledby="outfitHeading">
           <div className="container">
@@ -157,7 +166,9 @@ export default function ColorHarmonyPage() {
           </div>
         </section>
 
-        <section aria-labelledby="chFaqHeading">
+        <ToolGuide path="/color-harmony-generator" />
+
+        <section className="alt-bg" aria-labelledby="chFaqHeading">
           <div className="container">
             <div className="section-head">
               <h2 id="chFaqHeading">Color Harmony FAQ</h2>
@@ -166,7 +177,7 @@ export default function ColorHarmonyPage() {
           </div>
         </section>
 
-        <RelatedTools current="/color-harmony-generator" className="alt-bg" />
+        <RelatedTools current="/color-harmony-generator" />
       </main>
     </>
   );

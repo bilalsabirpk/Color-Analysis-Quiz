@@ -3,6 +3,8 @@ import { siteConfig, OG_DEFAULTS } from '@/lib/site-config';
 import UndertoneTest from '@/components/UndertoneTest';
 import FaqAccordion from '@/components/FaqAccordion';
 import RelatedTools from '@/components/RelatedTools';
+import RatingBox from '@/components/RatingBox';
+import ToolGuide, { guideFaqs } from '@/components/ToolGuide';
 
 // Tool page for "undertone test" / "warm or cool undertone test" searches.
 // The guide /guides/warm-vs-cool-undertones explains the tests in depth;
@@ -57,7 +59,7 @@ const TYPES = [
   },
 ];
 
-const FAQS = [
+const BASE_FAQS = [
   {
     q: 'How do I know if my undertone is warm or cool?',
     a: 'Check a few signs in daylight: vein color on your wrist, whether gold or silver jewelry looks better, and whether cream or bright white flatters your face. Green veins, gold and cream point to warm; blue veins, silver and white point to cool. The test above combines six of these checks.',
@@ -79,6 +81,8 @@ const FAQS = [
     a: 'No. Undertone is one of three things that decide your season; the others are depth and contrast. Warm points to Spring or Autumn and cool points to Summer or Winter. The photo color analysis checks all three at once.',
   },
 ];
+
+const FAQS = [...BASE_FAQS, ...guideFaqs('/undertone-test')];
 
 export default function UndertoneTestPage() {
   const url = `${siteConfig.url}${PATH}`;
@@ -142,6 +146,11 @@ export default function UndertoneTestPage() {
         </section>
 
         <UndertoneTest />
+        <section className="alt-bg rating-section" aria-label="Rate this tool">
+          <div className="container">
+            <RatingBox tool="/undertone-test" />
+          </div>
+        </section>
 
         <section aria-labelledby="typesHeading">
           <div className="container">
@@ -188,7 +197,9 @@ export default function UndertoneTestPage() {
           </div>
         </section>
 
-        <section aria-labelledby="utFaqHeading">
+        <ToolGuide path="/undertone-test" />
+
+        <section className="alt-bg" aria-labelledby="utFaqHeading">
           <div className="container">
             <div className="section-head">
               <h2 id="utFaqHeading">Undertone Test FAQ</h2>
@@ -197,7 +208,7 @@ export default function UndertoneTestPage() {
           </div>
         </section>
 
-        <RelatedTools current="/undertone-test" className="alt-bg" />
+        <RelatedTools current="/undertone-test" />
       </main>
     </>
   );

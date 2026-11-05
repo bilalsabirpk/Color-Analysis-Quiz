@@ -63,8 +63,8 @@ const webApplicationJsonLd = {
   },
 };
 
-// The photo analysis and harmony tool already live on the homepage itself.
-const FREE_TOOLS = TOOLS.filter((t) => !['/#quiz', '/embed-widget', '/color-harmony-generator'].includes(t.href));
+// The photo analysis, harmony tool and season palettes already live on the homepage itself.
+const FREE_TOOLS = TOOLS.filter((t) => !['/#quiz', '/embed-widget', '/color-harmony-generator', '/seasonal-color-palettes'].includes(t.href));
 
 export default function HomePage() {
   return (

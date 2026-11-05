@@ -71,6 +71,7 @@ export default function Footer() {
             <ul>
               <li><Link href="/#quiz">Color Analysis Quiz</Link></li>
               <li><Link href="/what-season-am-i">What Season Am I? Quiz</Link></li>
+              <li><Link href="/skin-tone-analyzer">Skin Tone Analyzer</Link></li>
               <li><Link href="/undertone-test">Undertone Test</Link></li>
               <li><Link href="/lipstick-color-finder">Lipstick Shade Finder</Link></li>
               <li><Link href="/foundation-undertone-finder">Foundation Undertone Finder</Link></li>

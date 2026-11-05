@@ -9,7 +9,7 @@ import { SEASON_NAMES, SEASON_SLUGS } from '@/lib/season-estimate';
 // result with lightness / warmth / intensity, and lists the seasons the
 // color suits best. Palettes come from the page (lib/sub-season-guides).
 
-function hexToLab(hex) {
+export function hexToLab(hex) {
   const n = parseInt(hex.slice(1), 16);
   const lin = (c) => {
     c /= 255;

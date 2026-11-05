@@ -1554,3 +1554,20 @@
   .cc-pairs code{font-size:12.5px;color:var(--ink-soft);background:none;padding:0;}
   .tf-contrast-bar{background:linear-gradient(90deg,#d8cfe3 0%,#8e7fa8 50%,#1a1424 100%);}
   @media (max-width:760px){ .cc-inputs{grid-template-columns:1fr;} }
+
+  /* =========================================================
+     SKIN TONE ANALYZER (components/SkinToneAnalyzer.jsx)
+     ========================================================= */
+  .st-grid{display:grid;grid-template-columns:1.4fr 1fr;gap:24px 30px;align-items:start;}
+  .st-upload{cursor:pointer;margin-bottom:12px;}
+  input.visually-hidden:focus-visible + .st-upload{outline:3px solid var(--focus);outline-offset:3px;}
+  .st-canvas-wrap{position:relative;display:block;width:fit-content;max-width:100%;line-height:0;border-radius:16px;overflow:hidden;border:1px solid var(--line);background:#faf5ff;cursor:crosshair;}
+  .st-photo.is-empty .st-canvas-wrap{display:grid;width:100%;aspect-ratio:4/3;cursor:default;place-items:center;}
+  .st-photo.is-empty canvas{display:none;}
+  .st-canvas-wrap canvas{display:block;width:auto;height:auto;max-width:100%;max-height:460px;}
+  .st-canvas-wrap:focus-visible{outline:3px solid var(--focus);outline-offset:3px;}
+  .st-empty{font-size:14px;line-height:1.5;font-weight:600;color:var(--ink-soft);padding:20px;text-align:center;}
+  .st-marker{position:absolute;width:26px;height:26px;border-radius:50%;border:3px solid #fff;box-shadow:0 0 0 2px var(--ink),0 2px 8px rgba(0,0,0,.3);transform:translate(-50%,-50%);pointer-events:none;}
+  .st-manual{margin:0;}
+  .st-under-bar{background:linear-gradient(90deg,#d99aaa 0%,#e0c2a8 50%,#e0b070 100%);}
+  @media (max-width:760px){ .st-grid{grid-template-columns:1fr;} }

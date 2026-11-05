@@ -2,13 +2,15 @@ import Link from 'next/link';
 import { siteConfig } from '@/lib/site-config';
 import FaqAccordion from '@/components/FaqAccordion';
 import RelatedTools from '@/components/RelatedTools';
+import RatingBox from '@/components/RatingBox';
+import ToolGuide, { guideFaqs } from '@/components/ToolGuide';
 
-// Shared layout for the quiz-style tool pages: hero → tool → explainer
-// cards → how-to prose → FAQ → related tools, with WebApplication,
-// BreadcrumbList and FAQPage structured data.
+// Shared layout for the quiz-style tool pages: hero → tool → rating →
+// explainer cards → how-to prose → long guide (lib/tool-guides) → FAQ →
+// related tools, with WebApplication, BreadcrumbList and FAQPage data.
 //
-// Section backgrounds alternate: tool (alt-bg) → cards → prose (alt-bg)
-// → FAQ → related (alt-bg).
+// Section backgrounds alternate: tool + rating (alt-bg) → cards → prose
+// (alt-bg) → guide → FAQ (alt-bg) → related.
 
 export default function ToolPage({
   path,
@@ -28,6 +30,7 @@ export default function ToolPage({
   faqHeading,
   idPrefix,
 }) {
+  faqs = [...faqs, ...guideFaqs(path)];
   const url = `${siteConfig.url}${path}`;
   const jsonLd = [
     {
@@ -82,6 +85,11 @@ export default function ToolPage({
         </section>
 
         {tool}
+        <section className="alt-bg rating-section" aria-label="Rate this tool">
+          <div className="container">
+            <RatingBox tool={path} />
+          </div>
+        </section>
 
         {cards && (
           <section aria-labelledby={`${idPrefix}-cards`}>
@@ -119,7 +127,9 @@ export default function ToolPage({
           </section>
         )}
 
-        <section aria-labelledby={`${idPrefix}-faq`}>
+        <ToolGuide path={path} />
+
+        <section className="alt-bg" aria-labelledby={`${idPrefix}-faq`}>
           <div className="container">
             <div className="section-head">
               <h2 id={`${idPrefix}-faq`}>{faqHeading}</h2>
@@ -128,7 +138,7 @@ export default function ToolPage({
           </div>
         </section>
 
-        <RelatedTools current={path} className="alt-bg" />
+        <RelatedTools current={path} />
       </main>
     </>
   );

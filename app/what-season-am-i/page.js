@@ -3,6 +3,8 @@ import { siteConfig, OG_DEFAULTS } from '@/lib/site-config';
 import UndertoneCheck from '@/components/UndertoneCheck';
 import FaqAccordion from '@/components/FaqAccordion';
 import RelatedTools from '@/components/RelatedTools';
+import RatingBox from '@/components/RatingBox';
+import ToolGuide, { guideFaqs } from '@/components/ToolGuide';
 
 // Dedicated landing page for "what season am I" / "color season quiz"
 // searches. The homepage targets the photo-based color analysis quiz; this
@@ -117,7 +119,7 @@ const SUB_SEASONS = [
 ];
 const slug = (name) => `/guides/${name.toLowerCase().replace(/\s+/g, '-')}-color-palette`;
 
-const FAQS = [
+const BASE_FAQS = [
   {
     q: 'How do I know what season I am?',
     a: 'Your color season comes from three things: your undertone (warm or cool), your depth (how light or deep your hair, eyes and skin are) and your contrast or clarity (whether bright, saturated colors or softer shades suit you). The quiz above asks about each of these. For a second opinion, upload a selfie to the free photo color analysis, which samples your actual skin, hair and eye colors.',
@@ -151,6 +153,8 @@ const FAQS = [
     a: `Yes. The quiz and the photo color analysis on ${siteConfig.name} are completely free, with no sign-up. The quiz runs in your browser and your answers are not stored or sent anywhere.`,
   },
 ];
+
+const FAQS = [...BASE_FAQS, ...guideFaqs('/what-season-am-i')];
 
 export default function WhatSeasonAmIPage() {
   const url = `${siteConfig.url}${PATH}`;
@@ -215,6 +219,11 @@ export default function WhatSeasonAmIPage() {
           heading="Take the Color Season Quiz"
           sub="Six questions, about one minute. Answer in natural daylight if you can."
         />
+        <section className="alt-bg rating-section" aria-label="Rate this tool">
+          <div className="container">
+            <RatingBox tool="/what-season-am-i" />
+          </div>
+        </section>
 
         <section aria-labelledby="signsHeading">
           <div className="container">
@@ -336,7 +345,9 @@ export default function WhatSeasonAmIPage() {
           </div>
         </section>
 
-        <section aria-labelledby="wsaiFaqHeading">
+        <ToolGuide path="/what-season-am-i" />
+
+        <section className="alt-bg" aria-labelledby="wsaiFaqHeading">
           <div className="container">
             <div className="section-head">
               <h2 id="wsaiFaqHeading">What Season Am I? FAQ</h2>
@@ -348,7 +359,7 @@ export default function WhatSeasonAmIPage() {
           </div>
         </section>
 
-        <RelatedTools current="/what-season-am-i" className="alt-bg" />
+        <RelatedTools current="/what-season-am-i" />
       </main>
     </>
   );

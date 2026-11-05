@@ -4,6 +4,7 @@ import { SUB_SEASON_GUIDES } from '@/lib/sub-season-guides';
 import { getGuide } from '@/lib/guides-data';
 import FaqAccordion from '@/components/FaqAccordion';
 import RelatedTools from '@/components/RelatedTools';
+import ToolGuide, { guideFaqs } from '@/components/ToolGuide';
 
 // One page with all 12 seasonal color palettes (hex codes as real text),
 // built from the sub-season guides so it never drifts from them. Targets
@@ -64,7 +65,7 @@ function season(slug) {
   };
 }
 
-const FAQS = [
+const BASE_FAQS = [
   {
     q: 'What are the 12 seasonal color palettes?',
     a: 'They are the palettes of the 12-season color analysis system: Light Spring, Warm Spring, Bright Spring, Light Summer, Cool Summer, Soft Summer, Soft Autumn, Warm Autumn, Deep Autumn, Deep Winter, Cool Winter and Bright Winter. Each season splits into three types based on its strongest trait.',
@@ -82,6 +83,8 @@ const FAQS = [
     a: 'Product photos and screens change how colors look. A hex code gives you a fixed reference, so you can compare a shirt, lipstick or paint against your palette when shopping online.',
   },
 ];
+
+const FAQS = [...BASE_FAQS, ...guideFaqs('/seasonal-color-palettes')];
 
 export default function SeasonalPalettesPage() {
   const url = `${siteConfig.url}${PATH}`;
@@ -190,7 +193,7 @@ export default function SeasonalPalettesPage() {
           </section>
         ))}
 
-        <section aria-labelledby="scpUseHeading">
+        <section className="alt-bg" aria-labelledby="scpUseHeading">
           <div className="container prose">
             <h2 id="scpUseHeading">How to Use a Seasonal Color Palette</h2>
             <p>
@@ -209,6 +212,8 @@ export default function SeasonalPalettesPage() {
             </p>
           </div>
         </section>
+
+        <ToolGuide path="/seasonal-color-palettes" />
 
         <section className="alt-bg" aria-labelledby="scpFaqHeading">
           <div className="container">

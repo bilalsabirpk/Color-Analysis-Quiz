@@ -1451,3 +1451,37 @@
   .prose .compare-grid h3{margin:0 0 10px;}
   .prose .compare-grid ul.hex-palette{grid-template-columns:1fr;}
   @media (max-width:600px){ .prose .compare-grid{grid-template-columns:1fr;gap:4px;} }
+
+  /* =========================================================
+     QUIZ-STYLE TOOLS (lipstick, foundation, hair, jewelry)
+     ========================================================= */
+  .tools-grid.tools-grid-3{grid-template-columns:repeat(3,minmax(0,1fr));max-width:1040px;}
+  @media (max-width:980px){ .tools-grid.tools-grid-3{grid-template-columns:repeat(2,minmax(0,1fr));} }
+  @media (max-width:520px){ .tools-grid.tools-grid-3{grid-template-columns:1fr;} }
+  .tf-shortcut{max-width:1040px;margin:0 auto 16px;display:flex;flex-wrap:wrap;align-items:center;gap:8px 12px;padding:14px 18px;background:#fff;border:1px dashed #c4a5f5;border-radius:16px;}
+  .tf-shortcut label{font-weight:700;font-size:14.5px;color:var(--ink);}
+  .tf-shortcut select{font:inherit;font-size:14.5px;padding:8px 36px 8px 12px;border:1.5px solid var(--line);border-radius:10px;background:#fff;color:var(--ink);cursor:pointer;min-width:0;max-width:100%;}
+  .tf-shortcut select:hover{border-color:#c4a5f5;}
+  .tf-shortcut select:focus-visible{outline:3px solid var(--focus);outline-offset:2px;border-color:var(--purple);}
+  .tf-or{font-size:13px;color:var(--ink-soft);}
+  .tf-result h4{margin:14px 0 8px;font-size:13px;font-weight:800;letter-spacing:.05em;text-transform:uppercase;color:var(--ink-soft);}
+  .tf-group:first-of-type h4{margin-top:4px;}
+  .tf-shades{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;}
+  .tf-shades li{display:flex;align-items:center;gap:10px;background:#fff;border:1px solid var(--line);border-radius:12px;padding:8px 10px;min-width:0;}
+  .tf-chip{flex:none;width:34px;height:34px;border-radius:9px;border:1px solid rgba(0,0,0,.08);}
+  .tf-name{flex:1;min-width:0;font-size:14px;font-weight:700;color:var(--ink);overflow-wrap:break-word;line-height:1.3;}
+  .tf-shades code{flex:none;font-size:12px;color:var(--ink-soft);background:none;padding:0;}
+  .ut-result-side .tf-shades{grid-template-columns:1fr;margin-bottom:12px;}
+  .tf-gap{margin-top:12px;}
+  .tf-cta{margin-top:16px;}
+  .tf-metal-bar{background:linear-gradient(90deg,#d4a017 0%,#e0c9a6 50%,#b8bcc4 100%);}
+  @media (max-width:520px){
+    .tf-shades{grid-template-columns:1fr;}
+    .tf-shortcut{flex-direction:column;align-items:stretch;}
+    .tf-shortcut select{width:100%;}
+  }
+  /* Ten tools: two columns in the desktop dropdown. */
+  @media (min-width:981px){
+    .nav-tools-menu{width:620px;display:grid;grid-template-columns:1fr 1fr;gap:2px;}
+    .nav-tools-menu[hidden]{display:none;}
+  }

@@ -13,7 +13,7 @@ export default function Footer() {
               <span className="logo-mark" aria-hidden="true"></span>
               <span>
                 Color Analysis
-                <small style={{ color: '#bfb0d6' }}>AI-Powered Color Analysis</small>
+                <small style={{ color: '#bfb0d6' }}>Free Color Season Analysis</small>
               </span>
             </Link>
             <p style={{ fontSize: '13.5px' }}>
@@ -72,6 +72,10 @@ export default function Footer() {
               <li><Link href="/#quiz">Color Analysis Quiz</Link></li>
               <li><Link href="/what-season-am-i">What Season Am I? Quiz</Link></li>
               <li><Link href="/undertone-test">Undertone Test</Link></li>
+              <li><Link href="/lipstick-color-finder">Lipstick Shade Finder</Link></li>
+              <li><Link href="/foundation-undertone-finder">Foundation Undertone Finder</Link></li>
+              <li><Link href="/hair-color-finder">Hair Color Finder</Link></li>
+              <li><Link href="/gold-or-silver-jewelry-test">Gold or Silver Test</Link></li>
               <li><Link href="/color-harmony-generator">Color Harmony Generator</Link></li>
               <li><Link href="/seasonal-color-palettes">Seasonal Color Palettes</Link></li>
               <li><Link href="/embed-widget">Embed the Quiz</Link></li>

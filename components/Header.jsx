@@ -72,7 +72,7 @@ export default function Header() {
           <span className="logo-mark" aria-hidden="true"></span>
           <span>
             Color Analysis
-            <small>AI-Powered Color Analysis</small>
+            <small>Free Color Season Analysis</small>
           </span>
         </Link>
         <nav

@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
-import { TOOLS } from '@/lib/tools';
+import { TOOLS, TOOL_GROUPS } from '@/lib/tools';
 
 // Primary nav — mirrors the classic Home / Blog / About / Contact pattern.
 // The quiz sections (#quiz, #seasons, #harmony, #undertone-test) only exist on
@@ -100,19 +100,25 @@ export default function Header() {
                 <path d="M5 7.5l5 5 5-5" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
             </button>
-            <ul className="nav-tools-menu" id="toolsMenu" hidden={!toolsOpen}>
-              {TOOLS.map((t) => (
-                <li key={t.href}>
-                  <Link href={t.href} onClick={closeAll}>
-                    <span className="nt-icon" aria-hidden="true">{t.icon}</span>
-                    <span className="nt-text">
-                      <strong>{t.title}</strong>
-                      <small>{t.short}</small>
-                    </span>
-                  </Link>
-                </li>
+            <div className="nav-tools-menu" id="toolsMenu" hidden={!toolsOpen}>
+              {TOOL_GROUPS.map((g) => (
+                <div key={g.key} className="nt-group">
+                  <p className="nt-group-label" id={`nt-${g.key}`}>{g.label}</p>
+                  <ul aria-labelledby={`nt-${g.key}`}>
+                    {TOOLS.filter((t) => t.group === g.key).map((t) => (
+                      <li key={t.href}>
+                        <Link href={t.href} onClick={closeAll}>
+                          <span className="nt-icon" aria-hidden="true">{t.icon}</span>
+                          <span className="nt-text">
+                            <strong>{t.title}</strong>
+                          </span>
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
               ))}
-            </ul>
+            </div>
           </div>
           {NAV_LINKS.slice(1).map((link) => (
             <Link key={link.href} href={link.href} onClick={closeAll}>

@@ -1,13 +1,10 @@
 import Link from 'next/link';
-import { TOOLS } from '@/lib/tools';
+import { relatedTools } from '@/lib/tools';
 
 // "Related tools" strip shown at the bottom of tool pages and guides:
-// every other free tool, so each page links to the whole tool set.
+// nine other free tools (same category first) in a 3 × 3 grid.
 export default function RelatedTools({ current, heading = 'Related Free Tools', className = '' }) {
-  let items = TOOLS.filter((t) => t.href !== current);
-  // Guides show every tool; drop the webmaster-only embed page so the grid
-  // stays a clean 3 × 3.
-  if (items.length > 9) items = items.filter((t) => t.href !== '/embed-widget');
+  const items = relatedTools(current);
   return (
     <section className={className} aria-labelledby="relatedToolsHeading">
       <div className="container">

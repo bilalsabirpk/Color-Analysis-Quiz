@@ -63,7 +63,8 @@ const webApplicationJsonLd = {
   },
 };
 
-const FREE_TOOLS = TOOLS.filter((t) => t.href !== '/#quiz' && t.href !== '/embed-widget');
+// The photo analysis and harmony tool already live on the homepage itself.
+const FREE_TOOLS = TOOLS.filter((t) => !['/#quiz', '/embed-widget', '/color-harmony-generator'].includes(t.href));
 
 export default function HomePage() {
   return (

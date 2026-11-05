@@ -9,7 +9,7 @@ import QuizForm, { ShadeList } from '@/components/QuizForm';
 // brand shades (those vary and change); it explains the labels many
 // brands use so people can shop any range.
 
-const QUESTIONS = [
+export const QUESTIONS = [
   {
     id: 'veins',
     q: 'In daylight, the veins on your inner wrist look…',
@@ -55,10 +55,10 @@ const QUESTIONS = [
   },
 ];
 
-const DEPTHS = ['Fair', 'Light', 'Medium', 'Tan', 'Deep'];
+export const DEPTHS = ['Fair', 'Light', 'Medium', 'Tan', 'Deep'];
 
 // Reference foundation tones: [fair, light, medium, tan, deep] per family.
-const TONES = {
+export const TONES = {
   Warm: ['#F3D3B5', '#E8BF98', '#C99467', '#A8703F', '#6E4423'],
   Cool: ['#F2D0C9', '#E6BCAE', '#C8957F', '#A6705C', '#6B4236'],
   Neutral: ['#F1D2BF', '#E5BFA4', '#C69477', '#A47152', '#6A4430'],
@@ -88,7 +88,7 @@ const RESULTS = {
   },
 };
 
-function score(answers) {
+export function score(answers) {
   const t = { warm: 0, cool: 0, olive: 0 };
   QUESTIONS.slice(0, 4).forEach((q) => {
     Object.entries(q.options[answers[q.id]]?.v || {}).forEach(([k, n]) => {

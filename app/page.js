@@ -62,6 +62,13 @@ const webApplicationJsonLd = {
   },
 };
 
+const FREE_TOOLS = [
+  { href: '/what-season-am-i', icon: '🌸', title: 'What Season Am I? Quiz', text: 'Six questions, no photo: find your color season in a minute.' },
+  { href: '/undertone-test', icon: '🎯', title: 'Undertone Test', text: 'Warm, cool or neutral? Plus your best colors and jewelry metal.' },
+  { href: '/color-harmony-generator', icon: '🎨', title: 'Color Harmony Generator', text: 'See which colors go together, with hex codes to copy.' },
+  { href: '/seasonal-color-palettes', icon: '🗂️', title: 'All 12 Seasonal Palettes', text: 'Every season palette with hex codes, on one page.' },
+];
+
 export default function HomePage() {
   return (
     <>
@@ -108,6 +115,26 @@ export default function HomePage() {
 
         {/* Saved palettes — stays hidden until the visitor saves a result. */}
         <div dangerouslySetInnerHTML={{ __html: QUIZ_FAVORITES_HTML }} />
+
+        {/* Links to the standalone tool pages (each targets its own search). */}
+        <section id="free-tools" aria-labelledby="freeToolsHeading">
+          <div className="container">
+            <div className="section-head">
+              <h2 id="freeToolsHeading">More Free Color Analysis Tools</h2>
+              <p>Each tool runs in your browser, free and without sign-up.</p>
+            </div>
+            <div className="tools-grid">
+              {FREE_TOOLS.map((t) => (
+                <Link key={t.href} href={t.href} className="tool-card">
+                  <span className="tool-icon" aria-hidden="true">{t.icon}</span>
+                  <h3>{t.title}</h3>
+                  <p>{t.text}</p>
+                  <span className="tool-go" aria-hidden="true">Open tool →</span>
+                </Link>
+              ))}
+            </div>
+          </div>
+        </section>
 
         {/* Latest 3 blog posts (server-rendered, crawlable). */}
         <BlogPreview limit={3} />

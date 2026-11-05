@@ -2,6 +2,7 @@ import Link from 'next/link';
 import { siteConfig, OG_DEFAULTS } from '@/lib/site-config';
 import HarmonyGenerator from '@/components/HarmonyGenerator';
 import FaqAccordion from '@/components/FaqAccordion';
+import RelatedTools from '@/components/RelatedTools';
 
 // Tool page for "color harmony generator" / "what colors go together"
 // searches. The homepage version also recolors your own photo; this page
@@ -164,6 +165,8 @@ export default function ColorHarmonyPage() {
             <FaqAccordion items={FAQS} idPrefix="chg" headingLevel="h3" />
           </div>
         </section>
+
+        <RelatedTools current="/color-harmony-generator" className="alt-bg" />
       </main>
     </>
   );

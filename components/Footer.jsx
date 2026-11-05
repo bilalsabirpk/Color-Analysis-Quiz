@@ -74,6 +74,7 @@ export default function Footer() {
               <li><Link href="/undertone-test">Undertone Test</Link></li>
               <li><Link href="/color-harmony-generator">Color Harmony Generator</Link></li>
               <li><Link href="/seasonal-color-palettes">Seasonal Color Palettes</Link></li>
+              <li><Link href="/embed-widget">Embed the Quiz</Link></li>
             </ul>
           </div>
           <div>

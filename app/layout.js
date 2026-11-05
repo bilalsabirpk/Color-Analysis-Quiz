@@ -2,6 +2,7 @@ import Script from 'next/script';
 import './globals.css';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import HideOnEmbed from '@/components/HideOnEmbed';
 import { siteConfig, adsenseClientId, gaId, socialProfiles } from '@/lib/site-config';
 
 export const metadata = {
@@ -123,14 +124,18 @@ export default function RootLayout({ children }) {
           }}
         />
 
-        <a className="skip-link" href="#main">
-          Skip to content
-        </a>
-
-        <Header />
+        <HideOnEmbed>
+          <a className="skip-link" href="#main">
+            Skip to content
+          </a>
+          <Header />
+        </HideOnEmbed>
         {children}
-        <Footer />
+        <HideOnEmbed>
+          <Footer />
+        </HideOnEmbed>
 
+        <HideOnEmbed>
         {/* Google AdSense — only injected once NEXT_PUBLIC_ADSENSE_CLIENT is set
             (see lib/site-config.js and README.md for how to apply/activate). */}
         {adsenseClientId && (
@@ -161,6 +166,7 @@ export default function RootLayout({ children }) {
             </Script>
           </>
         )}
+        </HideOnEmbed>
       </body>
     </html>
   );

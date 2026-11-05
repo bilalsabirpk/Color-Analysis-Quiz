@@ -3,6 +3,7 @@ import { siteConfig, OG_DEFAULTS } from '@/lib/site-config';
 import { SUB_SEASON_GUIDES } from '@/lib/sub-season-guides';
 import { getGuide } from '@/lib/guides-data';
 import FaqAccordion from '@/components/FaqAccordion';
+import RelatedTools from '@/components/RelatedTools';
 
 // One page with all 12 seasonal color palettes (hex codes as real text),
 // built from the sub-season guides so it never drifts from them. Targets
@@ -217,6 +218,8 @@ export default function SeasonalPalettesPage() {
             <FaqAccordion items={FAQS} idPrefix="scp" headingLevel="h3" />
           </div>
         </section>
+
+        <RelatedTools current="/seasonal-color-palettes" />
       </main>
     </>
   );

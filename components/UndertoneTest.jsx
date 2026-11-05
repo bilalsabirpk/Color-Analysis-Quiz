@@ -114,7 +114,9 @@ function score(answers) {
   return { undertone, meter, olive };
 }
 
-export default function UndertoneTest({ id = 'undertone-quiz', heading = 'Take the Undertone Test' } = {}) {
+export default function UndertoneTest({ id = 'undertone-quiz', heading = 'Take the Undertone Test', className = 'alt-bg', newTab = false } = {}) {
+  // Inside an embed iframe, links open in a new tab instead of inside the widget.
+  const ext = newTab ? { target: '_blank', rel: 'noopener' } : {};
   const uid = useId();
   const [answers, setAnswers] = useState({});
   const [result, setResult] = useState(null);
@@ -147,7 +149,7 @@ export default function UndertoneTest({ id = 'undertone-quiz', heading = 'Take t
   const r = result ? RESULTS[result.undertone] : null;
 
   return (
-    <section id={id} className="alt-bg" aria-labelledby={`${uid}-heading`}>
+    <section id={id} className={className} aria-labelledby={`${uid}-heading`}>
       <div className="container">
         <div className="section-head">
           <h2 id={`${uid}-heading`}>{heading}</h2>
@@ -238,7 +240,7 @@ export default function UndertoneTest({ id = 'undertone-quiz', heading = 'Take t
                 {result.olive && (
                   <p className="ut-note">
                     You noticed a slightly green or grey cast, which often means an olive
-                    undertone. See the <Link href="/guides/olive-skin-color-palette">olive skin color palette</Link>.
+                    undertone. See the <Link href="/guides/olive-skin-color-palette" {...ext}>olive skin color palette</Link>.
                   </p>
                 )}
               </div>
@@ -253,10 +255,10 @@ export default function UndertoneTest({ id = 'undertone-quiz', heading = 'Take t
                   ))}
                 </ul>
                 <div className="ut-cta">
-                  <Link href="/#quiz" className="btn btn-primary btn-sm">
+                  <Link href="/#quiz" className="btn btn-primary btn-sm" {...ext}>
                     Find your full season →
                   </Link>
-                  <Link href={r.guide.href} className="btn btn-outline btn-sm">
+                  <Link href={r.guide.href} className="btn btn-outline btn-sm" {...ext}>
                     {r.guide.label}
                   </Link>
                   <button type="button" className="ut-reset" onClick={reset}>

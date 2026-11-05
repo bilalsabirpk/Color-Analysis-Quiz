@@ -2,6 +2,7 @@ import Link from 'next/link';
 import { siteConfig, OG_DEFAULTS } from '@/lib/site-config';
 import UndertoneTest from '@/components/UndertoneTest';
 import FaqAccordion from '@/components/FaqAccordion';
+import RelatedTools from '@/components/RelatedTools';
 
 // Tool page for "undertone test" / "warm or cool undertone test" searches.
 // The guide /guides/warm-vs-cool-undertones explains the tests in depth;
@@ -195,6 +196,8 @@ export default function UndertoneTestPage() {
             <FaqAccordion items={FAQS} idPrefix="utt" headingLevel="h3" />
           </div>
         </section>
+
+        <RelatedTools current="/undertone-test" className="alt-bg" />
       </main>
     </>
   );

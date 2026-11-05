@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { TOOLS } from '@/lib/tools';
 import { siteConfig, OG_DEFAULTS } from '@/lib/site-config';
 import {
   QUIZ_SECTIONS_HTML,
@@ -62,12 +63,7 @@ const webApplicationJsonLd = {
   },
 };
 
-const FREE_TOOLS = [
-  { href: '/what-season-am-i', icon: '🌸', title: 'What Season Am I? Quiz', text: 'Six questions, no photo: find your color season in a minute.' },
-  { href: '/undertone-test', icon: '🎯', title: 'Undertone Test', text: 'Warm, cool or neutral? Plus your best colors and jewelry metal.' },
-  { href: '/color-harmony-generator', icon: '🎨', title: 'Color Harmony Generator', text: 'See which colors go together, with hex codes to copy.' },
-  { href: '/seasonal-color-palettes', icon: '🗂️', title: 'All 12 Seasonal Palettes', text: 'Every season palette with hex codes, on one page.' },
-];
+const FREE_TOOLS = TOOLS.filter((t) => t.href !== '/#quiz' && t.href !== '/embed-widget');
 
 export default function HomePage() {
   return (
@@ -128,7 +124,7 @@ export default function HomePage() {
                 <Link key={t.href} href={t.href} className="tool-card">
                   <span className="tool-icon" aria-hidden="true">{t.icon}</span>
                   <h3>{t.title}</h3>
-                  <p>{t.text}</p>
+                  <p>{t.short}</p>
                   <span className="tool-go" aria-hidden="true">Open tool →</span>
                 </Link>
               ))}

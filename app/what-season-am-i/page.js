@@ -2,6 +2,7 @@ import Link from 'next/link';
 import { siteConfig, OG_DEFAULTS } from '@/lib/site-config';
 import UndertoneCheck from '@/components/UndertoneCheck';
 import FaqAccordion from '@/components/FaqAccordion';
+import RelatedTools from '@/components/RelatedTools';
 
 // Dedicated landing page for "what season am I" / "color season quiz"
 // searches. The homepage targets the photo-based color analysis quiz; this
@@ -346,6 +347,8 @@ export default function WhatSeasonAmIPage() {
             </p>
           </div>
         </section>
+
+        <RelatedTools current="/what-season-am-i" className="alt-bg" />
       </main>
     </>
   );

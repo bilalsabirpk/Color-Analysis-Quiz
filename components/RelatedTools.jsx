@@ -4,7 +4,10 @@ import { TOOLS } from '@/lib/tools';
 // "Related tools" strip shown at the bottom of tool pages and guides:
 // every other free tool, so each page links to the whole tool set.
 export default function RelatedTools({ current, heading = 'Related Free Tools', className = '' }) {
-  const items = TOOLS.filter((t) => t.href !== current);
+  let items = TOOLS.filter((t) => t.href !== current);
+  // Guides show every tool; drop the webmaster-only embed page so the grid
+  // stays a clean 3 × 3.
+  if (items.length > 9) items = items.filter((t) => t.href !== '/embed-widget');
   return (
     <section className={className} aria-labelledby="relatedToolsHeading">
       <div className="container">
@@ -12,7 +15,7 @@ export default function RelatedTools({ current, heading = 'Related Free Tools', 
           <h2 id="relatedToolsHeading">{heading}</h2>
           <p>More free color analysis tools. Each one runs in your browser, with no sign-up.</p>
         </div>
-        <div className="tools-grid">
+        <div className="tools-grid tools-grid-3">
           {items.map((t) => (
             <Link key={t.href} href={t.href} className="tool-card">
               <span className="tool-icon" aria-hidden="true">{t.icon}</span>

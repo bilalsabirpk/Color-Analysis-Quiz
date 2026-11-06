@@ -3,6 +3,7 @@ import { notFound } from 'next/navigation';
 import { siteConfig, founder } from '@/lib/site-config';
 import { GUIDES, getGuide, getRelatedGuides } from '@/lib/guides-data';
 import ArticleBody from '@/components/ArticleBody';
+import { withToolLinks } from '@/lib/guide-tool-links';
 import GuideCard from '@/components/GuideCard';
 import RelatedTools from '@/components/RelatedTools';
 import UndertoneCheck from '@/components/UndertoneCheck';
@@ -138,7 +139,7 @@ export default async function GuideArticlePage({ params }) {
 
         <section style={guide.quiz ? undefined : { paddingTop: 0 }}>
           <div className="container">
-            <ArticleBody blocks={guide.body} paletteImage={paletteImage} outfitImage={outfitImage} compareImage={compareImage} />
+            <ArticleBody blocks={withToolLinks(guide.slug, guide.body)} paletteImage={paletteImage} outfitImage={outfitImage} compareImage={compareImage} />
 
             <div className="cta-banner">
               <p>Curious what your own season is?</p>

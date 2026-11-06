@@ -24,6 +24,14 @@ export const WIDGETS = [
     creditHref: '/undertone-test',
     creditText: 'skin undertone test',
   },
+  {
+    id: 'lipstick-finder',
+    label: 'Lipstick Shade Finder',
+    title: 'Lipstick shade finder',
+    height: 1100,
+    creditHref: '/lipstick-color-finder',
+    creditText: 'lipstick shade finder',
+  },
 ];
 
 export function embedCode(w) {

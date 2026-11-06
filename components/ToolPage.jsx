@@ -4,6 +4,7 @@ import FaqAccordion from '@/components/FaqAccordion';
 import RelatedTools from '@/components/RelatedTools';
 import RatingBox from '@/components/RatingBox';
 import ToolGuide, { guideFaqs } from '@/components/ToolGuide';
+import { PIN_IMAGES } from '@/lib/tools';
 
 // Shared layout for the quiz-style tool pages: hero → tool → rating →
 // explainer cards → how-to prose → long guide (lib/tool-guides) → FAQ →
@@ -135,6 +136,24 @@ export default function ToolPage({
               <h2 id={`${idPrefix}-faq`}>{faqHeading}</h2>
             </div>
             <FaqAccordion items={faqs} idPrefix={idPrefix} headingLevel="h3" />
+            {PIN_IMAGES.has(path) && (
+              <div className="pin-box">
+                {/* eslint-disable-next-line @next/next/no-img-element -- static pin image, sized and lazy-loaded */}
+                <img src={`/pins${path}.jpg`} alt={`${appName}: free tool by ${siteConfig.name}`} width={1000} height={1500} loading="lazy" decoding="async" />
+                <div>
+                  <h3>Save this tool for later</h3>
+                  <p>Pin it to your Pinterest board so you can come back to it when you shop for {crumb === 'Does This Color Suit Me?' ? 'clothes and makeup' : 'your next look'}.</p>
+                  <a
+                    className="btn btn-primary btn-sm"
+                    href={`https://www.pinterest.com/pin/create/button/?url=${encodeURIComponent(url)}&media=${encodeURIComponent(`${siteConfig.url}/pins${path}.jpg`)}&description=${encodeURIComponent(`${appName}: ${description}`)}`}
+                    target="_blank"
+                    rel="noopener"
+                  >
+                    Save to Pinterest
+                  </a>
+                </div>
+              </div>
+            )}
           </div>
         </section>
 

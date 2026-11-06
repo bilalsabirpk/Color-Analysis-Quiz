@@ -23,7 +23,9 @@ const GROUPS = [
   ['bold', 'Bold lipstick shades'],
 ];
 
-export default function LipstickFinder({ id = 'lipstick-finder', heading = 'Find Your Lipstick Shades', className = 'alt-bg' }) {
+export default function LipstickFinder({ id = 'lipstick-finder', heading = 'Find Your Lipstick Shades', className = 'alt-bg', newTab = false }) {
+  // Inside an embed iframe, links open in a new tab instead of inside the widget.
+  const ext = newTab ? { target: '_blank', rel: 'noopener' } : {};
   const uid = useId();
   const [formKey, setFormKey] = useState(0);
   const [picked, setPicked] = useState('');
@@ -87,7 +89,7 @@ export default function LipstickFinder({ id = 'lipstick-finder', heading = 'Find
                 <p className="ut-tagline">
                   {result.estimated ? (
                     <>
-                      Close match: <Link href={`/guides/${result.alt}-color-palette`}>{SEASON_NAMES[result.alt]}</Link>
+                      Close match: <Link href={`/guides/${result.alt}-color-palette`} {...ext}>{SEASON_NAMES[result.alt]}</Link>
                     </>
                   ) : (
                     'Reference shades with hex codes'
@@ -112,10 +114,10 @@ export default function LipstickFinder({ id = 'lipstick-finder', heading = 'Find
                   another brand&apos;s peach. Test on your lips in daylight.
                 </p>
                 <div className="ut-cta tf-cta">
-                  <Link href={`/guides/${result.season}-makeup-palette`} className="btn btn-primary btn-sm">
+                  <Link href={`/guides/${result.season}-makeup-palette`} className="btn btn-primary btn-sm" {...ext}>
                     Full {name} makeup palette →
                   </Link>
-                  <Link href="/#quiz" className="btn btn-outline btn-sm">
+                  <Link href="/#quiz" className="btn btn-outline btn-sm" {...ext}>
                     Check your season with a photo
                   </Link>
                   <button type="button" className="ut-reset" onClick={reset}>

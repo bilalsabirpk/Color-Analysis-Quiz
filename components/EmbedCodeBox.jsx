@@ -32,6 +32,14 @@ export const WIDGETS = [
     creditHref: '/lipstick-color-finder',
     creditText: 'lipstick shade finder',
   },
+  {
+    id: 'hijab-finder',
+    label: 'Hijab Color Finder',
+    title: 'Hijab color finder',
+    height: 1100,
+    creditHref: '/hijab-color-finder',
+    creditText: 'hijab color finder',
+  },
 ];
 
 export function embedCode(w) {

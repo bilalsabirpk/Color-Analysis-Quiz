@@ -64,7 +64,8 @@ const webApplicationJsonLd = {
 };
 
 // The photo analysis, harmony tool and season palettes already live on the homepage itself.
-const FREE_TOOLS = TOOLS.filter((t) => !['/#quiz', '/embed-widget', '/color-harmony-generator', '/seasonal-color-palettes'].includes(t.href));
+// Kept to 12 cards (3 full rows); the contrast test stays in the menu and related tools.
+const FREE_TOOLS = TOOLS.filter((t) => !['/#quiz', '/embed-widget', '/color-harmony-generator', '/seasonal-color-palettes', '/contrast-test'].includes(t.href));
 
 export default function HomePage() {
   return (

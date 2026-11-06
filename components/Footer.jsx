@@ -81,6 +81,7 @@ export default function Footer() {
               <li><Link href="/blush-color-finder">Blush Color Finder</Link></li>
               <li><Link href="/eyeshadow-color-finder">Eyeshadow Color Finder</Link></li>
               <li><Link href="/does-this-color-suit-me">Does This Color Suit Me?</Link></li>
+              <li><Link href="/hijab-color-finder">Hijab Color Finder</Link></li>
               <li><Link href="/contrast-test">Contrast Level Test</Link></li>
               <li><Link href="/color-harmony-generator">Color Harmony Generator</Link></li>
               <li><Link href="/seasonal-color-palettes">Seasonal Color Palettes</Link></li>

@@ -5,9 +5,9 @@ import Link from 'next/link';
 import QuizForm, { ShadeList } from '@/components/QuizForm';
 import SeasonShortcut from '@/components/SeasonShortcut';
 import { SEASON_NAMES, SEASON_QUESTIONS, NEIGHBOR, estimateFromAnswers } from '@/lib/season-estimate';
-import { BLUSH, EYESHADOW } from '@/lib/shade-data';
+import { BLUSH, EYESHADOW, HIJAB } from '@/lib/shade-data';
 
-// Season-based shade finder shared by the blush and eyeshadow tools:
+// Season-based shade finder shared by the blush, eyeshadow and hijab tools:
 // four season questions (or a known season) → shades with hex codes.
 
 const KINDS = {
@@ -31,11 +31,29 @@ const KINDS = {
     side: (d) => [['Best eyeliner', d.liner]],
     note: 'Use a neutral all over the lid, a deeper neutral in the crease, and an accent color as liner or on the outer corner for a pop.',
   },
+  hijab: {
+    noun: 'hijab',
+    submit: 'Show My Hijab Colors',
+    groups: (d) => [
+      ['Everyday hijab colors', d.everyday],
+      ['Statement hijab colors', d.statement],
+    ],
+    side: (d) => [
+      ['Best fabrics', d.fabric],
+      ['Keep away from your face', d.avoid],
+    ],
+    note: 'Your hijab frames your face, so it matters more than any other color you wear. If you love a color outside your palette, wear it as an abaya or dress and keep a palette color as the hijab.',
+    cta: { href: '/guides/hijab-colors-for-skin-tone', label: 'Hijab colors guide →' },
+    second: { href: '/does-this-color-suit-me', label: 'Check a hijab color' },
+  },
 };
 
-export default function SeasonShadeFinder({ kind, id, heading, className = 'alt-bg' }) {
+const DATA = { blush: BLUSH, eyeshadow: EYESHADOW, hijab: HIJAB };
+
+export default function SeasonShadeFinder({ kind, id, heading, className = 'alt-bg', newTab = false }) {
   const cfg = KINDS[kind];
-  const DATA = kind === 'blush' ? BLUSH : EYESHADOW;
+  // Inside an embed iframe, links open in a new tab instead of inside the widget.
+  const ext = newTab ? { target: '_blank', rel: 'noopener' } : {};
   const uid = useId();
   const [formKey, setFormKey] = useState(0);
   const [picked, setPicked] = useState('');
@@ -61,7 +79,7 @@ export default function SeasonShadeFinder({ kind, id, heading, className = 'alt-
     requestAnimationFrame(() => document.getElementById(`${uid}-q0`)?.querySelector('input')?.focus());
   }
 
-  const data = result ? DATA[result.season] : null;
+  const data = result ? DATA[kind][result.season] : null;
   const name = result ? SEASON_NAMES[result.season] : '';
 
   return (
@@ -97,7 +115,7 @@ export default function SeasonShadeFinder({ kind, id, heading, className = 'alt-
                 <p className="ut-tagline">
                   {result.estimated ? (
                     <>
-                      Close match: <Link href={`/guides/${result.alt}-color-palette`}>{SEASON_NAMES[result.alt]}</Link>
+                      Close match: <Link href={`/guides/${result.alt}-color-palette`} {...ext}>{SEASON_NAMES[result.alt]}</Link>
                     </>
                   ) : (
                     'Reference shades with hex codes'
@@ -118,11 +136,11 @@ export default function SeasonShadeFinder({ kind, id, heading, className = 'alt-
                 ))}
                 <p className="ut-note">{cfg.note}</p>
                 <div className="ut-cta tf-cta">
-                  <Link href={`/guides/${result.season}-makeup-palette`} className="btn btn-primary btn-sm">
-                    Full {name} makeup palette →
+                  <Link href={cfg.cta ? cfg.cta.href : `/guides/${result.season}-makeup-palette`} className="btn btn-primary btn-sm" {...ext}>
+                    {cfg.cta ? cfg.cta.label : `Full ${name} makeup palette →`}
                   </Link>
-                  <Link href="/lipstick-color-finder" className="btn btn-outline btn-sm">
-                    Matching lipstick
+                  <Link href={cfg.second ? cfg.second.href : '/lipstick-color-finder'} className="btn btn-outline btn-sm" {...ext}>
+                    {cfg.second ? cfg.second.label : 'Matching lipstick'}
                   </Link>
                   <button type="button" className="ut-reset" onClick={reset}>
                     Start over

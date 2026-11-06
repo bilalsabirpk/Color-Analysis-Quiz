@@ -10,12 +10,12 @@ import RelatedTools from '@/components/RelatedTools';
 const PATH = '/embed-widget';
 const TITLE = 'Free Color Analysis Quiz Widget for Your Website (Embed Code)';
 const DESCRIPTION =
-  'Add a free color season quiz, skin undertone test or lipstick shade finder to your website with one copy-paste embed code. No sign-up, no ads, private and mobile-friendly.';
+  'Add a free color season quiz, skin undertone test, lipstick shade finder or hijab color finder to your website with one copy-paste embed code. No sign-up, no ads, private and mobile-friendly.';
 
 export const metadata = {
   title: { absolute: TITLE },
   description: DESCRIPTION,
-  keywords: ['color analysis widget', 'color season quiz embed', 'undertone test widget', 'free quiz widget for website', 'beauty quiz embed code'],
+  keywords: ['color analysis widget', 'color season quiz embed', 'undertone test widget', 'free quiz widget for website', 'beauty quiz embed code', 'hijab color quiz widget'],
   alternates: { canonical: PATH },
   openGraph: { ...OG_DEFAULTS, url: PATH, title: TITLE, description: DESCRIPTION },
 };
@@ -78,7 +78,7 @@ export default function EmbedWidgetPage() {
               Add a Free Color Analysis Quiz <span className="grad-text">to Your Website</span>
             </h1>
             <p className="lead">
-              Put our color season quiz, skin undertone test or lipstick shade finder on your own site with one
+              Put our color season quiz, skin undertone test, lipstick shade finder or hijab color finder on your own site with one
               copy-paste code. It is free, shows no ads, works on mobile, and keeps your
               visitors&apos; answers private in their browser.
             </p>

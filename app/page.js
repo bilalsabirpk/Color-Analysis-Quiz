@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { TOOLS } from '@/lib/tools';
 import { siteConfig, OG_DEFAULTS } from '@/lib/site-config';
 import {
   QUIZ_SECTIONS_HTML,
@@ -62,6 +63,9 @@ const webApplicationJsonLd = {
   },
 };
 
+// The photo analysis, harmony tool and season palettes already live on the homepage itself.
+const FREE_TOOLS = TOOLS.filter((t) => !['/#quiz', '/embed-widget', '/color-harmony-generator', '/seasonal-color-palettes'].includes(t.href));
+
 export default function HomePage() {
   return (
     <>
@@ -108,6 +112,26 @@ export default function HomePage() {
 
         {/* Saved palettes — stays hidden until the visitor saves a result. */}
         <div dangerouslySetInnerHTML={{ __html: QUIZ_FAVORITES_HTML }} />
+
+        {/* Links to the standalone tool pages (each targets its own search). */}
+        <section id="free-tools" aria-labelledby="freeToolsHeading">
+          <div className="container">
+            <div className="section-head">
+              <h2 id="freeToolsHeading">More Free Color Analysis Tools</h2>
+              <p>Each tool runs in your browser, free and without sign-up.</p>
+            </div>
+            <div className="tools-grid">
+              {FREE_TOOLS.map((t) => (
+                <Link key={t.href} href={t.href} className="tool-card">
+                  <span className="tool-icon" aria-hidden="true">{t.icon}</span>
+                  <h3>{t.title}</h3>
+                  <p>{t.short}</p>
+                  <span className="tool-go" aria-hidden="true">Open tool →</span>
+                </Link>
+              ))}
+            </div>
+          </div>
+        </section>
 
         {/* Latest 3 blog posts (server-rendered, crawlable). */}
         <BlogPreview limit={3} />

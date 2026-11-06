@@ -13,7 +13,7 @@ export default function Footer() {
               <span className="logo-mark" aria-hidden="true"></span>
               <span>
                 Color Analysis
-                <small style={{ color: '#bfb0d6' }}>AI-Powered Color Analysis</small>
+                <small style={{ color: '#bfb0d6' }}>Free Color Season Analysis</small>
               </span>
             </Link>
             <p style={{ fontSize: '13.5px' }}>
@@ -71,9 +71,20 @@ export default function Footer() {
             <ul>
               <li><Link href="/#quiz">Color Analysis Quiz</Link></li>
               <li><Link href="/what-season-am-i">What Season Am I? Quiz</Link></li>
-              <li><Link href="/#undertone-test">Undertone Check</Link></li>
-              <li><Link href="/#harmony">Color Harmony Generator</Link></li>
-              <li><Link href="/#seasons">Season Palettes</Link></li>
+              <li><Link href="/skin-tone-analyzer">Skin Tone Analyzer</Link></li>
+              <li><Link href="/undertone-test">Undertone Test</Link></li>
+              <li><Link href="/lipstick-color-finder">Lipstick Shade Finder</Link></li>
+              <li><Link href="/foundation-undertone-finder">Foundation Undertone Finder</Link></li>
+              <li><Link href="/hair-color-finder">Hair Color Finder</Link></li>
+              <li><Link href="/gold-or-silver-jewelry-test">Gold or Silver Test</Link></li>
+              <li><Link href="/concealer-shade-finder">Concealer Shade Finder</Link></li>
+              <li><Link href="/blush-color-finder">Blush Color Finder</Link></li>
+              <li><Link href="/eyeshadow-color-finder">Eyeshadow Color Finder</Link></li>
+              <li><Link href="/does-this-color-suit-me">Does This Color Suit Me?</Link></li>
+              <li><Link href="/contrast-test">Contrast Level Test</Link></li>
+              <li><Link href="/color-harmony-generator">Color Harmony Generator</Link></li>
+              <li><Link href="/seasonal-color-palettes">Seasonal Color Palettes</Link></li>
+              <li><Link href="/embed-widget">Embed the Quiz</Link></li>
             </ul>
           </div>
           <div>

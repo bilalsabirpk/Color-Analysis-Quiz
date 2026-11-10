@@ -82,8 +82,8 @@ const VALID = /^#[0-9A-F]{6}$/;
 
 export default function ColorChecker({ palettes, id = 'color-checker', className = 'alt-bg' }) {
   const uid = useId();
-  const [hex, setHex] = useState('#7B2FF7');
-  const [text, setText] = useState('#7B2FF7');
+  const [hex, setHex] = useState('#9333EA');
+  const [text, setText] = useState('#9333EA');
   const [season, setSeason] = useState('');
   const [error, setError] = useState('');
 
@@ -92,7 +92,7 @@ export default function ColorChecker({ palettes, id = 'color-checker', className
     if (!v.startsWith('#')) v = `#${v}`;
     if (/^#[0-9A-F]{3}$/.test(v)) v = `#${v[1]}${v[1]}${v[2]}${v[2]}${v[3]}${v[3]}`;
     if (!VALID.test(v)) {
-      setError('Please enter a 6-digit hex code, for example #7B2FF7.');
+      setError('Please enter a 6-digit hex code, for example #9333EA.');
       return;
     }
     setError('');

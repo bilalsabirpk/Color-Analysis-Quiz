@@ -25,10 +25,10 @@ export async function GET(_req, { params }) {
   return new ImageResponse(
     (
       <div style={{ width: '100%', height: '100%', display: 'flex', flexDirection: 'column', background: '#faf7f2', padding: '60px 56px 46px' }}>
-        <div style={{ display: 'flex', fontSize: 30, fontWeight: 700, color: '#7b2ff7', letterSpacing: 3, textTransform: 'uppercase' }}>
+        <div style={{ display: 'flex', fontSize: 30, fontWeight: 700, color: '#9333ea', letterSpacing: 3, textTransform: 'uppercase' }}>
           {season}
         </div>
-        <div style={{ display: 'flex', fontSize: 70, color: '#241536', lineHeight: 1.05, marginTop: 12, letterSpacing: -1 }}>
+        <div style={{ display: 'flex', fontSize: 70, color: '#111827', lineHeight: 1.05, marginTop: 12, letterSpacing: -1 }}>
           Outfit Color Combinations
         </div>
         <div style={{ display: 'flex', flexDirection: 'column', flex: 1, marginTop: 36 }}>
@@ -39,7 +39,7 @@ export async function GET(_req, { params }) {
                   <div key={j} style={{ display: 'flex', flex: j === 0 ? 1.4 : 1, background: col.hex }} />
                 ))}
               </div>
-              <div style={{ display: 'flex', fontSize: 30, fontWeight: 700, color: '#241536', marginTop: 12 }}>
+              <div style={{ display: 'flex', fontSize: 30, fontWeight: 700, color: '#111827', marginTop: 12 }}>
                 {c.colors.map((x) => x.name).join(' + ')}
               </div>
               <div style={{ display: 'flex', fontSize: 23, color: '#5b4b70', marginTop: 2 }}>{c.tip}</div>
@@ -48,7 +48,7 @@ export async function GET(_req, { params }) {
         </div>
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginTop: 30, fontSize: 28, color: '#5b4b70' }}>
           <div style={{ display: 'flex' }}>Free color analysis quiz</div>
-          <div style={{ display: 'flex', fontWeight: 700, color: '#241536' }}>{host}</div>
+          <div style={{ display: 'flex', fontWeight: 700, color: '#111827' }}>{host}</div>
         </div>
       </div>
     ),

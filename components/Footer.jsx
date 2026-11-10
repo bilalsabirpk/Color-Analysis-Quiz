@@ -9,11 +9,11 @@ export default function Footer() {
       <div className="container">
         <div className="footer-grid">
           <div>
-            <Link href="/" className="logo" style={{ color: '#fff', marginBottom: 12 }}>
+            <Link href="/" className="logo" style={{ marginBottom: 12 }}>
               <span className="logo-mark" aria-hidden="true"></span>
               <span>
                 Color Analysis
-                <small style={{ color: '#bfb0d6' }}>Free Color Season Analysis</small>
+                <small>Free Color Season Analysis</small>
               </span>
             </Link>
             <p style={{ fontSize: '13.5px' }}>

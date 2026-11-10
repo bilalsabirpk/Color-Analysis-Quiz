@@ -75,7 +75,7 @@ export default function HeroVisuals() {
           <span className="hp-pt" />
         </div>
         <svg className="hp-link" viewBox="0 0 260 260" width="260" height="260">
-          <path d="M153 147C188 156 214 184 228 216" fill="none" stroke="#7b2ff7" strokeWidth="2" strokeDasharray="4 4" strokeLinecap="round" />
+          <path d="M153 147C188 156 214 184 228 216" fill="none" stroke="#9333ea" strokeWidth="2" strokeDasharray="4 4" strokeLinecap="round" />
         </svg>
         <span className="hp-swatch" />
       </div>

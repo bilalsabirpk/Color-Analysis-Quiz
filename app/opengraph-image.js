@@ -15,7 +15,7 @@ export default async function Image() {
           flexDirection: 'column',
           justifyContent: 'center',
           alignItems: 'center',
-          background: 'linear-gradient(135deg, #7b2ff7 0%, #e114c9 100%)',
+          background: 'linear-gradient(135deg, #9333ea 0%, #db2777 100%)',
           padding: 80,
         }}
       >
@@ -26,7 +26,7 @@ export default async function Image() {
             marginBottom: 36,
           }}
         >
-          {['#f97316', '#eab308', '#22c55e', '#06b6d4', '#7b2ff7', '#e114c9'].map((c) => (
+          {['#f97316', '#eab308', '#22c55e', '#06b6d4', '#9333ea', '#db2777'].map((c) => (
             <div
               key={c}
               style={{

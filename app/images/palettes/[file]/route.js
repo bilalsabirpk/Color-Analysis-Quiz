@@ -32,7 +32,7 @@ export async function GET(_req, { params }) {
   return new ImageResponse(
     (
       <div style={{ width: '100%', height: '100%', display: 'flex', flexDirection: 'column', background: '#ffffff', padding: '64px 56px 48px' }}>
-        <div style={{ display: 'flex', fontSize: 30, fontWeight: 700, color: '#9333ea', letterSpacing: 3, textTransform: 'uppercase' }}>
+        <div style={{ display: 'flex', fontSize: 30, fontWeight: 700, color: '#4f46e5', letterSpacing: 3, textTransform: 'uppercase' }}>
           Seasonal Color Analysis
         </div>
         <div style={{ display: 'flex', fontSize: 76, fontWeight: 800, color: '#111827', lineHeight: 1.05, marginTop: 14, letterSpacing: -1 }}>

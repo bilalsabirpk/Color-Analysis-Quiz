@@ -21,7 +21,7 @@ export const CATEGORY_ICONS = {
 
 export default function GuideCard({ guide, headingLevel = 'h3', hidden = false }) {
   const Heading = headingLevel;
-  const swatches = guide.swatches?.length ? guide.swatches : ['#7b2ff7', '#c026d3', '#f3e8ff', '#241536'];
+  const swatches = guide.swatches?.length ? guide.swatches : ['#9333ea', '#db2777', '#f3e8ff', '#111827'];
   const icon = CATEGORY_ICONS[guide.category] || '📝';
 
   return (

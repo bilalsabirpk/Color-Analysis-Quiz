@@ -74,7 +74,7 @@ const QUICK = [
 
 const VALID = /^#[0-9A-F]{6}$/;
 
-export default function HarmonyGenerator({ initial = '#9333EA' }) {
+export default function HarmonyGenerator({ initial = '#4F46E5' }) {
   const uid = useId();
   const [hex, setHex] = useState(initial);
   const [text, setText] = useState(initial);
@@ -86,7 +86,7 @@ export default function HarmonyGenerator({ initial = '#9333EA' }) {
     if (!v.startsWith('#')) v = `#${v}`;
     if (/^#[0-9A-F]{3}$/.test(v)) v = `#${v[1]}${v[1]}${v[2]}${v[2]}${v[3]}${v[3]}`;
     if (!VALID.test(v)) {
-      setStatus('Please enter a 6-digit hex code, for example #9333EA.');
+      setStatus('Please enter a 6-digit hex code, for example #4F46E5.');
       return;
     }
     setHex(v);

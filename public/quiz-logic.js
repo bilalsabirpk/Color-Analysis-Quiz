@@ -876,7 +876,7 @@ function downloadResultCard(result){
 
   function drawPhoto(){
     ctx.font = '800 46px Arial';
-    ctx.fillStyle = '#9333ea';
+    ctx.fillStyle = '#4f46e5';
     ctx.fillText(season.emoji + '  ' + season.name, 50, 260);
     ctx.font = '600 22px Arial';
     ctx.fillStyle = '#4b5563';
@@ -910,7 +910,7 @@ function downloadResultCard(result){
     ctx.font = 'italic 15px Arial';
     ctx.fillStyle = '#6b7280';
     ctx.font = '700 20px Arial';
-    ctx.fillStyle = '#9333ea';
+    ctx.fillStyle = '#4f46e5';
     ctx.fillText('Find your season free: coloranalyzerquiz.com', 50, H-70);
     ctx.font = 'italic 15px Arial';
     ctx.fillStyle = '#6b7280';
@@ -1252,7 +1252,7 @@ function wireHarmony(){
       renderHarmony(v);
       applyColorToPhoto(v);
     } else {
-      showToast('Please enter a valid 6-digit hex color, e.g. #9333EA');
+      showToast('Please enter a valid 6-digit hex color, e.g. #4F46E5');
       hexInput.value = picker.value.toUpperCase();
     }
   }
@@ -1760,7 +1760,7 @@ function drawClothingMarker(ctx, W, H){
   ctx.fillStyle = 'rgba(255,255,255,.85)';
   ctx.fill();
   ctx.lineWidth = 2.5;
-  ctx.strokeStyle = '#9333ea';
+  ctx.strokeStyle = '#4f46e5';
   ctx.stroke();
   ctx.restore();
 }
@@ -1887,7 +1887,7 @@ function wireRecolorMode(){
       state.recolorMode = mode;
       state.clothingSample = null; // force re-detection under the new mode
       updateRecolorCopy(!!(state.lastResult && state.lastResult.photoDataUrl));
-      var currentColor = state.drapeColor || (state.lastResult ? SEASONS[state.lastResult.season].best[0] : '#9333EA');
+      var currentColor = state.drapeColor || (state.lastResult ? SEASONS[state.lastResult.season].best[0] : '#4F46E5');
       applyColorToPhoto(currentColor);
       showToast(mode === 'background' ? 'Now recoloring the background.' : 'Now recoloring your clothing.');
     });
@@ -1937,7 +1937,7 @@ function resampleClothingAt(rx, ry){
     off.width = W; off.height = H;
     drawImageCover(off.getContext('2d'), img, 0, 0, W, H);
     state.clothingSample = { x: rx, y: ry, rgb: samplePixelFromCanvas(off, rx, ry) };
-    applyColorToPhoto(state.drapeColor || (state.lastResult ? SEASONS[state.lastResult.season].best[0] : '#9333EA'));
+    applyColorToPhoto(state.drapeColor || (state.lastResult ? SEASONS[state.lastResult.season].best[0] : '#4F46E5'));
     showToast('Got it — now recoloring that area.');
   });
 }
@@ -1963,7 +1963,7 @@ function wireDrape(){
     if(isValidHex(v)){
       applyColorToPhoto(v);
     } else {
-      showToast('Please enter a valid 6-digit hex color, e.g. #9333EA');
+      showToast('Please enter a valid 6-digit hex color, e.g. #4F46E5');
     }
   }
   customBtn.addEventListener('click', applyCustom);
@@ -2144,7 +2144,7 @@ function applyCropAsPhoto(){
   state.cleanRecolorCanvases = null;
 
   closeCropModal();
-  var currentColor = state.drapeColor || (state.lastResult ? SEASONS[state.lastResult.season].best[0] : '#9333EA');
+  var currentColor = state.drapeColor || (state.lastResult ? SEASONS[state.lastResult.season].best[0] : '#4F46E5');
   applyColorToPhoto(currentColor);
   showToast('Crop applied — try other colors any time, then download whenever you’re ready.');
 }
@@ -2258,7 +2258,7 @@ function wireAddColor(){
     }
     var v = normalizeHex(hexInput.value) || normalizeHex(picker.value);
     if(!isValidHex(v)){
-      showToast('Please enter a valid 6-digit hex color, e.g. #9333EA');
+      showToast('Please enter a valid 6-digit hex color, e.g. #4F46E5');
       return;
     }
     var added = addCustomColorFor(state.lastResult.season, v);

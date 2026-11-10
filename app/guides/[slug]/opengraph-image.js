@@ -17,7 +17,7 @@ export default async function Image({ params }) {
   const { slug } = await params;
   const guide = getGuide(slug);
   const title = guide?.title || siteConfig.name;
-  const swatches = guide?.swatches?.length ? guide.swatches.slice(0, 6) : ['#9333ea', '#db2777', '#f97316', '#22c55e'];
+  const swatches = guide?.swatches?.length ? guide.swatches.slice(0, 6) : ['#4f46e5', '#7c3aed', '#f97316', '#22c55e'];
   const category = guide?.category || 'Guide';
 
   return new ImageResponse(
@@ -43,7 +43,7 @@ export default async function Image({ params }) {
               display: 'flex',
               fontSize: 26,
               fontWeight: 700,
-              color: '#9333ea',
+              color: '#4f46e5',
               textTransform: 'uppercase',
               letterSpacing: 2,
               marginBottom: 22,

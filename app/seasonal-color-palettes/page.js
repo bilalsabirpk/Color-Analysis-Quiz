@@ -162,7 +162,10 @@ export default function SeasonalPalettesPage() {
                 <h2 id={`fam-${f.name}`}>
                   <span aria-hidden="true">{f.emoji}</span> {f.name} Color Palettes
                 </h2>
-                <p>{f.note}</p>
+                <p>
+                  {f.note}{' '}
+                  <Link href={`/guides/${f.name.toLowerCase()}-color-palette`}>Compare all three {f.name} seasons →</Link>
+                </p>
               </div>
               <div className="scp-grid">
                 {f.slugs.map(season).map((s) => (

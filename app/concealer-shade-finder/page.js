@@ -6,9 +6,9 @@ import ConcealerFinder from '@/components/ConcealerFinder';
 // Tool page for "concealer shade finder" / "what color corrector do I need".
 
 const PATH = '/concealer-shade-finder';
-const TITLE = 'Concealer Shade Finder: Which Concealer and Color Corrector? (Free)';
+const TITLE = 'Concealer Shade Finder & Color Corrector Quiz (Free)';
 const DESCRIPTION =
-  'Free concealer shade finder: answer 6 quick questions to find your concealer undertone, how light to go, and which color corrector to use for dark circles, redness or dark spots.';
+  'Free concealer shade finder: 6 quick questions reveal your concealer undertone, how light to go and which color corrector fixes dark circles or redness.';
 
 export const metadata = {
   title: { absolute: TITLE },

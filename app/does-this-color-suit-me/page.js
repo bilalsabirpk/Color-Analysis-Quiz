@@ -10,7 +10,7 @@ import ColorChecker from '@/components/ColorChecker';
 const PATH = '/does-this-color-suit-me';
 const TITLE = 'Does This Color Suit Me? Free Color Checker for Your Season';
 const DESCRIPTION =
-  'Free color checker: pick any color or paste a hex code, choose your color season, and see if the color suits you, the closest shades in your palette and the seasons it suits best.';
+  'Free color checker: paste any hex code or pick a color, choose your season, and see if it suits you, plus the closest shades in your palette.';
 
 export const metadata = {
   title: { absolute: TITLE },

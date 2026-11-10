@@ -14,7 +14,7 @@ import ToolGuide, { guideFaqs } from '@/components/ToolGuide';
 const PATH = '/seasonal-color-palettes';
 const TITLE = 'Seasonal Color Palettes: All 12 Seasons with Hex Codes';
 const DESCRIPTION =
-  'All 12 seasonal color palettes in one place, with hex codes: Light, Warm and Bright Spring, Light, Cool and Soft Summer, Soft, Warm and Deep Autumn, and Deep, Cool and Bright Winter.';
+  'All 12 seasonal color palettes with hex codes: Light, Warm and Bright Spring, Light, Cool and Soft Summer, every Autumn and Winter season.';
 
 export const metadata = {
   title: { absolute: TITLE },

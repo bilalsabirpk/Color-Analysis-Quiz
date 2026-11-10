@@ -8,7 +8,7 @@ import SeasonShadeFinder from '@/components/SeasonShadeFinder';
 const PATH = '/eyeshadow-color-finder';
 const TITLE = 'Eyeshadow Color Finder: What Eyeshadow Colors Suit Me? (Free)';
 const DESCRIPTION =
-  'Free eyeshadow color finder: answer 4 quick questions to find the eyeshadow neutrals, accent colors and eyeliner that suit your skin tone and color season, with hex codes.';
+  'Free eyeshadow color finder: 4 quick questions reveal the neutrals, accent colors and eyeliner that suit your skin tone and season, with hex codes.';
 
 export const metadata = {
   title: { absolute: TITLE },

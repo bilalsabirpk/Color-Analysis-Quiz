@@ -6,9 +6,9 @@ import ContrastTest from '@/components/ContrastTest';
 // Tool page for "personal contrast test" / "contrast level test".
 
 const PATH = '/contrast-test';
-const TITLE = 'Personal Contrast Test: Are You Low, Medium or High Contrast? (Free)';
+const TITLE = 'Personal Contrast Test: Low, Medium or High Contrast?';
 const DESCRIPTION =
-  'Free personal contrast test: answer 5 quick questions about your hair, skin and eyes to find your contrast level, the outfit color pairings that suit you and your likely seasons.';
+  'Free personal contrast test: 5 quick questions about your hair, skin and eyes reveal your contrast level, best outfit pairings and likely seasons.';
 
 export const metadata = {
   title: { absolute: TITLE },

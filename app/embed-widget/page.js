@@ -10,7 +10,7 @@ import RelatedTools from '@/components/RelatedTools';
 const PATH = '/embed-widget';
 const TITLE = 'Free Color Analysis Quiz Widget for Your Website (Embed Code)';
 const DESCRIPTION =
-  'Add a free color season quiz, skin undertone test, lipstick shade finder or hijab color finder to your website with one copy-paste embed code. No sign-up, no ads, private and mobile-friendly.';
+  'Add a free color season quiz, undertone test, lipstick finder or hijab finder to your website with one embed code. No sign-up, no ads, mobile-friendly.';
 
 export const metadata = {
   title: { absolute: TITLE },

@@ -1174,6 +1174,9 @@
   .hs-season-swatches{display:grid;grid-template-columns:repeat(6,1fr);height:78px;}
   .hs-season-body{padding:20px 22px 6px;flex:1;}
   .hs-season-body h3{font-size:21px;margin:0 0 2px;}
+  .hs-season-body h3 a{color:inherit;text-decoration:none;}
+  .hs-season-body h3 a:hover{color:var(--purple);text-decoration:underline;text-underline-offset:3px;}
+  .hs-season-body h3 a:focus-visible{outline:3px solid var(--focus);outline-offset:2px;border-radius:4px;}
   .hs-season-tagline{font-size:13px;font-weight:700;color:var(--purple);margin:0 0 10px;text-transform:uppercase;letter-spacing:.05em;}
   .hs-season-body > p:not(.hs-season-tagline){font-size:14.5px;color:var(--ink-soft);line-height:1.6;margin:0 0 14px;}
   .hs-season-more{display:block;margin-top:16px;padding:13px 22px;border-top:1px solid rgba(0,0,0,.06);font-size:14px;font-weight:700;color:var(--purple);text-decoration:none;}

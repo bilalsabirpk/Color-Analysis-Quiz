@@ -731,10 +731,67 @@ function wireResultActions(){
   });
   document.getElementById('downloadBtn').addEventListener('click', function(){
     downloadResultCard(state.lastResult);
+  });  wireShareResult();
+}
+
+/* ---------- Share my season ----------
+ * Shares only the season name and a link to the quiz (never the photo).
+ * Phones get the native share sheet; desktops get WhatsApp / Facebook / X /
+ * Pinterest links and a copy button. Mirrors lib/share.js. */
+var SHARE_SITE = 'https://coloranalyzerquiz.com';
+function shareData(result){
+  var season = SEASONS[result.season];
+  return {
+    key: season.key,
+    text: 'My color season is ' + season.name + ' ' + season.emoji + ' (' + season.tagline + ')! What\'s yours? Free color analysis quiz:',
+    url: SHARE_SITE + '/?utm_source=share&utm_medium=social&utm_campaign=photo-' + season.key
+  };
+}
+function trackShare(method, key){
+  if(typeof window.gtag === 'function'){
+    window.gtag('event', 'share', { method: method, content_type: 'result', item_id: 'photo-' + key });
+  }
+}
+function wireShareResult(){
+  var btn = document.getElementById('shareResultBtn');
+  var panel = document.getElementById('shareResultPanel');
+  if(!btn || !panel) return;
+  btn.addEventListener('click', function(){
+    if(!state.lastResult) return;
+    var d = shareData(state.lastResult);
+    if(navigator.share && window.matchMedia('(pointer: coarse)').matches){
+      navigator.share({ text: d.text, url: d.url }).then(function(){ trackShare('native', d.key); }).catch(function(){});
+      return;
+    }
+    var t = encodeURIComponent(d.text), u = encodeURIComponent(d.url);
+    var hrefs = {
+      whatsapp: 'https://wa.me/?text=' + encodeURIComponent(d.text + ' ' + d.url),
+      facebook: 'https://www.facebook.com/sharer/sharer.php?u=' + u,
+      x: 'https://twitter.com/intent/tweet?text=' + t + '&url=' + u,
+      pinterest: 'https://www.pinterest.com/pin/create/button/?url=' + u + '&media=' + encodeURIComponent(SHARE_SITE + '/opengraph-image') + '&description=' + t
+    };
+    panel.querySelectorAll('a[data-share]').forEach(function(a){ a.href = hrefs[a.getAttribute('data-share')]; });
+    var show = panel.hidden;
+    panel.hidden = !show;
+    btn.setAttribute('aria-expanded', show ? 'true' : 'false');
+  });
+  panel.addEventListener('click', function(e){
+    var el = e.target.closest('[data-share]');
+    if(!el || !state.lastResult) return;
+    var d = shareData(state.lastResult);
+    var method = el.getAttribute('data-share');
+    if(method === 'copy'){
+      e.preventDefault();
+      silentCopyToClipboard(d.text + ' ' + d.url);
+      showToast('Link copied! Paste it anywhere to share.');
+    }
+    trackShare(method, d.key);
   });
 }
 
 function resetQuiz(){
+  var sp = document.getElementById('shareResultPanel');
+  if(sp){ sp.hidden = true; document.getElementById('shareResultBtn').setAttribute('aria-expanded','false'); }
   document.getElementById('fileInput').value = '';
   clearUploadError();
   document.querySelectorAll('.sample-photo').forEach(function(b){ b.classList.remove('selected'); });
@@ -850,6 +907,11 @@ function downloadResultCard(result){
       roundRect(ctx, x, y, sw, sw, 10, true);
     });
 
+    ctx.font = 'italic 15px Arial';
+    ctx.fillStyle = '#8b7aa3';
+    ctx.font = '700 20px Arial';
+    ctx.fillStyle = '#7b2ff7';
+    ctx.fillText('Find your season free: coloranalyzerquiz.com', 50, H-70);
     ctx.font = 'italic 15px Arial';
     ctx.fillStyle = '#8b7aa3';
     ctx.fillText('Generated with Color Analysis · colors run entirely in your browser', 50, H-40);

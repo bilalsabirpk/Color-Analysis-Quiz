@@ -2,6 +2,7 @@
 
 import { useId, useRef, useState } from 'react';
 import Link from 'next/link';
+import ShareResult from '@/components/ShareResult';
 
 // Quick no-photo self-check: 6 questions → undertone (warm / cool / neutral)
 // and a likely season. Pure client-side scoring, nothing stored or sent.
@@ -296,6 +297,10 @@ export default function UndertoneCheck({
                     Start over
                   </button>
                 </div>
+                <ShareResult
+                  text={`My quick color check says ${result.undertone.toLowerCase()} undertone, likely ${season.name} ${season.emoji}. What's your color season? Free quiz:`}
+                  campaign={`quick-check-${result.season}`}
+                />
               </div>
             </div>
           )}

@@ -882,6 +882,19 @@
   .share-btn{display:inline-flex;align-items:center;gap:8px;padding:9px 16px;border:1px solid var(--line);border-radius:999px;background:#fff;font:inherit;font-size:13.5px;font-weight:700;color:var(--ink);cursor:pointer;}
   .share-btn:hover{border-color:var(--purple);color:var(--purple);}
   .share-btn:focus-visible{outline:3px solid var(--focus);outline-offset:2px;}
+
+  /* Share my result (components/ShareResult.jsx + photo quiz #shareResultPanel) */
+  .share-result{margin-top:14px;}
+  .share-result-btn{display:inline-flex;align-items:center;gap:7px;}
+  .share-panel{list-style:none;margin:10px 0 0;padding:0;display:flex;flex-wrap:wrap;gap:8px;}
+  .share-panel[hidden]{display:none;}
+  .share-panel-quiz{justify-content:center;margin:12px auto 4px;}
+  .share-chip{display:inline-flex;align-items:center;min-height:36px;padding:7px 14px;border-radius:999px;border:1px solid var(--line);background:#fff;font:inherit;font-size:13.5px;font-weight:700;color:var(--ink);text-decoration:none;cursor:pointer;transition:border-color .15s,color .15s,background .15s;}
+  .share-chip:hover{border-color:var(--purple);color:var(--purple);}
+  .share-chip:active{background:#f5efff;}
+  .share-chip:focus-visible{outline:3px solid var(--focus);outline-offset:2px;}
+  .share-whatsapp:hover{border-color:#128c3e;color:#0f7a35;}
+  .share-pinterest:hover{border-color:#bd081c;color:#a50718;}
   @media (max-width:980px){ .blog-grid{grid-template-columns:repeat(2,minmax(0,1fr));} .all-guides-grid{grid-template-columns:repeat(2,minmax(0,1fr));} }
   @media (max-width:640px){
     .blog-grid{grid-template-columns:1fr;}

@@ -8,7 +8,7 @@ import SeasonShadeFinder from '@/components/SeasonShadeFinder';
 const PATH = '/blush-color-finder';
 const TITLE = 'Blush Color Finder: What Blush Color Suits Me? (Free Quiz)';
 const DESCRIPTION =
-  'Free blush color finder: answer 4 quick questions to find the blush shades that suit your skin tone and color season, with hex codes, the best finish and placement tips.';
+  'Free blush color finder: 4 quick questions reveal the blush shades that suit your skin tone and color season, with hex codes and placement tips.';
 
 export const metadata = {
   title: { absolute: TITLE },

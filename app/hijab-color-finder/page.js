@@ -9,7 +9,7 @@ import SeasonShadeFinder from '@/components/SeasonShadeFinder';
 const PATH = '/hijab-color-finder';
 const TITLE = 'Hijab Color Finder: What Hijab Color Suits My Skin Tone? (Free)';
 const DESCRIPTION =
-  'Free hijab color finder: answer 4 quick questions to find the everyday and statement hijab colors that suit your skin tone and color season, with hex codes and the best fabrics.';
+  'Free hijab color finder: 4 quick questions reveal the everyday and statement hijab colors for your skin tone and season, with hex codes and fabrics.';
 
 export const metadata = {
   title: { absolute: TITLE },

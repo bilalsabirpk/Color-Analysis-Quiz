@@ -7,7 +7,7 @@ import JewelryTest from '@/components/JewelryTest';
 // better on me". The long-form guide is /guides/gold-vs-silver-jewelry-undertone.
 
 const PATH = '/gold-or-silver-jewelry-test';
-const TITLE = 'Gold or Silver Jewelry Test: Which Metal Suits My Skin Tone? (Free)';
+const TITLE = 'Gold or Silver Jewelry Test: Which Metal Suits Me?';
 const DESCRIPTION =
   'Free gold or silver jewelry test: answer 6 quick questions to find out if gold, silver or both suit your skin tone, plus the metals and gemstones to try.';
 

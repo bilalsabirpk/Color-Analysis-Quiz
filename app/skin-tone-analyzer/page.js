@@ -7,9 +7,9 @@ import SkinToneAnalyzer from '@/components/SkinToneAnalyzer';
 // Photo analysis runs in the browser; nothing is uploaded.
 
 const PATH = '/skin-tone-analyzer';
-const TITLE = 'Skin Tone Analyzer: Find Your Skin Tone and Undertone from a Photo (Free)';
+const TITLE = 'Skin Tone Analyzer: Find Your Undertone from a Photo';
 const DESCRIPTION =
-  'Free skin tone analyzer: upload a selfie and tap your cheek, or pick your skin color, to find your skin depth (fair to deep), your undertone and the colors that suit you. Your photo never leaves your device.';
+  'Free skin tone analyzer: upload a selfie or pick your skin color to find your skin depth, undertone and best colors. Your photo never leaves your device.';
 
 export const metadata = {
   title: { absolute: TITLE },

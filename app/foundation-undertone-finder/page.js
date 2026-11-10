@@ -7,9 +7,9 @@ import FoundationFinder from '@/components/FoundationFinder';
 // Gives the undertone family and depth range, not brand shades.
 
 const PATH = '/foundation-undertone-finder';
-const TITLE = 'Foundation Undertone Finder: Warm, Cool, Neutral or Olive? (Free Test)';
+const TITLE = 'Foundation Undertone Finder: Warm, Cool or Olive? (Free)';
 const DESCRIPTION =
-  'Free foundation undertone test: answer 5 quick questions to find out if you need a warm, cool, neutral or olive foundation, which shade labels to look for, and how to swatch.';
+  'Free foundation undertone test: 5 quick questions tell you if you need a warm, cool, neutral or olive foundation and which shade labels to look for.';
 
 export const metadata = {
   title: { absolute: TITLE },

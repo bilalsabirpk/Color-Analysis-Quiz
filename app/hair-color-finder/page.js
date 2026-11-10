@@ -9,7 +9,7 @@ import HairColorFinder from '@/components/HairColorFinder';
 const PATH = '/hair-color-finder';
 const TITLE = 'Hair Color Finder: What Hair Color Suits Me? (Free Quiz)';
 const DESCRIPTION =
-  'Free hair color finder: answer 6 quick questions about your skin, eyes and natural hair to find the hair colors that suit your skin tone and color season, with hex codes.';
+  'Free hair color finder: 6 quick questions about your skin, eyes and natural hair reveal the hair colors that suit your skin tone, with hex codes.';
 
 export const metadata = {
   title: { absolute: TITLE },

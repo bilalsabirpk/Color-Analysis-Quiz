@@ -79,6 +79,8 @@
   .nav-tools-menu[hidden]{display:none;}
   nav.main-nav .nav-tools-menu a{display:flex;gap:10px;align-items:center;padding:8px 10px;border-radius:10px;}
   .nt-group ul{list-style:none;margin:0;padding:0;}
+  nav.main-nav .nav-tools-menu a.nt-all{grid-column:1/-1;justify-content:center;margin-top:4px;padding:10px;border-top:1px solid var(--line);border-radius:0 0 10px 10px;font-weight:700;font-size:14px;color:var(--purple);}
+  nav.main-nav .nav-tools-menu a.nt-all:hover{background:var(--grad-soft, #f5f7ff);}
   .nt-group-label{margin:0 0 4px;padding:0 10px;font-size:11.5px;font-weight:800;letter-spacing:.07em;text-transform:uppercase;color:var(--purple);}
   .nt-icon{font-size:20px;line-height:1.2;flex:none;}
   .nt-text{display:flex;flex-direction:column;gap:2px;}

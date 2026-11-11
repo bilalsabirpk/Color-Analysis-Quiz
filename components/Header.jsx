@@ -118,6 +118,9 @@ export default function Header() {
                   </ul>
                 </div>
               ))}
+              <Link href="/tools" className="nt-all" onClick={closeAll}>
+                See all {TOOLS.filter((t) => t.href !== '/embed-widget').length} free tools →
+              </Link>
             </div>
           </div>
           {NAV_LINKS.slice(1).map((link) => (

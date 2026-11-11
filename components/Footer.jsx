@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { siteConfig, socialLinks } from '@/lib/site-config';
+import { siteConfig, socialProfiles } from '@/lib/site-config';
 import { SOCIAL_ICON_PATHS } from '@/lib/social-icons';
 
 export default function Footer() {
@@ -21,15 +21,16 @@ export default function Footer() {
               device.
             </p>
 
-            {socialLinks.length > 0 && (
+            {socialProfiles.length > 0 && (
               <ul className="footer-social" aria-label="Follow us on social media">
-                {socialLinks.map((s) => (
+                {socialProfiles.map((s) => (
                   <li key={s.key}>
                     <a
-                      href={s.url || '/'}
-                      {...(s.url ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
-                      aria-label={s.url ? `${siteConfig.name} on ${s.label} (opens in a new tab)` : `${s.label}: coming soon (goes to home page)`}
-                      title={s.url ? s.label : `${s.label} (coming soon)`}
+                      href={s.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label={`${siteConfig.name} on ${s.label} (opens in a new tab)`}
+                      title={s.label}
                     >
                       <svg viewBox="0 0 24 24" width="17" height="17" aria-hidden="true" focusable="false">
                         <path d={SOCIAL_ICON_PATHS[s.key]} fill="currentColor" />
@@ -61,6 +62,7 @@ export default function Footer() {
             <ul>
               <li><Link href="/about">About Us</Link></li>
               <li><Link href="/#season-types">All Color Seasons</Link></li>
+              <li><Link href="/tools">All Free Tools</Link></li>
               <li><Link href="/guides">Blog</Link></li>
               <li><Link href="/faq">FAQ</Link></li>
               <li><Link href="/contact">Contact</Link></li>

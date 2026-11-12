@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
 import { TOOLS, TOOL_GROUPS } from '@/lib/tools';
+import ThemeToggle from '@/components/ThemeToggle';
 
 // Primary nav — mirrors the classic Home / Blog / About / Contact pattern.
 // The quiz sections (#quiz, #seasons, #harmony, #undertone-test) only exist on
@@ -130,6 +131,7 @@ export default function Header() {
           ))}
         </nav>
         <div className="nav-actions">
+          <ThemeToggle />
           <Link href="/#quiz" className="btn btn-primary btn-sm">
             Start Free Quiz
           </Link>

@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { siteConfig, socialProfiles } from '@/lib/site-config';
+import { siteConfig, footerSocial } from '@/lib/site-config';
 import { SOCIAL_ICON_PATHS } from '@/lib/social-icons';
 
 export default function Footer() {
@@ -21,15 +21,15 @@ export default function Footer() {
               device.
             </p>
 
-            {socialProfiles.length > 0 && (
+            {footerSocial.length > 0 && (
               <ul className="footer-social" aria-label="Follow us on social media">
-                {socialProfiles.map((s) => (
+                {footerSocial.map((s) => (
                   <li key={s.key}>
                     <a
-                      href={s.url}
+                      href={s.href}
                       target="_blank"
-                      rel="noopener noreferrer"
-                      aria-label={`${siteConfig.name} on ${s.label} (opens in a new tab)`}
+                      rel={s.pending ? 'nofollow noopener noreferrer' : 'noopener noreferrer'}
+                      aria-label={s.pending ? `${s.label} (opens in a new tab)` : `${siteConfig.name} on ${s.label} (opens in a new tab)`}
                       title={s.label}
                     >
                       <svg viewBox="0 0 24 24" width="17" height="17" aria-hidden="true" focusable="false">

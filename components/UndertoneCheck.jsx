@@ -2,6 +2,7 @@
 
 import { useId, useRef, useState } from 'react';
 import Link from 'next/link';
+import ShareResult from '@/components/ShareResult';
 
 // Quick no-photo self-check: 6 questions → undertone (warm / cool / neutral)
 // and a likely season. Pure client-side scoring, nothing stored or sent.
@@ -142,7 +143,10 @@ export default function UndertoneCheck({
   heading = 'Quick Undertone Quiz: Warm, Cool or Neutral?',
   sub = 'Six questions, no photo needed.',
   className = 'alt-bg',
+  newTab = false,
 } = {}) {
+  // Inside an embed iframe, links open in a new tab instead of inside the widget.
+  const ext = newTab ? { target: '_blank', rel: 'noopener' } : {};
   const uid = useId();
   const [answers, setAnswers] = useState({});
   const [result, setResult] = useState(null);
@@ -283,16 +287,20 @@ export default function UndertoneCheck({
                   ))}
                 </ul>
                 <div className="ut-cta">
-                  <Link href="/#quiz" className="btn btn-primary btn-sm">
+                  <Link href="/#quiz" className="btn btn-primary btn-sm" {...ext}>
                     Confirm with photo analysis →
                   </Link>
-                  <Link href="/guides/warm-vs-cool-undertones" className="btn btn-outline btn-sm">
+                  <Link href="/guides/warm-vs-cool-undertones" className="btn btn-outline btn-sm" {...ext}>
                     Undertone guide
                   </Link>
                   <button type="button" className="ut-reset" onClick={reset}>
                     Start over
                   </button>
                 </div>
+                <ShareResult
+                  text={`My quick color check says ${result.undertone.toLowerCase()} undertone, likely ${season.name} ${season.emoji}. What's your color season? Free quiz:`}
+                  campaign={`quick-check-${result.season}`}
+                />
               </div>
             </div>
           )}

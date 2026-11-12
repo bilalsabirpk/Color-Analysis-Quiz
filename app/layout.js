@@ -2,6 +2,7 @@ import Script from 'next/script';
 import './globals.css';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import HideOnEmbed from '@/components/HideOnEmbed';
 import { siteConfig, adsenseClientId, gaId, socialProfiles } from '@/lib/site-config';
 
 export const metadata = {
@@ -74,6 +75,7 @@ export const metadata = {
   icons: {
     icon: '/icon.svg',
     shortcut: '/icon.svg',
+    apple: '/apple-icon.png',
   },
   manifest: '/manifest.webmanifest',
 };
@@ -108,7 +110,17 @@ const websiteJsonLd = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
+      <head>
+        {/* Applies a saved dark/light choice before first paint (no flash).
+            Light is the default; components/ThemeToggle.jsx saves the choice. */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html:
+              "try{if(localStorage.getItem('theme')==='dark')document.documentElement.dataset.theme='dark'}catch(e){}",
+          }}
+        />
+      </head>
       <body>
         <script
           type="application/ld+json"
@@ -123,14 +135,18 @@ export default function RootLayout({ children }) {
           }}
         />
 
-        <a className="skip-link" href="#main">
-          Skip to content
-        </a>
-
-        <Header />
+        <HideOnEmbed>
+          <a className="skip-link" href="#main">
+            Skip to content
+          </a>
+          <Header />
+        </HideOnEmbed>
         {children}
-        <Footer />
+        <HideOnEmbed>
+          <Footer />
+        </HideOnEmbed>
 
+        <HideOnEmbed>
         {/* Google AdSense — only injected once NEXT_PUBLIC_ADSENSE_CLIENT is set
             (see lib/site-config.js and README.md for how to apply/activate). */}
         {adsenseClientId && (
@@ -161,6 +177,7 @@ export default function RootLayout({ children }) {
             </Script>
           </>
         )}
+        </HideOnEmbed>
       </body>
     </html>
   );

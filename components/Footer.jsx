@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { siteConfig, socialLinks } from '@/lib/site-config';
+import { siteConfig, footerSocial } from '@/lib/site-config';
 import { SOCIAL_ICON_PATHS } from '@/lib/social-icons';
 
 export default function Footer() {
@@ -13,7 +13,7 @@ export default function Footer() {
               <span className="logo-mark" aria-hidden="true"></span>
               <span>
                 Color Analysis
-                <small style={{ color: '#bfb0d6' }}>AI-Powered Color Analysis</small>
+                <small style={{ color: '#94a3b8' }}>Free Color Season Analysis</small>
               </span>
             </Link>
             <p style={{ fontSize: '13.5px' }}>
@@ -21,15 +21,16 @@ export default function Footer() {
               device.
             </p>
 
-            {socialLinks.length > 0 && (
+            {footerSocial.length > 0 && (
               <ul className="footer-social" aria-label="Follow us on social media">
-                {socialLinks.map((s) => (
+                {footerSocial.map((s) => (
                   <li key={s.key}>
                     <a
-                      href={s.url || '/'}
-                      {...(s.url ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
-                      aria-label={s.url ? `${siteConfig.name} on ${s.label} (opens in a new tab)` : `${s.label}: coming soon (goes to home page)`}
-                      title={s.url ? s.label : `${s.label} (coming soon)`}
+                      href={s.href}
+                      target="_blank"
+                      rel={s.pending ? 'nofollow noopener noreferrer' : 'noopener noreferrer'}
+                      aria-label={s.pending ? `${s.label} (opens in a new tab)` : `${siteConfig.name} on ${s.label} (opens in a new tab)`}
+                      title={s.label}
                     >
                       <svg viewBox="0 0 24 24" width="17" height="17" aria-hidden="true" focusable="false">
                         <path d={SOCIAL_ICON_PATHS[s.key]} fill="currentColor" />
@@ -61,6 +62,7 @@ export default function Footer() {
             <ul>
               <li><Link href="/about">About Us</Link></li>
               <li><Link href="/#season-types">All Color Seasons</Link></li>
+              <li><Link href="/tools">All Free Tools</Link></li>
               <li><Link href="/guides">Blog</Link></li>
               <li><Link href="/faq">FAQ</Link></li>
               <li><Link href="/contact">Contact</Link></li>
@@ -71,9 +73,21 @@ export default function Footer() {
             <ul>
               <li><Link href="/#quiz">Color Analysis Quiz</Link></li>
               <li><Link href="/what-season-am-i">What Season Am I? Quiz</Link></li>
-              <li><Link href="/#undertone-test">Undertone Check</Link></li>
-              <li><Link href="/#harmony">Color Harmony Generator</Link></li>
-              <li><Link href="/#seasons">Season Palettes</Link></li>
+              <li><Link href="/skin-tone-analyzer">Skin Tone Analyzer</Link></li>
+              <li><Link href="/undertone-test">Undertone Test</Link></li>
+              <li><Link href="/lipstick-color-finder">Lipstick Shade Finder</Link></li>
+              <li><Link href="/foundation-undertone-finder">Foundation Undertone Finder</Link></li>
+              <li><Link href="/hair-color-finder">Hair Color Finder</Link></li>
+              <li><Link href="/gold-or-silver-jewelry-test">Gold or Silver Test</Link></li>
+              <li><Link href="/concealer-shade-finder">Concealer Shade Finder</Link></li>
+              <li><Link href="/blush-color-finder">Blush Color Finder</Link></li>
+              <li><Link href="/eyeshadow-color-finder">Eyeshadow Color Finder</Link></li>
+              <li><Link href="/does-this-color-suit-me">Does This Color Suit Me?</Link></li>
+              <li><Link href="/hijab-color-finder">Hijab Color Finder</Link></li>
+              <li><Link href="/contrast-test">Contrast Level Test</Link></li>
+              <li><Link href="/color-harmony-generator">Color Harmony Generator</Link></li>
+              <li><Link href="/seasonal-color-palettes">Seasonal Color Palettes</Link></li>
+              <li><Link href="/embed-widget">Embed the Quiz</Link></li>
             </ul>
           </div>
           <div>

@@ -112,7 +112,7 @@ export default function HeroPreview() {
               <circle className="hc-t" cx="44" cy="76" r="4" style={{ fill: s.blush }} opacity=".45" />
               <circle className="hc-t" cx="76" cy="76" r="4" style={{ fill: s.blush }} opacity=".45" />
               <g fontFamily="system-ui,sans-serif" fontSize="7" fontWeight="800" textAnchor="middle">
-                <circle cx="72" cy="80" r="7" fill="#7b2ff7" stroke="#fff" strokeWidth="2" /><text x="72" y="82.5" fill="#fff">S</text>
+                <circle cx="72" cy="80" r="7" fill="#4f46e5" stroke="#fff" strokeWidth="2" /><text x="72" y="82.5" fill="#fff">S</text>
                 <circle cx="51" cy="59" r="6" fill="#0891b2" stroke="#fff" strokeWidth="2" /><text x="51" y="61.5" fill="#fff">E</text>
                 <circle cx="84" cy="44" r="6" fill="#b45309" stroke="#fff" strokeWidth="2" /><text x="84" y="46.5" fill="#fff">H</text>
               </g>

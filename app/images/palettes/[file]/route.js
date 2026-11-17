@@ -27,6 +27,8 @@ export async function GET(_req, { params }) {
 
   const season = imageHeading(guide);
   const colors = block.colors.slice(0, 12);
+  // 3 columns; rows grow to fill the card, and a short last row is centered.
+  const rows = Math.max(1, Math.ceil(colors.length / 3));
   const host = new URL(siteConfig.url).host;
 
   return new ImageResponse(
@@ -39,9 +41,9 @@ export async function GET(_req, { params }) {
           {season}
         </div>
         <div style={{ display: 'flex', fontSize: 48, fontWeight: 700, color: '#5b4b70', marginTop: 4 }}>Color Palette</div>
-        <div style={{ display: 'flex', flexWrap: 'wrap', marginTop: 44, marginLeft: -8, marginRight: -8, flex: 1 }}>
+        <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', marginTop: 44, marginLeft: -8, marginRight: -8, flex: 1 }}>
           {colors.map((c) => (
-            <div key={c.hex + c.name} style={{ width: '33.333%', height: '25%', padding: 8, display: 'flex' }}>
+            <div key={c.hex + c.name} style={{ width: '33.333%', height: `${100 / rows}%`, padding: 8, display: 'flex' }}>
               <div
                 style={{
                   display: 'flex', flexDirection: 'column', justifyContent: 'flex-end', width: '100%', height: '100%',

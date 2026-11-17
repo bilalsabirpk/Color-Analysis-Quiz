@@ -211,7 +211,8 @@ export default function SeasonalPalettesPage() {
               that go with it. If you are between two seasons, the{' '}
               <Link href="/undertone-test">undertone test</Link> and the comparison guides, such
               as <Link href="/guides/soft-summer-vs-soft-autumn">Soft Summer vs Soft Autumn</Link>,
-              can help you decide.
+              can help you decide. For lipstick, blush and eyeshadow shades, see the{' '}
+              <Link href="/makeup-color-palettes">makeup color palettes for all 12 seasons</Link>.
             </p>
           </div>
         </section>

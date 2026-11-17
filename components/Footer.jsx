@@ -87,6 +87,7 @@ export default function Footer() {
               <li><Link href="/contrast-test">Contrast Level Test</Link></li>
               <li><Link href="/color-harmony-generator">Color Harmony Generator</Link></li>
               <li><Link href="/seasonal-color-palettes">Seasonal Color Palettes</Link></li>
+              <li><Link href="/makeup-color-palettes">Makeup Color Palettes</Link></li>
               <li><Link href="/embed-widget">Embed the Quiz</Link></li>
             </ul>
           </div>

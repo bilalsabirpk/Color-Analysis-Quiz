@@ -4,7 +4,7 @@ import Link from 'next/link';
 // guides can link to each other in context (not only via cards).
 const LINK_RE = /\[([^\]]+)\]\((\/[^)\s]*)\)/g;
 
-function withLinks(text) {
+export function withLinks(text) {
   if (!text || !text.includes('](/')) return text;
   const out = [];
   let last = 0;

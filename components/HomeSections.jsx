@@ -218,7 +218,9 @@ export function SeasonsExplained() {
                 ))}
               </div>
               <div className="hs-season-body">
-                <h3>{s.name}</h3>
+                <h3>
+                  <Link href={`/guides/${s.key}-color-palette`}>{s.name}</Link>
+                </h3>
                 <p className="hs-season-tagline">{s.tagline}</p>
                 <p>{s.text}</p>
               </div>

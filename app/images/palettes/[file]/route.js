@@ -16,7 +16,7 @@ export function generateStaticParams() {
 function textOn(hex) {
   const n = parseInt(hex.slice(1), 16);
   const r = (n >> 16) & 255, g = (n >> 8) & 255, b = n & 255;
-  return 0.299 * r + 0.587 * g + 0.114 * b > 150 ? '#241536' : '#ffffff';
+  return 0.299 * r + 0.587 * g + 0.114 * b > 150 ? '#111827' : '#ffffff';
 }
 
 export async function GET(_req, { params }) {
@@ -32,10 +32,10 @@ export async function GET(_req, { params }) {
   return new ImageResponse(
     (
       <div style={{ width: '100%', height: '100%', display: 'flex', flexDirection: 'column', background: '#ffffff', padding: '64px 56px 48px' }}>
-        <div style={{ display: 'flex', fontSize: 30, fontWeight: 700, color: '#7b2ff7', letterSpacing: 3, textTransform: 'uppercase' }}>
+        <div style={{ display: 'flex', fontSize: 30, fontWeight: 700, color: '#4f46e5', letterSpacing: 3, textTransform: 'uppercase' }}>
           Seasonal Color Analysis
         </div>
-        <div style={{ display: 'flex', fontSize: 76, fontWeight: 800, color: '#241536', lineHeight: 1.05, marginTop: 14, letterSpacing: -1 }}>
+        <div style={{ display: 'flex', fontSize: 76, fontWeight: 800, color: '#111827', lineHeight: 1.05, marginTop: 14, letterSpacing: -1 }}>
           {season}
         </div>
         <div style={{ display: 'flex', fontSize: 48, fontWeight: 700, color: '#5b4b70', marginTop: 4 }}>Color Palette</div>
@@ -57,7 +57,7 @@ export async function GET(_req, { params }) {
         </div>
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginTop: 34, fontSize: 28, color: '#5b4b70' }}>
           <div style={{ display: 'flex' }}>Free color analysis quiz</div>
-          <div style={{ display: 'flex', fontWeight: 700, color: '#241536' }}>{host}</div>
+          <div style={{ display: 'flex', fontWeight: 700, color: '#111827' }}>{host}</div>
         </div>
       </div>
     ),

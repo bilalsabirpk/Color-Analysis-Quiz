@@ -254,6 +254,7 @@ export default function QuizLaunchers() {
         className="visually-hidden"
         tabIndex={-1}
         aria-hidden="true"
+        aria-label="Take a selfie for color analysis"
         onChange={onFallbackChange}
       />
 

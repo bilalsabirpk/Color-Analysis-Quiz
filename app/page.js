@@ -38,6 +38,12 @@ export const metadata = {
     'color analysis free online',
     'seasonal color analysis quiz free',
     'colour analysis test',
+    'color analysis test',
+    'free color analysis',
+    'color analysis online',
+    'color analysis quiz photo',
+    'find your color palette',
+    'my color palette',
   ],
   alternates: { canonical: '/' },
   openGraph: {

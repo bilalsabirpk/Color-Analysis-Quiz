@@ -31,6 +31,12 @@ export const metadata = {
     'free color season quiz',
     'what season am i colors',
     'what season is my color',
+    'color seasons quiz',
+    'colour season quiz',
+    'seasonal color analysis quiz',
+    'color palette quiz',
+    'what is my color palette quiz',
+    'season color palette quiz',
   ],
   alternates: { canonical: PATH },
   openGraph: {

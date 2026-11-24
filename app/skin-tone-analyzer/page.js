@@ -14,7 +14,7 @@ const DESCRIPTION =
 export const metadata = {
   title: { absolute: TITLE },
   description: DESCRIPTION,
-  keywords: ['skin tone analyzer', 'what is my skin tone', 'skin tone finder', 'skin tone test', 'skin undertone analyzer', 'skin color analyzer', 'skin tone from photo', 'skin tone analysis', 'skin tone scanner online', 'skin tone scanner', 'skin color scanner'],
+  keywords: ['skin tone analyzer', 'what is my skin tone', 'skin tone finder', 'skin tone test', 'skin undertone analyzer', 'skin color analyzer', 'skin tone from photo', 'skin tone analysis', 'skin tone scanner online', 'skin tone scanner', 'skin color scanner', "what's my skin tone", 'whats my skin tone'],
   alternates: { canonical: PATH },
   openGraph: { ...OG_DEFAULTS, url: PATH, title: TITLE, description: DESCRIPTION },
 };

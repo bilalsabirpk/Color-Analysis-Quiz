@@ -47,6 +47,9 @@ export const metadata = {
     'colour analysis quiz',
     'color palette test',
     'colour palette test',
+    'color analyze',
+    'colour season quiz',
+    'color seasons quiz',
   ],
   alternates: { canonical: '/' },
   openGraph: {

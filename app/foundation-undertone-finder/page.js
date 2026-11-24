@@ -7,9 +7,9 @@ import FoundationFinder from '@/components/FoundationFinder';
 // Gives the undertone family and depth range, not brand shades.
 
 const PATH = '/foundation-undertone-finder';
-const TITLE = 'Foundation Undertone Finder: Warm, Cool or Olive? (Free)';
+const TITLE = 'Foundation Shade Finder: Match Your Undertone & Depth (Free)';
 const DESCRIPTION =
-  'Free foundation undertone test: 5 quick questions tell you if you need a warm, cool, neutral or olive foundation and which shade labels to look for.';
+  'Free foundation shade finder: 5 quick questions match your foundation undertone (warm, cool, neutral or olive) and depth, plus the shade labels to look for.';
 
 export const metadata = {
   title: { absolute: TITLE },
@@ -23,6 +23,13 @@ export const metadata = {
     'olive undertone foundation',
     'how to choose foundation undertone',
     'foundation shade finder',
+    'foundation finder',
+    'foundation match finder',
+    'foundation shade match',
+    'foundation match',
+    'shade finder',
+    'foundation shade finder app',
+    'foundation shade finder with photo',
   ],
   alternates: { canonical: PATH },
   openGraph: { ...OG_DEFAULTS, url: PATH, title: TITLE, description: DESCRIPTION },
@@ -66,19 +73,19 @@ export default function FoundationFinderPage() {
   return (
     <ToolPage
       path={PATH}
-      crumb="Foundation Undertone Finder"
-      appName="Foundation Undertone Finder"
+      crumb="Foundation Shade Finder"
+      appName="Foundation Shade Finder"
       description={DESCRIPTION}
-      eyebrow="🧴 Free foundation undertone test"
-      h1="Foundation Undertone Finder:"
-      h1Accent="Warm, Cool, Neutral or Olive?"
+      eyebrow="🧴 Free foundation shade finder"
+      h1="Foundation Shade Finder:"
+      h1Accent="Find Your Undertone and Depth"
       lead="Answer five quick questions to find your foundation undertone and depth range, which shade labels to look for, and how to swatch so your foundation finally matches."
       alt={
         <>
-          Want your best makeup colors too? See <Link href="/guides/makeup-colors-for-your-color-season">makeup colors for your season</Link>.
+          Prefer a photo? The <Link href="/skin-tone-analyzer">skin tone analyzer</Link> reads your depth and undertone from a selfie. Step by step: <Link href="/guides/how-to-find-your-foundation-shade">how to find your foundation shade</Link>.
         </>
       }
-      tool={<FoundationFinder />}
+      tool={<FoundationFinder heading="Find Your Foundation Shade" />}
       cards={CARDS}
       prose={{
         heading: 'Undertone vs Shade: Why Both Matter',

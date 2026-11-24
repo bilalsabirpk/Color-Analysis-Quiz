@@ -29,6 +29,8 @@ export const metadata = {
     'color palette by season',
     'season color palette',
     'color seasons',
+    'color analysis palette',
+    'colour analysis palette',
   ],
   alternates: { canonical: PATH },
   openGraph: { ...OG_DEFAULTS, url: PATH, title: TITLE, description: DESCRIPTION },

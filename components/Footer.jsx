@@ -76,7 +76,7 @@ export default function Footer() {
               <li><Link href="/skin-tone-analyzer">Skin Tone Analyzer</Link></li>
               <li><Link href="/undertone-test">Undertone Test</Link></li>
               <li><Link href="/lipstick-color-finder">Lipstick Shade Finder</Link></li>
-              <li><Link href="/foundation-undertone-finder">Foundation Undertone Finder</Link></li>
+              <li><Link href="/foundation-undertone-finder">Foundation Shade Finder</Link></li>
               <li><Link href="/hair-color-finder">Hair Color Finder</Link></li>
               <li><Link href="/gold-or-silver-jewelry-test">Gold or Silver Test</Link></li>
               <li><Link href="/concealer-shade-finder">Concealer Shade Finder</Link></li>

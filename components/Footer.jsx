@@ -9,14 +9,14 @@ export default function Footer() {
       <div className="container">
         <div className="footer-grid">
           <div>
-            <Link href="/" className="logo" style={{ color: '#fff', marginBottom: 12 }}>
+            <Link href="/" className="logo footer-logo">
               <span className="logo-mark" aria-hidden="true"></span>
               <span>
                 Color Analysis
-                <small style={{ color: '#94a3b8' }}>Free Color Season Analysis</small>
+                <small className="footer-tagline">Free Color Season Analysis</small>
               </span>
             </Link>
-            <p style={{ fontSize: '13.5px' }}>
+            <p className="footer-about">
               Free, instant and 100% private color analysis. Your photo never leaves your
               device.
             </p>

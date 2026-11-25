@@ -3,7 +3,10 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "minify-quiz": "node scripts/minify-quiz.mjs",
+    "predev": "node scripts/minify-quiz.mjs",
     "dev": "next dev",
+    "prebuild": "node scripts/minify-quiz.mjs",
     "build": "next build",
     "start": "next start",
     "lint": "eslint"
@@ -16,6 +19,7 @@
   },
   "devDependencies": {
     "eslint": "^9",
-    "eslint-config-next": "16.3.5"
+    "eslint-config-next": "16.3.5",
+    "terser": "^5.36.0"
   }
 }

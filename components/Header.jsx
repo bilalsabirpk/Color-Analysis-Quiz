@@ -14,7 +14,6 @@ import ThemeToggle from '@/components/ThemeToggle';
 // rather than crowding the top bar.
 const NAV_LINKS = [
   { href: '/', label: 'Home' },
-  { href: '/color-palette-generator', label: 'Color Palette Generator', short: 'Palette Generator' },
   { href: '/#season-types', label: 'Seasons' },
   { href: '/guides', label: 'Blog' },
   { href: '/about', label: 'About' },
@@ -103,11 +102,22 @@ export default function Header() {
               </svg>
             </button>
             <div className="nav-tools-menu" id="toolsMenu" hidden={!toolsOpen}>
+              {TOOLS.filter((t) => t.featured).map((t) => (
+                <Link key={t.href} href={t.href} className="nt-featured" onClick={closeAll}>
+                  <span className="nt-icon" aria-hidden="true">{t.icon}</span>
+                  <span className="nt-text">
+                    <strong>
+                      {t.title} <span className="nt-new">New</span>
+                    </strong>
+                    <small>{t.short}</small>
+                  </span>
+                </Link>
+              ))}
               {TOOL_GROUPS.map((g) => (
                 <div key={g.key} className="nt-group">
                   <p className="nt-group-label" id={`nt-${g.key}`}>{g.label}</p>
                   <ul aria-labelledby={`nt-${g.key}`}>
-                    {TOOLS.filter((t) => t.group === g.key).map((t) => (
+                    {TOOLS.filter((t) => t.group === g.key && !t.featured).map((t) => (
                       <li key={t.href}>
                         <Link href={t.href} onClick={closeAll}>
                           <span className="nt-icon" aria-hidden="true">{t.icon}</span>
@@ -127,14 +137,7 @@ export default function Header() {
           </div>
           {NAV_LINKS.slice(1).map((link) => (
             <Link key={link.href} href={link.href} onClick={closeAll}>
-              {link.short ? (
-                <>
-                  <span className="nav-label-full">{link.label}</span>
-                  <span className="nav-label-short" aria-hidden="true">{link.short}</span>
-                </>
-              ) : (
-                link.label
-              )}
+              {link.label}
             </Link>
           ))}
         </nav>

@@ -86,7 +86,8 @@ export default function LipstickFinderPage() {
       crumb="Lipstick Shade Finder"
       appName="Lipstick Shade Finder"
       description={DESCRIPTION}
-      eyebrow="💄 Free lipstick color quiz"
+      eyebrowIcon="lipstick"
+      eyebrow="Free lipstick color quiz"
       h1="Lipstick Shade Finder:"
       h1Accent="What Lipstick Color Suits Me?"
       lead="Answer five quick questions to find your color season and the nude, everyday and bold lipstick shades that flatter it, with hex codes you can compare when you shop."

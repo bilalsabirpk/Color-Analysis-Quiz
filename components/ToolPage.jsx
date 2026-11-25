@@ -5,6 +5,7 @@ import RelatedTools from '@/components/RelatedTools';
 import RatingBox from '@/components/RatingBox';
 import ToolGuide, { guideFaqs } from '@/components/ToolGuide';
 import { PIN_IMAGES } from '@/lib/tools';
+import Icon from '@/components/Icon';
 
 // Shared layout for the quiz-style tool pages: hero → tool → rating →
 // explainer cards → how-to prose → long guide (lib/tool-guides) → FAQ →
@@ -20,6 +21,7 @@ export default function ToolPage({
   appCategory = 'LifestyleApplication',
   description,
   eyebrow,
+  eyebrowIcon,
   h1,
   h1Accent,
   lead,
@@ -76,7 +78,10 @@ export default function ToolPage({
             <nav aria-label="Breadcrumb" className="breadcrumb-nav">
               <Link href="/">Home</Link> / <span aria-current="page">{crumb}</span>
             </nav>
-            <span className="eyebrow">{eyebrow}</span>
+            <span className="eyebrow">
+              {eyebrowIcon && <Icon name={eyebrowIcon} size={16} />}
+              {eyebrow}
+            </span>
             <h1>
               {h1} <span className="grad-text">{h1Accent}</span>
             </h1>

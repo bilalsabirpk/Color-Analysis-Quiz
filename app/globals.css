@@ -1877,3 +1877,18 @@ nav.main-nav .nav-tools-menu a.nt-featured:hover{border-color:var(--purple);}
 .nt-new{display:inline-block;margin-left:6px;padding:1px 7px;border-radius:999px;background:var(--purple);color:#fff;font-size:10.5px;font-weight:800;letter-spacing:.04em;text-transform:uppercase;vertical-align:2px;}
 :root[data-theme="dark"] .nt-new{background:#6366f1;}
 @media (max-width:980px){ nav.main-nav.open .nav-tools-menu a.nt-featured{margin:0 0 8px;} }
+
+/* ===== Flat icons (Material Design Icons via components/Icon.jsx) ===== */
+.icon{display:inline-block;flex:none;vertical-align:-0.18em;}
+.nt-icon,.tool-card .tool-icon,.guide-cover-icon,.ab-value-icon,.ct-info-icon,.cp-cat-icon,.lg-summary-icon,.faq-group-icon,.guide-cat .icon,.faq-topics .icon,.blog-chip .icon,.eyebrow .icon,.tip-card h4 .icon,.palette-block h3 .icon,.season-card h3 .icon,.legal-section h3 .icon{color:var(--purple);}
+.nt-icon,.tool-card .tool-icon,.cp-cat-icon,.lg-summary-icon{display:inline-flex;align-items:center;justify-content:center;}
+.ab-apart-icon,.faq-still-icon{color:#fff;}
+.cf-done-icon .icon{color:currentColor;}
+h2 > .icon,h3 > .icon{color:var(--purple);margin-right:2px;}
+.mode-btn .icon,.btn .icon{vertical-align:-0.2em;}
+.mode-btn.active .icon{color:currentColor;}
+.rating-stars button .icon{width:28px;height:28px;}
+.pg-mode span{gap:6px;}
+.pg-mode .icon{color:var(--purple);}
+.pg-mode.is-active .icon{color:#fff;}
+.season-tab .icon,[role=tab] .icon{color:currentColor;}

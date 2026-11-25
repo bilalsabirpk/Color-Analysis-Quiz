@@ -42,7 +42,8 @@ export default function BlushFinderPage() {
       crumb="Blush Color Finder"
       appName="Blush Color Finder"
       description={DESCRIPTION}
-      eyebrow="🌷 Free blush color quiz"
+      eyebrowIcon="blush"
+      eyebrow="Free blush color quiz"
       h1="Blush Color Finder:"
       h1Accent="What Blush Color Suits Me?"
       lead="Answer four quick questions to find your color season and the blush shades that look like your natural flush, with hex codes, the best finish and where to apply it."

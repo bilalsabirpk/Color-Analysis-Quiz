@@ -41,7 +41,8 @@ export default function ContrastTestPage() {
       crumb="Contrast Level Test"
       appName="Personal Contrast Test"
       description={DESCRIPTION}
-      eyebrow="🌗 Free contrast level test"
+      eyebrowIcon="contrast"
+      eyebrow="Free contrast level test"
       h1="Personal Contrast Test:"
       h1Accent="Low, Medium or High Contrast?"
       lead="Answer five quick questions about your natural hair, skin and eyes to find your contrast level, the outfit color pairings that suit you and the seasons it points to."

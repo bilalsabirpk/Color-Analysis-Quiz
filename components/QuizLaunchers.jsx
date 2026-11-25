@@ -1,6 +1,7 @@
 'use client';
 
 import { useCallback, useEffect, useRef, useState } from 'react';
+import Icon from '@/components/Icon';
 
 // Wires every "start the quiz" control on the homepage via event delegation,
 // so the buttons themselves can live in server components or in the raw quiz
@@ -272,7 +273,7 @@ export default function QuizLaunchers() {
             <div className="cam-head">
               <h2 id="camTitle">Take a photo</h2>
               <button type="button" className="cam-close" onClick={close} aria-label="Close camera">
-                ✕
+                <Icon name="close" size={22} />
               </button>
             </div>
 

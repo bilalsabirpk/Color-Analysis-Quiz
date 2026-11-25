@@ -3,6 +3,7 @@
 import { useId, useRef, useState } from 'react';
 import Link from 'next/link';
 import ShareResult from '@/components/ShareResult';
+import Icon from '@/components/Icon';
 
 // Quick no-photo self-check: 6 questions → undertone (warm / cool / neutral)
 // and a likely season. Pure client-side scoring, nothing stored or sent.
@@ -69,28 +70,28 @@ const QUESTIONS = [
 const SEASONS = {
   spring: {
     name: 'Spring',
-    emoji: '🌸',
+    icon: 'spring',
     tagline: 'Warm & Fresh',
     palette: ['#FFD166', '#F6A94A', '#8CC084', '#5FA8D3', '#EF5B5B', '#7BC4C4'],
     tip: 'Reach for clear warm brights, ivory instead of stark white, and gold jewelry.',
   },
   summer: {
     name: 'Summer',
-    emoji: '💧',
+    icon: 'summer',
     tagline: 'Cool & Soft',
     palette: ['#A7C6DA', '#C9A9D9', '#7F95D1', '#9FB8AD', '#D8A7B1', '#8E9AAF'],
     tip: 'Dusty, blended cool shades flatter you most — think rose, powder blue and soft grey.',
   },
   autumn: {
     name: 'Autumn',
-    emoji: '🍂',
+    icon: 'autumn',
     tagline: 'Warm & Rich',
     palette: ['#B85C38', '#C48A3C', '#6B4226', '#8A9A5B', '#D9A441', '#4A5D23'],
     tip: 'Earthy spice tones, olive and deep gold are your strongest colors.',
   },
   winter: {
     name: 'Winter',
-    emoji: '❄️',
+    icon: 'winter',
     tagline: 'Cool & Bold',
     palette: ['#0B1F3A', '#7A0C2E', '#00727A', '#4B0082', '#C40233', '#1C1C1C'],
     tip: 'High contrast and saturated jewel tones suit you — true black and white too.',
@@ -250,7 +251,7 @@ export default function UndertoneCheck({
               <div className="ut-result-main">
                 <p className="ut-kicker">Your quick estimate</p>
                 <h3 id={`${uid}-result-title`}>
-                  {result.undertone} undertone · likely {season.emoji} {season.name}
+                  {result.undertone} undertone · likely <Icon name={season.icon} size={18} /> {season.name}
                 </h3>
                 <p className="ut-tagline">{season.tagline}</p>
 
@@ -298,7 +299,7 @@ export default function UndertoneCheck({
                   </button>
                 </div>
                 <ShareResult
-                  text={`My quick color check says ${result.undertone.toLowerCase()} undertone, likely ${season.name} ${season.emoji}. What's your color season? Free quiz:`}
+                  text={`My quick color check says ${result.undertone.toLowerCase()} undertone, likely ${season.name}. What's your color season? Free quiz:`}
                   campaign={`quick-check-${result.season}`}
                 />
               </div>

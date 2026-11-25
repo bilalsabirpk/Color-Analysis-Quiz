@@ -5,6 +5,7 @@ import FaqAccordion from '@/components/FaqAccordion';
 import RelatedTools from '@/components/RelatedTools';
 import RatingBox from '@/components/RatingBox';
 import ToolGuide, { guideFaqs } from '@/components/ToolGuide';
+import Icon from '@/components/Icon';
 
 // Tool page for "color harmony generator" / "what colors go together"
 // searches. The homepage version also recolors your own photo; this page
@@ -109,7 +110,7 @@ export default function ColorHarmonyPage() {
             <nav aria-label="Breadcrumb" className="breadcrumb-nav">
               <Link href="/">Home</Link> / <span aria-current="page">Color Harmony Generator</span>
             </nav>
-            <span className="eyebrow">🎨 Free color wheel tool</span>
+            <span className="eyebrow"><Icon name="palette" size={16} /> Free color wheel tool</span>
             <h1>
               Color Harmony Generator: <span className="grad-text">Find Colors That Go Together</span>
             </h1>

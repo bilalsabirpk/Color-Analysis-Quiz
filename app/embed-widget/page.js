@@ -3,6 +3,7 @@ import { siteConfig, OG_DEFAULTS } from '@/lib/site-config';
 import EmbedCodeBox from '@/components/EmbedCodeBox';
 import FaqAccordion from '@/components/FaqAccordion';
 import RelatedTools from '@/components/RelatedTools';
+import Icon from '@/components/Icon';
 
 // "For professionals": lets other websites embed the season quiz, the lipstick finder or the
 // undertone test. Each embed carries a visible credit link back here.
@@ -73,7 +74,7 @@ export default function EmbedWidgetPage() {
             <nav aria-label="Breadcrumb" className="breadcrumb-nav">
               <Link href="/">Home</Link> / <span aria-current="page">Embed Widget</span>
             </nav>
-            <span className="eyebrow">🧩 For websites and professionals</span>
+            <span className="eyebrow"><Icon name="code" size={16} /> For websites and professionals</span>
             <h1>
               Add a Free Color Analysis Quiz <span className="grad-text">to Your Website</span>
             </h1>

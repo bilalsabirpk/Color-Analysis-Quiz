@@ -174,7 +174,8 @@ export default function ColorPaletteGeneratorPage() {
       appName="Color Palette Generator"
       appCategory="DesignApplication"
       description={DESCRIPTION}
-      eyebrow="🎨 Free color palette generator"
+      eyebrowIcon="palette"
+      eyebrow="Free color palette generator"
       h1="Color Palette Generator:"
       h1Accent="Create Palettes with Hex Codes"
       lead="Make random palettes, build a palette from one color, or generate colors from your color season. Lock the colors you love, then copy the hex codes or download the palette."

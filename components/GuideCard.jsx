@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { formatGuideDate } from '@/lib/format-date';
+import Icon from '@/components/Icon';
 
 // One blog card, shared by the /guides index, the homepage "From the Blog"
 // strip and the "Keep reading" list under each article so they always match.
@@ -7,22 +8,22 @@ import { formatGuideDate } from '@/lib/format-date';
 // `headingLevel` keeps the outline correct: h2 on /guides, h3 elsewhere.
 
 export const CATEGORY_ICONS = {
-  Basics: '🎨',
-  Undertones: '🌡️',
-  Wardrobe: '👗',
-  Makeup: '💄',
-  Accessories: '💍',
-  Hair: '💇',
-  Spring: '🌷',
-  Summer: '🌊',
-  Autumn: '🍂',
-  Winter: '❄️',
+  Basics: 'palette',
+  Undertones: 'thermometer',
+  Wardrobe: 'dress',
+  Makeup: 'lipstick',
+  Accessories: 'ring',
+  Hair: 'hair',
+  Spring: 'spring',
+  Summer: 'summer',
+  Autumn: 'autumn',
+  Winter: 'winter',
 };
 
 export default function GuideCard({ guide, headingLevel = 'h3', hidden = false }) {
   const Heading = headingLevel;
   const swatches = guide.swatches?.length ? guide.swatches : ['#4f46e5', '#7c3aed', '#f3e8ff', '#111827'];
-  const icon = CATEGORY_ICONS[guide.category] || '📝';
+  const icon = CATEGORY_ICONS[guide.category] || 'blog';
 
   return (
     <article className="guide-card" hidden={hidden || undefined}>
@@ -32,14 +33,14 @@ export default function GuideCard({ guide, headingLevel = 'h3', hidden = false }
             <span key={hex} style={{ background: hex }} />
           ))}
         </div>
-        <span className="guide-cover-icon">{icon}</span>
+        <span className="guide-cover-icon"><Icon name={icon} size={24} /></span>
         <span className="guide-cover-read">{guide.readTime}</span>
       </div>
 
       <div className="guide-card-body">
         {guide.category && (
           <p className="guide-cat">
-            <span aria-hidden="true">{icon}</span> {guide.category}
+            <Icon name={icon} size={14} /> {guide.category}
           </p>
         )}
         <Heading className="guide-title">

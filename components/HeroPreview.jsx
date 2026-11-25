@@ -8,25 +8,25 @@ import { useEffect, useRef, useState } from 'react';
 
 const SEASONS = [
   {
-    key: 'spring', name: 'Spring', emoji: '🌸', formula: 'Warm · Light · Bright', meter: 26,
+    key: 'spring', name: 'Spring', formula: 'Warm · Light · Bright', meter: 26,
     skin: '#f1c9a5', blush: '#f19a86', hair: '#c27c3a', eyes: '#3f7a4a',
     colors: ['#FFD166', '#F6A94A', '#8CC084', '#5FA8D3', '#EF5B5B', '#7BC4C4'],
     metal: 'Gold jewelry', lips: 'Coral lips',
   },
   {
-    key: 'summer', name: 'Summer', emoji: '💧', formula: 'Cool · Light · Soft', meter: 72,
+    key: 'summer', name: 'Summer', formula: 'Cool · Light · Soft', meter: 72,
     skin: '#efcfc2', blush: '#e39aa7', hair: '#9c8468', eyes: '#5b7a99',
     colors: ['#A7C6DA', '#C9A9D9', '#7F95D1', '#9FB8AD', '#D8A7B1', '#8E9AAF'],
     metal: 'Silver jewelry', lips: 'Rose lips',
   },
   {
-    key: 'autumn', name: 'Autumn', emoji: '🍂', formula: 'Warm · Deep · Soft', meter: 18,
+    key: 'autumn', name: 'Autumn', formula: 'Warm · Deep · Soft', meter: 18,
     skin: '#e2b48f', blush: '#e79c86', hair: '#5a3322', eyes: '#4a2f1c',
     colors: ['#B85C38', '#C48A3C', '#6B4226', '#8A9A5B', '#D9A441', '#4A5D23'],
     metal: 'Gold jewelry', lips: 'Terracotta lips',
   },
   {
-    key: 'winter', name: 'Winter', emoji: '❄️', formula: 'Cool · Deep · Bright', meter: 84,
+    key: 'winter', name: 'Winter', formula: 'Cool · Deep · Bright', meter: 84,
     skin: '#d9ad92', blush: '#d9899a', hair: '#1c1616', eyes: '#2b1a12',
     colors: ['#0B1F3A', '#7A0C2E', '#00727A', '#4B0082', '#C40233', '#1C1C1C'],
     metal: 'Silver jewelry', lips: 'Berry lips',

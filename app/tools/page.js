@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { siteConfig, OG_DEFAULTS } from '@/lib/site-config';
 import { TOOLS, TOOL_GROUPS } from '@/lib/tools';
+import Icon from '@/components/Icon';
 
 // /tools: every free tool on one page, grouped the same way as the header
 // "Tools" menu. Reads lib/tools.js, so a new tool shows up here automatically.
@@ -67,7 +68,7 @@ export default function ToolsPage() {
             <nav aria-label="Breadcrumb" className="breadcrumb-nav">
               <Link href="/">Home</Link> / <span aria-current="page">Tools</span>
             </nav>
-            <span className="eyebrow">🧰 {publicTools.length} free tools</span>
+            <span className="eyebrow"><Icon name="toolbox" size={16} /> {publicTools.length} free tools</span>
             <h1>
               Free Color Analysis Tools: <span className="grad-text">All in One Place</span>
             </h1>
@@ -92,7 +93,7 @@ export default function ToolsPage() {
                 <div className="tools-grid">
                   {list.map((t) => (
                     <Link key={t.href} href={t.href} className="tool-card">
-                      <span className="tool-icon" aria-hidden="true">{t.icon}</span>
+                      <span className="tool-icon" aria-hidden="true"><Icon name={t.icon} size={26} /></span>
                       <h3>{t.title}</h3>
                       <p>{t.short}</p>
                       <span className="tool-go" aria-hidden="true">Open tool →</span>

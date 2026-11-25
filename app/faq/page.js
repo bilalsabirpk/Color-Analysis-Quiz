@@ -2,6 +2,7 @@ import Link from 'next/link';
 import { siteConfig, OG_DEFAULTS } from '@/lib/site-config';
 import { FAQ, getFaqByCategory } from '@/lib/faq-data';
 import FaqAccordion from '@/components/FaqAccordion';
+import Icon from '@/components/Icon';
 
 export const metadata = {
   title: { absolute: 'Color Analysis FAQ: Seasons, Undertones & the Quiz' },
@@ -54,7 +55,7 @@ export default function FaqPage() {
             </p>
             <ul className="faq-hero-chips" aria-label="About this page">
               <li>
-                <span className="faq-glyph g1" aria-hidden="true">✦</span>
+                <span className="faq-glyph g1" aria-hidden="true"><Icon name="sparkle" size={12} /></span>
                 {FAQ.length} questions answered
               </li>
               <li>
@@ -87,7 +88,7 @@ export default function FaqPage() {
             <nav className="faq-topics" aria-label="FAQ topics">
               {groups.map((g) => (
                 <a key={g.id} href={`#faq-${g.id}`}>
-                  <span aria-hidden="true">{g.icon}</span> {g.label}
+                  <Icon name={g.icon} size={16} /> {g.label}
                   <span className="faq-topic-count">{g.items.length}</span>
                 </a>
               ))}
@@ -97,7 +98,7 @@ export default function FaqPage() {
               <div key={g.id} id={`faq-${g.id}`} className="faq-group">
                 <h2>
                   <span className="faq-group-icon" aria-hidden="true">
-                    {g.icon}
+                    <Icon name={g.icon} size={22} />
                   </span>
                   {g.label}
                 </h2>
@@ -106,7 +107,7 @@ export default function FaqPage() {
             ))}
 
             <div className="faq-still">
-              <span className="faq-still-icon" aria-hidden="true">💬</span>
+              <span className="faq-still-icon" aria-hidden="true"><Icon name="chat" size={26} /></span>
               <h2>Still have questions?</h2>
               <p>
                 Can&apos;t find what you&apos;re looking for? Send us a message and

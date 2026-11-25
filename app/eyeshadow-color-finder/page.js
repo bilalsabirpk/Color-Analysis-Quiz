@@ -43,7 +43,8 @@ export default function EyeshadowFinderPage() {
       crumb="Eyeshadow Color Finder"
       appName="Eyeshadow Color Finder"
       description={DESCRIPTION}
-      eyebrow="👁️ Free eyeshadow color quiz"
+      eyebrowIcon="eye"
+      eyebrow="Free eyeshadow color quiz"
       h1="Eyeshadow Color Finder:"
       h1Accent="What Eyeshadow Colors Suit Me?"
       lead="Answer four quick questions to find your color season, the eyeshadow neutrals and accent colors that flatter you, and the best eyeliner color, all with hex codes."

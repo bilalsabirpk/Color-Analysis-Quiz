@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { siteConfig } from '@/lib/site-config';
+import Icon from '@/components/Icon';
 
 export const metadata = {
   title: 'Privacy Policy',
@@ -14,7 +15,7 @@ export default function PrivacyPolicyPage() {
     <main id="main">
       <section className="page-hero">
         <div className="container">
-          <span className="eyebrow">🔒 Privacy</span>
+          <span className="eyebrow"><Icon name="lock" size={16} /> Privacy</span>
           <h1>Privacy Policy</h1>
           <p className="lead">Last updated: {LAST_UPDATED}</p>
         </div>

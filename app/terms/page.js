@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { siteConfig } from '@/lib/site-config';
+import Icon from '@/components/Icon';
 
 export const metadata = {
   title: 'Terms of Use',
@@ -14,7 +15,7 @@ export default function TermsPage() {
     <main id="main">
       <section className="page-hero">
         <div className="container">
-          <span className="eyebrow">📄 Legal</span>
+          <span className="eyebrow"><Icon name="document" size={16} /> Legal</span>
           <h1>Terms of Use</h1>
           <p className="lead">Last updated: {LAST_UPDATED}</p>
         </div>

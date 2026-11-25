@@ -1,3 +1,4 @@
+import Icon from '@/components/Icon';
 import Link from 'next/link';
 import { TOOLS } from '@/lib/tools';
 import { siteConfig, OG_DEFAULTS } from '@/lib/site-config';
@@ -136,7 +137,7 @@ export default function HomePage() {
             <div className="tools-grid">
               {FREE_TOOLS.map((t) => (
                 <Link key={t.href} href={t.href} className="tool-card">
-                  <span className="tool-icon" aria-hidden="true">{t.icon}</span>
+                  <span className="tool-icon" aria-hidden="true"><Icon name={t.icon} size={26} /></span>
                   <h3>{t.title}</h3>
                   <p>{t.short}</p>
                   <span className="tool-go" aria-hidden="true">Open tool →</span>

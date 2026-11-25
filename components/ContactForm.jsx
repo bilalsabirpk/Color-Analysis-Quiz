@@ -2,6 +2,7 @@
 
 import { useRef, useState } from 'react';
 import { CONTACT_TOPICS } from '@/lib/contact-topics';
+import Icon from '@/components/Icon';
 
 const MAX = 2000;
 const MIN = 10;
@@ -97,7 +98,7 @@ export default function ContactForm({ contactEmail, siteName, initialTopic = '' 
   if (status === 'sent') {
     return (
       <div className="cf-done" ref={statusRef} tabIndex={-1} role="status">
-        <span className="cf-done-icon" aria-hidden="true">✓</span>
+        <span className="cf-done-icon" aria-hidden="true"><Icon name="check" size={30} /></span>
         <h3>Message sent!</h3>
         <p>Thanks for reaching out. We&apos;ll reply to your email as soon as we can.</p>
         <button type="button" className="btn btn-outline btn-sm" onClick={() => setStatus('idle')}>

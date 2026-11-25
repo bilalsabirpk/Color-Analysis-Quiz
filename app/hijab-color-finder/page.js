@@ -43,7 +43,8 @@ export default function HijabFinderPage() {
       crumb="Hijab Color Finder"
       appName="Hijab Color Finder"
       description={DESCRIPTION}
-      eyebrow="🧕 Free hijab color quiz"
+      eyebrowIcon="face"
+      eyebrow="Free hijab color quiz"
       h1="Hijab Color Finder:"
       h1Accent="What Hijab Color Suits Me?"
       lead="Answer four quick questions to find your color season and the everyday and statement hijab colors that flatter your skin, with hex codes and the fabrics that suit you."

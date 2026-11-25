@@ -69,7 +69,8 @@ export default function HairColorFinderPage() {
       crumb="Hair Color Finder"
       appName="Hair Color Finder"
       description={DESCRIPTION}
-      eyebrow="💇 Free hair color quiz"
+      eyebrowIcon="hair"
+      eyebrow="Free hair color quiz"
       h1="Hair Color Finder:"
       h1Accent="What Hair Color Suits Me?"
       lead="Answer six quick questions to find your color season and the hair colors that flatter your skin, with hex codes you can show your colorist."

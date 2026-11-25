@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { siteConfig, founder, OG_DEFAULTS } from '@/lib/site-config';
+import Icon from '@/components/Icon';
 
 export const metadata = {
   title: `About Us: Built by ${founder.name}`,
@@ -29,32 +30,32 @@ const PRIORITIES = [
 ];
 
 const VALUES = [
-  { icon: '🔒', title: 'Privacy first', text: 'Photos are processed in your browser and never stored, shared or uploaded. Not even we can see them.' },
-  { icon: '🎯', title: 'Honest accuracy', text: 'We explain exactly how the estimate is made and where its limits are, so you can judge the result yourself.' },
-  { icon: '🌍', title: 'Accessible to everyone', text: 'Free, no account, and it works on any modern phone, tablet or computer.' },
-  { icon: '🤝', title: 'Inclusive by design', text: 'Seasons depend on undertone, depth and contrast, not skin lightness. Every skin tone, age and gender belongs here.' },
-  { icon: '💪', title: 'Empowerment', text: 'Clear, specific guidance so you can shop, dress and do your makeup with confidence, without guesswork.' },
-  { icon: '✨', title: 'Always improving', text: 'We keep refining the palettes, tools and guides based on color theory and on your feedback.' },
+  { icon: 'lock', title: 'Privacy first', text: 'Photos are processed in your browser and never stored, shared or uploaded. Not even we can see them.' },
+  { icon: 'target', title: 'Honest accuracy', text: 'We explain exactly how the estimate is made and where its limits are, so you can judge the result yourself.' },
+  { icon: 'earth', title: 'Accessible to everyone', text: 'Free, no account, and it works on any modern phone, tablet or computer.' },
+  { icon: 'handshake', title: 'Inclusive by design', text: 'Seasons depend on undertone, depth and contrast, not skin lightness. Every skin tone, age and gender belongs here.' },
+  { icon: 'strength', title: 'Empowerment', text: 'Clear, specific guidance so you can shop, dress and do your makeup with confidence, without guesswork.' },
+  { icon: 'improve', title: 'Always improving', text: 'We keep refining the palettes, tools and guides based on color theory and on your feedback.' },
 ];
 
 const DIFFERENT = [
   {
-    icon: '🎁',
+    icon: 'gift',
     title: 'Always free, no bait and switch',
     text: 'Some tools show a "free" result that turns out to be partial until you pay or sign up. Here the complete analysis, with all palettes and tools, is free for everyone, with no email address needed.',
   },
   {
-    icon: '📱',
+    icon: 'phone',
     title: 'No app, no download, no account',
     text: 'It runs in your web browser on iPhone, Android, tablet or desktop. There is nothing to install and nothing to sign up for. Close the tab and nothing is left behind.',
   },
   {
-    icon: '🔍',
+    icon: 'search',
     title: 'Private, and you can check it',
     text: 'Open your browser’s developer tools, go to the Network tab and run an analysis. You will see that no image is sent anywhere. The analysis runs with the HTML5 Canvas API on your own device.',
   },
   {
-    icon: '🎨',
+    icon: 'palette',
     title: 'More than a season label',
     text: 'Beyond your season, you get best and worst colors, metals, makeup tones and neutrals. You can also recolor your own clothes in a photo and build matching palettes with the harmony generator.',
   },
@@ -94,7 +95,7 @@ export default function AboutPage() {
         {/* HERO */}
         <section className="ab-hero">
           <div className="container">
-            <span className="eyebrow">👋 About Us</span>
+            <span className="eyebrow"><Icon name="wave" size={16} /> About Us</span>
             <h1>
               About <span className="grad-text">{siteConfig.name}</span>
             </h1>
@@ -176,7 +177,7 @@ export default function AboutPage() {
         <section className="ab-section" aria-labelledby="whyBuiltHeading">
           <div className="container">
             <div className="section-head">
-              <span className="eyebrow">💡 Our Story</span>
+              <span className="eyebrow"><Icon name="idea" size={16} /> Our Story</span>
               <h2 id="whyBuiltHeading">Why We Built This</h2>
             </div>
             <div className="ab-story">
@@ -217,14 +218,14 @@ export default function AboutPage() {
         <section className="ab-section alt-bg" aria-labelledby="valuesHeading">
           <div className="container">
             <div className="section-head">
-              <span className="eyebrow">💜 What Guides Us</span>
+              <span className="eyebrow"><Icon name="heart-outline" size={16} /> What Guides Us</span>
               <h2 id="valuesHeading">Our Core Values</h2>
               <p>These principles guide every decision we make, from design to privacy.</p>
             </div>
             <ul className="ab-values">
               {VALUES.map((v) => (
                 <li key={v.title}>
-                  <span className="ab-value-icon" aria-hidden="true">{v.icon}</span>
+                  <span className="ab-value-icon" aria-hidden="true"><Icon name={v.icon} size={24} /></span>
                   <h3>{v.title}</h3>
                   <p>{v.text}</p>
                 </li>
@@ -237,14 +238,14 @@ export default function AboutPage() {
         <section className="ab-section" aria-labelledby="apartHeading">
           <div className="container">
             <div className="section-head">
-              <span className="eyebrow">⭐ Why Choose Us</span>
+              <span className="eyebrow"><Icon name="star-outline" size={16} /> Why Choose Us</span>
               <h2 id="apartHeading">What Sets Us Apart</h2>
               <p>There are other color analysis tools out there. Here&apos;s what&apos;s different about this one.</p>
             </div>
             <div className="ab-apart">
               {DIFFERENT.map((d) => (
                 <article key={d.title} className="ab-apart-item">
-                  <span className="ab-apart-icon" aria-hidden="true">{d.icon}</span>
+                  <span className="ab-apart-icon" aria-hidden="true"><Icon name={d.icon} size={24} /></span>
                   <div>
                     <h3>{d.title}</h3>
                     <p>{d.text}</p>

@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { siteConfig, OG_DEFAULTS } from '@/lib/site-config';
 import ContactForm from '@/components/ContactForm';
+import Icon from '@/components/Icon';
 
 export const metadata = {
   title: 'Contact Us',
@@ -60,21 +61,21 @@ export default async function ContactPage({ searchParams }) {
 
           <ul className="ct-info">
             <li>
-              <span className="ct-info-icon" aria-hidden="true">✉️</span>
+              <span className="ct-info-icon" aria-hidden="true"><Icon name="email" size={20} /></span>
               <div>
                 <p className="ct-info-label">Email</p>
                 <a href={`mailto:${email}`}>{email}</a>
               </div>
             </li>
             <li>
-              <span className="ct-info-icon" aria-hidden="true">🕐</span>
+              <span className="ct-info-icon" aria-hidden="true"><Icon name="clock" size={20} /></span>
               <div>
                 <p className="ct-info-label">Response time</p>
                 <p className="ct-info-value">{siteConfig.responseTime}</p>
               </div>
             </li>
             <li>
-              <span className="ct-info-icon" aria-hidden="true">🔒</span>
+              <span className="ct-info-icon" aria-hidden="true"><Icon name="lock" size={20} /></span>
               <div>
                 <p className="ct-info-label">Your photos</p>
                 <p className="ct-info-value">Never uploaded or shared with us</p>

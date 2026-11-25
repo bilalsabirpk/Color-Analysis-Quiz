@@ -3,6 +3,7 @@ import { siteConfig, OG_DEFAULTS } from '@/lib/site-config';
 import { getGuide } from '@/lib/guides-data';
 import FaqAccordion from '@/components/FaqAccordion';
 import RelatedTools from '@/components/RelatedTools';
+import Icon from '@/components/Icon';
 
 // One page with the makeup palettes of all 12 seasons (hex codes as real
 // text), built from the "<season>-makeup-palette" guides so it never drifts
@@ -47,10 +48,10 @@ const TRAITS = {
 };
 
 const FAMILIES = [
-  { name: 'Spring', emoji: '🌷', note: 'Peach, coral and warm pink with gold and bronze.', slugs: ['light-spring', 'warm-spring', 'bright-spring'] },
-  { name: 'Summer', emoji: '🌊', note: 'Rose, mauve and raspberry with taupe and slate.', slugs: ['light-summer', 'cool-summer', 'soft-summer'] },
-  { name: 'Autumn', emoji: '🍂', note: 'Warm nude, terracotta and brick with bronze and olive.', slugs: ['soft-autumn', 'warm-autumn', 'deep-autumn'] },
-  { name: 'Winter', emoji: '❄️', note: 'True red, berry and fuchsia with charcoal and navy.', slugs: ['deep-winter', 'cool-winter', 'bright-winter'] },
+  { name: 'Spring', icon: 'spring', note: 'Peach, coral and warm pink with gold and bronze.', slugs: ['light-spring', 'warm-spring', 'bright-spring'] },
+  { name: 'Summer', icon: 'summer', note: 'Rose, mauve and raspberry with taupe and slate.', slugs: ['light-summer', 'cool-summer', 'soft-summer'] },
+  { name: 'Autumn', icon: 'autumn', note: 'Warm nude, terracotta and brick with bronze and olive.', slugs: ['soft-autumn', 'warm-autumn', 'deep-autumn'] },
+  { name: 'Winter', icon: 'winter', note: 'True red, berry and fuchsia with charcoal and navy.', slugs: ['deep-winter', 'cool-winter', 'bright-winter'] },
 ];
 
 function season(slug) {
@@ -138,7 +139,7 @@ export default function MakeupPalettesPage() {
             <nav aria-label="Breadcrumb" className="breadcrumb-nav">
               <Link href="/">Home</Link> / <span aria-current="page">Makeup Color Palettes</span>
             </nav>
-            <span className="eyebrow">💄 Makeup by color season</span>
+            <span className="eyebrow"><Icon name="lipstick" size={16} /> Makeup by color season</span>
             <h1>
               Makeup Color Palettes: <span className="grad-text">All 12 Seasons with Hex Codes</span>
             </h1>
@@ -159,7 +160,7 @@ export default function MakeupPalettesPage() {
             <div className="container">
               <div className="section-head">
                 <h2 id={`mk-${f.name}`}>
-                  <span aria-hidden="true">{f.emoji}</span> {f.name} Makeup Palettes
+                  <Icon name={f.icon} size={24} /> {f.name} Makeup Palettes
                 </h2>
                 <p>
                   {f.note}{' '}

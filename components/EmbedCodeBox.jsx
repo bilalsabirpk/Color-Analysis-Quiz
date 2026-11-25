@@ -110,7 +110,7 @@ export default function EmbedCodeBox() {
       />
       <div className="embed-actions">
         <button type="button" className="btn btn-primary btn-sm" onClick={copy}>
-          {copied ? 'Copied ✓' : 'Copy embed code'}
+          {copied ? 'Copied' : 'Copy embed code'}
         </button>
         <span className="visually-hidden" aria-live="polite">{copied ? 'Embed code copied' : ''}</span>
       </div>

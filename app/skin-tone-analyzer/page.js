@@ -43,7 +43,8 @@ export default function SkinToneAnalyzerPage() {
       crumb="Skin Tone Analyzer"
       appName="Skin Tone Analyzer"
       description={DESCRIPTION}
-      eyebrow="🧑🏽 Free skin tone analyzer"
+      eyebrowIcon="face-shimmer"
+      eyebrow="Free skin tone analyzer"
       h1="Skin Tone Analyzer:"
       h1Accent="Find Your Skin Tone and Undertone"
       lead="Upload a selfie and tap your cheek, or pick your skin color, to see your skin depth, your likely undertone and the colors that suit you. Everything runs on your device."

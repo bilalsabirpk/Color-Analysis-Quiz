@@ -42,7 +42,7 @@ export default function ConcealerFinderPage() {
       crumb="Concealer Shade Finder"
       appName="Concealer Shade Finder"
       description={DESCRIPTION}
-      eyebrowIcon="shimmer"
+      eyebrowIcon="eyedropper"
       eyebrow="Free concealer shade finder"
       h1="Concealer Shade Finder:"
       h1Accent="Which Concealer and Corrector?"

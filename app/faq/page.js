@@ -55,15 +55,15 @@ export default function FaqPage() {
             </p>
             <ul className="faq-hero-chips" aria-label="About this page">
               <li>
-                <span className="faq-glyph g1" aria-hidden="true"><Icon name="sparkle" size={12} /></span>
+                <span className="faq-glyph g1" aria-hidden="true"><Icon name="dot" size={12} /></span>
                 {FAQ.length} questions answered
               </li>
               <li>
-                <span className="faq-glyph g2" aria-hidden="true">◆</span>
+                <span className="faq-glyph g2" aria-hidden="true"><Icon name="dot" size={12} /></span>
                 100% free tool
               </li>
               <li>
-                <span className="faq-glyph g3" aria-hidden="true">◉</span>
+                <span className="faq-glyph g3" aria-hidden="true"><Icon name="dot" size={12} /></span>
                 Privacy-first
               </li>
             </ul>

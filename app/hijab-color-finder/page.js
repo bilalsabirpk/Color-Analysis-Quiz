@@ -43,7 +43,7 @@ export default function HijabFinderPage() {
       crumb="Hijab Color Finder"
       appName="Hijab Color Finder"
       description={DESCRIPTION}
-      eyebrowIcon="face"
+      eyebrowIcon="person"
       eyebrow="Free hijab color quiz"
       h1="Hijab Color Finder:"
       h1Accent="What Hijab Color Suits Me?"

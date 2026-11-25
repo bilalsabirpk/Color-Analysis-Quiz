@@ -1120,10 +1120,10 @@ function renderSeasonCard(key){
         '<h3>'+icon('palette',20)+' Best Colors</h3><p class="add-color-hint">Click any color you like — it copies to your clipboard and joins "Your Best Colors" in your results.</p><div class="palette-row" id="seasonBestRow">'+bestSw+'</div>'+
         '<h3>'+icon('cancel',20)+' Colors To Avoid</h3><div class="palette-row avoid-row">'+avoidSw+'</div>'+
         '<div class="tips-grid">'+
-          '<div class="tip-card"><h4>'+icon('ring')+' Best Metals</h4><p>'+s.metals+'</p></div>'+
-          '<div class="tip-card"><h4>'+icon('lipstick')+' Makeup Tone</h4><p>'+s.makeup+'</p></div>'+
-          '<div class="tip-card"><h4>'+icon('dress')+' Styling Tip</h4><p>'+s.styling+'</p></div>'+
-          '<div class="tip-card"><h4>'+icon('neutral')+' Best Neutrals</h4><p>'+s.neutrals+'</p></div>'+
+          '<div class="tip-card"><p class="tip-title">'+icon('ring')+' Best Metals</p><p>'+s.metals+'</p></div>'+
+          '<div class="tip-card"><p class="tip-title">'+icon('lipstick')+' Makeup Tone</p><p>'+s.makeup+'</p></div>'+
+          '<div class="tip-card"><p class="tip-title">'+icon('dress')+' Styling Tip</p><p>'+s.styling+'</p></div>'+
+          '<div class="tip-card"><p class="tip-title">'+icon('neutral')+' Best Neutrals</p><p>'+s.neutrals+'</p></div>'+
         '</div>'+
       '</div>'+
     '</div>';

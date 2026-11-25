@@ -35,6 +35,7 @@ export default function Footer() {
                       <svg viewBox="0 0 24 24" width="17" height="17" aria-hidden="true" focusable="false">
                         <path d={SOCIAL_ICON_PATHS[s.key]} fill="currentColor" />
                       </svg>
+                      <span className="visually-hidden">{s.label}</span>
                     </a>
                   </li>
                 ))}
@@ -44,6 +45,7 @@ export default function Footer() {
             <Link
               className="footer-feedback"
               href="/contact?topic=bug"
+              rel="nofollow"
             >
               <svg viewBox="0 0 24 24" width="18" height="18" fill="none" aria-hidden="true">
                 <path
@@ -58,7 +60,7 @@ export default function Footer() {
             </Link>
           </div>
           <div>
-            <h3>Explore</h3>
+            <p className="footer-heading">Explore</p>
             <ul>
               <li><Link href="/about">About Us</Link></li>
               <li><Link href="/#season-types">All Color Seasons</Link></li>
@@ -69,7 +71,7 @@ export default function Footer() {
             </ul>
           </div>
           <div>
-            <h3>Free Tools</h3>
+            <p className="footer-heading">Free Tools</p>
             <ul>
               <li><Link href="/#quiz">Color Analysis Quiz</Link></li>
               <li><Link href="/what-season-am-i">What Season Am I? Quiz</Link></li>
@@ -93,7 +95,7 @@ export default function Footer() {
             </ul>
           </div>
           <div>
-            <h3>Legal</h3>
+            <p className="footer-heading">Legal</p>
             <ul>
               <li><Link href="/privacy-policy">Privacy Policy</Link></li>
               <li><Link href="/terms">Terms of Use</Link></li>

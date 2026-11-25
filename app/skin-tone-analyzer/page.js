@@ -43,7 +43,7 @@ export default function SkinToneAnalyzerPage() {
       crumb="Skin Tone Analyzer"
       appName="Skin Tone Analyzer"
       description={DESCRIPTION}
-      eyebrowIcon="face-shimmer"
+      eyebrowIcon="face"
       eyebrow="Free skin tone analyzer"
       h1="Skin Tone Analyzer:"
       h1Accent="Find Your Skin Tone and Undertone"

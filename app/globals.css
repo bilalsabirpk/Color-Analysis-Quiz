@@ -1871,11 +1871,9 @@
 }
 @media (prefers-reduced-motion:reduce){ .pg-swatch,.pg-mode span{transition:none;} }
 :root[data-theme="dark"] .pg-mode.is-active span{background:#6366f1;border-color:#6366f1;}
-/* Long nav label: full text normally, shorter between 981px and 1180px. */
-nav.main-nav a{white-space:nowrap;}
-.nav-label-short{display:none;}
-@media (max-width:1180px) and (min-width:981px){
-  .nav-label-full{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;}
-  .nav-label-short{display:inline;}
-  .logo{white-space:nowrap;}
-}
+/* Featured tool at the top of the Tools menu (Color Palette Generator). */
+nav.main-nav .nav-tools-menu a.nt-featured{grid-column:1/-1;display:flex;gap:10px;align-items:center;padding:10px 12px;margin-bottom:4px;border:1px solid var(--line);border-radius:12px;background:var(--grad-soft,#f5f7ff);}
+nav.main-nav .nav-tools-menu a.nt-featured:hover{border-color:var(--purple);}
+.nt-new{display:inline-block;margin-left:6px;padding:1px 7px;border-radius:999px;background:var(--purple);color:#fff;font-size:10.5px;font-weight:800;letter-spacing:.04em;text-transform:uppercase;vertical-align:2px;}
+:root[data-theme="dark"] .nt-new{background:#6366f1;}
+@media (max-width:980px){ nav.main-nav.open .nav-tools-menu a.nt-featured{margin:0 0 8px;} }

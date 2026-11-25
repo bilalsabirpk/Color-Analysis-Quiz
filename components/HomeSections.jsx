@@ -108,7 +108,7 @@ export function WhyUs() {
                   {ICONS[b.icon]}
                 </svg>
               </span>
-              <h3>{b.title}</h3>
+              <p className="hs-benefit-title">{b.title}</p>
               <p>{b.text}</p>
             </li>
           ))}
@@ -225,7 +225,7 @@ export function SeasonsExplained() {
                 <p>{s.text}</p>
               </div>
               <a href="#seasons" data-season-tab={s.key} className="hs-season-more">
-                View palette →
+                View palette<span className="visually-hidden"> for {s.name}</span> →
               </a>
             </li>
           ))}

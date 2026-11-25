@@ -138,7 +138,7 @@ export default function HomePage() {
               {FREE_TOOLS.map((t) => (
                 <Link key={t.href} href={t.href} className="tool-card">
                   <span className="tool-icon" aria-hidden="true"><Icon name={t.icon} size={26} /></span>
-                  <h3>{t.title}</h3>
+                  <p className="tool-card-title">{t.title}</p>
                   <p>{t.short}</p>
                   <span className="tool-go" aria-hidden="true">Open tool →</span>
                 </Link>

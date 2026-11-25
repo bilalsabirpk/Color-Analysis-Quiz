@@ -119,7 +119,9 @@ export default function ColorHarmonyPage() {
             </p>
             <p className="wsai-alt">
               Want to see a color on yourself?{' '}
-              <Link href="/#harmony">Try it on your own photo</Link>.
+              <Link href="/#harmony">Try it on your own photo</Link>. Need a full 3–8 color
+              palette you can lock and download? Use the{' '}
+              <Link href="/color-palette-generator">color palette generator</Link>.
             </p>
           </div>
         </section>

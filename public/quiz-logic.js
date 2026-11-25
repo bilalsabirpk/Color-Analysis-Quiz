@@ -5,9 +5,12 @@
 /* =========================================================
    1. SEASON DATA MODEL
    ========================================================= */
+/* Flat outline icons (Material Design Icons, Apache-2.0). Same set as lib/icons.js. */
+var ICONS = {"spring":"M3,13A9,9 0 0,0 12,22A9,9 0 0,0 3,13M5.44,15.44C7.35,16.15 8.85,17.65 9.56,19.56C7.65,18.85 6.15,17.35 5.44,15.44M12,22A9,9 0 0,0 21,13A9,9 0 0,0 12,22M14.42,19.57C15.11,17.64 16.64,16.11 18.57,15.42C17.86,17.34 16.34,18.86 14.42,19.57M12,14A6,6 0 0,0 18,8V3C17.26,3 16.53,3.12 15.84,3.39C15.29,3.62 14.8,3.96 14.39,4.39L12,2L9.61,4.39C9.2,3.96 8.71,3.62 8.16,3.39C7.47,3.12 6.74,3 6,3V8A6,6 0 0,0 12,14M8,5.61L9.57,7.26L12,4.83L14.43,7.26L16,5.61V8A4,4 0 0,1 12,12A4,4 0 0,1 8,8V5.61Z","summer":"M20,12H22V14H20C18.62,14 17.26,13.65 16,13C13.5,14.3 10.5,14.3 8,13C6.74,13.65 5.37,14 4,14H2V12H4C5.39,12 6.78,11.53 8,10.67C10.44,12.38 13.56,12.38 16,10.67C17.22,11.53 18.61,12 20,12M20,6H22V8H20C18.62,8 17.26,7.65 16,7C13.5,8.3 10.5,8.3 8,7C6.74,7.65 5.37,8 4,8H2V6H4C5.39,6 6.78,5.53 8,4.67C10.44,6.38 13.56,6.38 16,4.67C17.22,5.53 18.61,6 20,6M20,18H22V20H20C18.62,20 17.26,19.65 16,19C13.5,20.3 10.5,20.3 8,19C6.74,19.65 5.37,20 4,20H2V18H4C5.39,18 6.78,17.53 8,16.67C10.44,18.38 13.56,18.38 16,16.67C17.22,17.53 18.61,18 20,18Z","autumn":"M21.79,13L16,16L17,18L13,17.25V21H11V17.25L7,18L8,16L2.21,13L3.21,11.27L1.61,8L5.21,7.77L6.21,6L9.63,9.9L8,5H10L12,2L14,5H16L14.37,9.9L17.79,6L18.79,7.73L22.39,7.96L20.79,11.19L21.79,13Z","winter":"M20.79,13.95L18.46,14.57L16.46,13.44V10.56L18.46,9.43L20.79,10.05L21.31,8.12L19.54,7.65L20,5.88L18.07,5.36L17.45,7.69L15.45,8.82L13,7.38V5.12L14.71,3.41L13.29,2L12,3.29L10.71,2L9.29,3.41L11,5.12V7.38L8.5,8.82L6.5,7.69L5.92,5.36L4,5.88L4.47,7.65L2.7,8.12L3.22,10.05L5.55,9.43L7.55,10.56V13.45L5.55,14.58L3.22,13.96L2.7,15.89L4.47,16.36L4,18.12L5.93,18.64L6.55,16.31L8.55,15.18L11,16.62V18.88L9.29,20.59L10.71,22L12,20.71L13.29,22L14.7,20.59L13,18.88V16.62L15.5,15.17L17.5,16.3L18.12,18.63L20,18.12L19.53,16.35L21.3,15.88L20.79,13.95M9.5,10.56L12,9.11L14.5,10.56V13.44L12,14.89L9.5,13.44V10.56Z","heart":"M12,21.35L10.55,20.03C5.4,15.36 2,12.27 2,8.5C2,5.41 4.42,3 7.5,3C9.24,3 10.91,3.81 12,5.08C13.09,3.81 14.76,3 16.5,3C19.58,3 22,5.41 22,8.5C22,12.27 18.6,15.36 13.45,20.03L12,21.35Z","heartOutline":"M12.1,18.55L12,18.65L11.89,18.55C7.14,14.24 4,11.39 4,8.5C4,6.5 5.5,5 7.5,5C9.04,5 10.54,6 11.07,7.36H12.93C13.46,6 14.96,5 16.5,5C18.5,5 20,6.5 20,8.5C20,11.39 16.86,14.24 12.1,18.55M16.5,3C14.76,3 13.09,3.81 12,5.08C10.91,3.81 9.24,3 7.5,3C4.42,3 2,5.41 2,8.5C2,12.27 5.4,15.36 10.55,20.03L12,21.35L13.45,20.03C18.6,15.36 22,12.27 22,8.5C22,5.41 19.58,3 16.5,3Z","star":"M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.45,13.97L5.82,21L12,17.27Z","palette":"M17.5,12A1.5,1.5 0 0,1 16,10.5A1.5,1.5 0 0,1 17.5,9A1.5,1.5 0 0,1 19,10.5A1.5,1.5 0 0,1 17.5,12M14.5,8A1.5,1.5 0 0,1 13,6.5A1.5,1.5 0 0,1 14.5,5A1.5,1.5 0 0,1 16,6.5A1.5,1.5 0 0,1 14.5,8M9.5,8A1.5,1.5 0 0,1 8,6.5A1.5,1.5 0 0,1 9.5,5A1.5,1.5 0 0,1 11,6.5A1.5,1.5 0 0,1 9.5,8M6.5,12A1.5,1.5 0 0,1 5,10.5A1.5,1.5 0 0,1 6.5,9A1.5,1.5 0 0,1 8,10.5A1.5,1.5 0 0,1 6.5,12M12,3A9,9 0 0,0 3,12A9,9 0 0,0 12,21A1.5,1.5 0 0,0 13.5,19.5C13.5,19.11 13.35,18.76 13.11,18.5C12.88,18.23 12.73,17.88 12.73,17.5A1.5,1.5 0 0,1 14.23,16H16A5,5 0 0,0 21,11C21,6.58 16.97,3 12,3Z","cancel":"M12 2C17.5 2 22 6.5 22 12S17.5 22 12 22 2 17.5 2 12 6.5 2 12 2M12 4C10.1 4 8.4 4.6 7.1 5.7L18.3 16.9C19.3 15.5 20 13.8 20 12C20 7.6 16.4 4 12 4M16.9 18.3L5.7 7.1C4.6 8.4 4 10.1 4 12C4 16.4 7.6 20 12 20C13.9 20 15.6 19.4 16.9 18.3Z","ring":"M12,10L8,4.4L9.6,2H14.4L16,4.4L12,10M15.5,6.8L14.3,8.5C16.5,9.4 18,11.5 18,14A6,6 0 0,1 12,20A6,6 0 0,1 6,14C6,11.5 7.5,9.4 9.7,8.5L8.5,6.8C5.8,8.1 4,10.8 4,14A8,8 0 0,0 12,22A8,8 0 0,0 20,14C20,10.8 18.2,8.1 15.5,6.8Z","lipstick":"M9 23C8.45 23 8 22.55 8 22V13C8 12.45 8.45 12 9 12H15C15.55 12 16 12.45 16 13V22C16 22.55 15.55 23 15 23H9M10 11C9.45 11 9 10.55 9 10V5.25C9 5.25 11 3 11.75 1C12.83 1.67 13.92 2.33 14.46 3.83C15 5.33 15 7.67 15 10C15 10.55 14.55 11 14 11H10Z","dress":"M12 4A3.5 3.5 0 0 0 8.5 7.5H10.5A1.5 1.5 0 0 1 12 6A1.5 1.5 0 0 1 13.5 7.5A1.5 1.5 0 0 1 12 9C11.45 9 11 9.45 11 10V11.75L2.4 18.2A1 1 0 0 0 3 20H21A1 1 0 0 0 21.6 18.2L13 11.75V10.85A3.5 3.5 0 0 0 15.5 7.5A3.5 3.5 0 0 0 12 4M12 13.5L18 18H6Z","neutral":"M12,20A8,8 0 0,1 4,12A8,8 0 0,1 12,4A8,8 0 0,1 20,12A8,8 0 0,1 12,20M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2Z","image":"M19,19H5V5H19M19,3H5A2,2 0 0,0 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5A2,2 0 0,0 19,3M13.96,12.29L11.21,15.83L9.25,13.47L6.5,17H17.5L13.96,12.29Z","tshirt":"M16,21H8A1,1 0 0,1 7,20V12.07L5.7,13.12C5.31,13.5 4.68,13.5 4.29,13.12L1.46,10.29C1.07,9.9 1.07,9.27 1.46,8.88L7.34,3H9C9,4.1 10.34,5 12,5C13.66,5 15,4.1 15,3H16.66L22.54,8.88C22.93,9.27 22.93,9.9 22.54,10.29L19.71,13.12C19.32,13.5 18.69,13.5 18.3,13.12L17,12.07V20A1,1 0 0,1 16,21M20.42,9.58L16.11,5.28C15.8,5.63 15.43,5.94 15,6.2C14.16,6.7 13.13,7 12,7C10.3,7 8.79,6.32 7.89,5.28L3.58,9.58L5,11L8,9H9V19H15V9H16L19,11L20.42,9.58Z"};
+function icon(name, size){ size = size || 18; var d = ICONS[name]; return d ? '<svg class="icon" viewBox="0 0 24 24" width="'+size+'" height="'+size+'" aria-hidden="true" focusable="false"><path fill="currentColor" d="'+d+'"/></svg>' : ''; }
 var SEASONS = {
   spring: {
-    key:'spring', name:'Spring', tagline:'Warm & Fresh', emoji:'🌸',
+    key:'spring', name:'Spring', tagline:'Warm & Fresh', icon:'spring',
     desc:'Warm, clear and golden undertones with light-to-medium depth. You shine in fresh, bright, slightly warm colors.',
     best:['#FFD166','#F6A94A','#F0C808','#8CC084','#5FA8D3','#F17300','#EF5B5B','#7BC4C4','#F9C74F','#90BE6D','#F8961E','#C9CBA3'],
     avoid:['#4B3F72','#2C2C54','#000000','#7A004F','#5A5A5A'],
@@ -17,7 +20,7 @@ var SEASONS = {
     neutrals:'Ivory, camel, warm beige, light gold-grey.'
   },
   summer: {
-    key:'summer', name:'Summer', tagline:'Cool & Soft', emoji:'💧',
+    key:'summer', name:'Summer', tagline:'Cool & Soft', icon:'summer',
     desc:'Cool, muted undertones with soft contrast. Powdery, dusty tones flatter you far more than bright saturated shades.',
     best:['#A7C6DA','#C9A9D9','#7F95D1','#9FB8AD','#D8A7B1','#8E9AAF','#B8B8D1','#6C8EA0','#CDB4DB','#A5A58D','#8FA3B0','#B392AC'],
     avoid:['#FF6B00','#FFD700','#8B0000','#7CFC00','#000000'],
@@ -27,7 +30,7 @@ var SEASONS = {
     neutrals:'Soft white, dove grey, taupe, cool navy.'
   },
   autumn: {
-    key:'autumn', name:'Autumn', tagline:'Warm & Rich', emoji:'🍂',
+    key:'autumn', name:'Autumn', tagline:'Warm & Rich', icon:'autumn',
     desc:'Warm, deep and earthy undertones with rich muted saturation. Spice tones and deep golds are your signature.',
     best:['#B85C38','#A44A3F','#C48A3C','#6B4226','#8A9A5B','#D9A441','#7A6C3E','#914F26','#4A5D23','#B5651D','#C97B4A','#5E4B3C'],
     avoid:['#FF69B4','#00FFFF','#C0C0C0','#0000FF','#FFFFFF'],
@@ -37,7 +40,7 @@ var SEASONS = {
     neutrals:'Camel, chocolate brown, warm khaki, cream.'
   },
   winter: {
-    key:'winter', name:'Winter', tagline:'Cool & Bold', emoji:'❄️',
+    key:'winter', name:'Winter', tagline:'Cool & Bold', icon:'winter',
     desc:'Cool, deep undertones with high contrast. Bold, clear, saturated colors and true white/black are made for you.',
     best:['#0B1F3A','#7A0C2E','#1B1B3A','#00727A','#4B0082','#C40233','#003366','#2E294E','#0D2818','#800020','#1C1C1C','#3A0CA3'],
     avoid:['#F5DEB3','#FFE4C4','#D2B48C','#F0E68C','#FFDAB9'],
@@ -657,7 +660,7 @@ function syncSeasonExplorerIfShowing(seasonKey){
 function renderResults(result){
   var season = SEASONS[result.season];
   document.getElementById('resultPhoto').src = result.photoDataUrl;
-  document.getElementById('resultSeasonName').textContent = season.emoji + ' ' + season.name;
+  document.getElementById('resultSeasonName').innerHTML = icon(season.icon, 28) + ' ' + season.name;
   document.getElementById('resultTagline').textContent = season.tagline + ' — ' + season.desc;
 
   // HEX/RGB/HSL cards show whichever color is currently applied to the photo
@@ -675,7 +678,7 @@ function renderResults(result){
   document.getElementById('tipStyling').textContent = season.styling;
   document.getElementById('tipNeutrals').textContent = season.neutrals;
 
-  document.getElementById('favoriteBtn').textContent = isFavorited(result) ? '♥ Saved to Favorites' : '♡ Add to Favorites';
+  document.getElementById('favoriteBtn').innerHTML = isFavorited(result) ? icon('heart') + ' Saved to Favorites' : icon('heartOutline') + ' Add to Favorites';
 
   document.getElementById('resultPhoto').style.display = '';
 
@@ -699,7 +702,7 @@ function fillPaletteRow(mountId, colors, isAvoid, onSelect, customHexes, onRemov
     btn.type = 'button';
     btn.className = 'swatch' + (isCustom ? ' is-custom' : '');
     btn.setAttribute('aria-label', (isAvoid?'Avoid ':'') + hex + (isCustom ? ' — your added color' : '') + ' — click to copy and apply');
-    btn.innerHTML = '<div class="sw-color" style="background:'+hex+'"></div><div class="sw-label">'+hex+(isCustom?' ★':'')+'</div><div class="copied-badge">Copied!</div>';
+    btn.innerHTML = '<div class="sw-color" style="background:'+hex+'"></div><div class="sw-label">'+hex+(isCustom?' '+icon('star',13):'')+'</div><div class="copied-badge">Copied!</div>';
     btn.addEventListener('click', function(){
       copyToClipboard(hex);
       btn.classList.add('copied');
@@ -743,7 +746,7 @@ function shareData(result){
   var season = SEASONS[result.season];
   return {
     key: season.key,
-    text: 'My color season is ' + season.name + ' ' + season.emoji + ' (' + season.tagline + ')! What\'s yours? Free color analysis quiz:',
+    text: 'My color season is ' + season.name + ' (' + season.tagline + ')! What\'s yours? Free color analysis quiz:',
     url: SHARE_SITE + '/?utm_source=share&utm_medium=social&utm_campaign=photo-' + season.key
   };
 }
@@ -877,7 +880,8 @@ function downloadResultCard(result){
   function drawPhoto(){
     ctx.font = '800 46px Arial';
     ctx.fillStyle = '#4f46e5';
-    ctx.fillText(season.emoji + '  ' + season.name, 50, 260);
+    ctx.save(); ctx.translate(50, 222); ctx.scale(1.75, 1.75); ctx.fill(new Path2D(ICONS[season.icon])); ctx.restore();
+    ctx.fillText(season.name, 104, 260);
     ctx.font = '600 22px Arial';
     ctx.fillStyle = '#4b5563';
     ctx.fillText(season.tagline, 50, 300);
@@ -1025,7 +1029,7 @@ function toggleFavorite(result){
     showToast('Saved to favorites');
   }
   saveFavorites(list);
-  document.getElementById('favoriteBtn').textContent = isFavorited(result) ? '♥ Saved to Favorites' : '♡ Add to Favorites';
+  document.getElementById('favoriteBtn').innerHTML = isFavorited(result) ? icon('heart') + ' Saved to Favorites' : icon('heartOutline') + ' Add to Favorites';
   renderFavorites();
 }
 function removeFavorite(hex){
@@ -1033,7 +1037,7 @@ function removeFavorite(hex){
   saveFavorites(list);
   renderFavorites();
   if(state.lastResult && state.lastResult.hex === hex){
-    document.getElementById('favoriteBtn').textContent = '♡ Add to Favorites';
+    document.getElementById('favoriteBtn').innerHTML = icon('heartOutline') + ' Add to Favorites';
   }
 }
 function renderFavorites(){
@@ -1054,7 +1058,7 @@ function renderFavorites(){
     card.className = 'fav-card';
     var swatchesHtml = season.best.slice(0,6).map(function(c){ return '<span style="background:'+c+'"></span>'; }).join('');
     card.innerHTML =
-      '<div class="fav-top"><strong>'+season.emoji+' '+season.name+'</strong><button class="fav-remove" data-hex="'+f.hex+'">Remove</button></div>'+
+      '<div class="fav-top"><strong>'+icon(season.icon)+' '+season.name+'</strong><button class="fav-remove" data-hex="'+f.hex+'">Remove</button></div>'+
       '<div class="fav-swatches">'+swatchesHtml+'</div>'+
       '<div style="font-family:ui-monospace,monospace;font-size:12.5px;color:#4b5563;">'+f.hex+'</div>';
     grid.appendChild(card);
@@ -1080,7 +1084,7 @@ function buildSeasonExplorer(){
     tab.setAttribute('role','tab');
     tab.setAttribute('aria-selected', key === state.activeSeasonTab ? 'true':'false');
     tab.setAttribute('aria-controls','season-panel');
-    tab.textContent = s.emoji + ' ' + s.name;
+    tab.innerHTML = icon(s.icon) + ' ' + s.name;
     tab.addEventListener('click', function(){ setActiveSeasonTab(key); });
     tabsWrap.appendChild(tab);
   });
@@ -1100,7 +1104,7 @@ function renderSeasonCard(key){
   var bestSw = s.best.concat(customColors).map(function(c){
     var isCustom = customColors.indexOf(c) !== -1;
     return '<div class="swatch'+(isCustom?' is-custom':'')+'" tabindex="0" role="button" aria-label="'+c+(isCustom?' — your added color':'')+' — click to add to Your Best Colors and copy">'+
-      '<div class="sw-color" style="background:'+c+'"></div><div class="sw-label">'+c+(isCustom?' ★':'')+'</div>'+
+      '<div class="sw-color" style="background:'+c+'"></div><div class="sw-label">'+c+(isCustom?' '+icon('star',13):'')+'</div>'+
       '<div class="copied-badge">Added!</div>'+
       (isCustom ? '<button type="button" class="swatch-remove" aria-label="Remove your added color '+c+'" data-hex="'+c+'">×</button>' : '')+
     '</div>';
@@ -1109,17 +1113,17 @@ function renderSeasonCard(key){
   mount.innerHTML =
     '<div class="season-card" id="season-panel" role="tabpanel">'+
       '<div class="season-card-top">'+
-        '<div><h3>'+s.emoji+' '+s.name+'</h3><p class="season-sub">'+s.tagline+' — '+s.desc+'</p></div>'+
+        '<div><h3>'+icon(s.icon,22)+' '+s.name+'</h3><p class="season-sub">'+s.tagline+' — '+s.desc+'</p></div>'+
         '<button class="btn btn-primary btn-sm" id="thisIsMySeason" data-key="'+key+'">This Is My Season →</button>'+
       '</div>'+
       '<div class="palette-block">'+
-        '<h3>🎨 Best Colors</h3><p class="add-color-hint">Click any color you like — it copies to your clipboard and joins "Your Best Colors" in your results.</p><div class="palette-row" id="seasonBestRow">'+bestSw+'</div>'+
-        '<h3>🚫 Colors To Avoid</h3><div class="palette-row avoid-row">'+avoidSw+'</div>'+
+        '<h3>'+icon('palette',20)+' Best Colors</h3><p class="add-color-hint">Click any color you like — it copies to your clipboard and joins "Your Best Colors" in your results.</p><div class="palette-row" id="seasonBestRow">'+bestSw+'</div>'+
+        '<h3>'+icon('cancel',20)+' Colors To Avoid</h3><div class="palette-row avoid-row">'+avoidSw+'</div>'+
         '<div class="tips-grid">'+
-          '<div class="tip-card"><h4>💍 Best Metals</h4><p>'+s.metals+'</p></div>'+
-          '<div class="tip-card"><h4>💄 Makeup Tone</h4><p>'+s.makeup+'</p></div>'+
-          '<div class="tip-card"><h4>👗 Styling Tip</h4><p>'+s.styling+'</p></div>'+
-          '<div class="tip-card"><h4>⚪ Best Neutrals</h4><p>'+s.neutrals+'</p></div>'+
+          '<div class="tip-card"><h4>'+icon('ring')+' Best Metals</h4><p>'+s.metals+'</p></div>'+
+          '<div class="tip-card"><h4>'+icon('lipstick')+' Makeup Tone</h4><p>'+s.makeup+'</p></div>'+
+          '<div class="tip-card"><h4>'+icon('dress')+' Styling Tip</h4><p>'+s.styling+'</p></div>'+
+          '<div class="tip-card"><h4>'+icon('neutral')+' Best Neutrals</h4><p>'+s.neutrals+'</p></div>'+
         '</div>'+
       '</div>'+
     '</div>';
@@ -1131,7 +1135,7 @@ function renderSeasonCard(key){
   document.getElementById('seasonBestRow').querySelectorAll('.swatch').forEach(function(sw){
     sw.addEventListener('click', function(e){
       if(e.target.classList.contains('swatch-remove')) return;
-      var hex = sw.querySelector('.sw-label').textContent.replace(' ★','').trim();
+      var hex = sw.querySelector('.sw-label').textContent.trim();
       silentCopyToClipboard(hex);
       var added = addCustomColorFor(key, hex);
       if(added){
@@ -1215,13 +1219,13 @@ function wireNewsletter(){
     var emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if(!emailPattern.test(val)){
       msg.style.color = '#ffffff';
-      msg.textContent = '⚠ Please enter a valid email address.';
+      msg.textContent = 'Please enter a valid email address.';
       input.setAttribute('aria-invalid','true');
       return;
     }
     input.setAttribute('aria-invalid','false');
     msg.style.color = '#ffffff';
-    msg.textContent = '✓ Thanks for subscribing! (Demo only — connect a real email service to go live.)';
+    msg.textContent = 'Thanks for subscribing! (Demo only — connect a real email service to go live.)';
     // NOTE: For production, replace this with a real API call, e.g.:
     // fetch('/api/subscribe', {method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify({email: val})});
     form.reset();
@@ -1844,14 +1848,14 @@ function updateRecolorCopy(hasPhoto){
   var heading = document.getElementById('recolorHeading');
   var desc = document.getElementById('recolorDesc');
   var clickText = isBg
-    ? '👆 Click the background in the photo above to tell us exactly what to recolor.'
-    : '👆 Click your coat/shirt in the photo above to tell us exactly what to recolor.';
+    ? 'Click the background in the photo above to tell us exactly what to recolor.'
+    : 'Click your coat/shirt in the photo above to tell us exactly what to recolor.';
   var noPhotoCaption = 'Take the quiz above to try this on your own photo.';
   var hasPhotoCaption = isBg
     ? 'Applied instantly — your background color updates everywhere on this page.'
     : 'Applied instantly — this updates your photo everywhere on this page.';
 
-  if(heading) heading.textContent = isBg ? '🖼️ Recolor The Background' : '🧣 Recolor Your Coat / Shirt';
+  if(heading) heading.innerHTML = isBg ? icon('image', 22) + ' Recolor The Background' : icon('tshirt', 22) + ' Recolor Your Coat / Shirt';
   if(desc) desc.textContent = isBg
     ? 'This finds your photo’s actual background by its color and recolors just that region — not a flat overlay. Click any swatch below (or enter a hex code); it applies straight to your photo above with no extra save step, and downloads exactly as shown.'
     : 'This finds the actual garment in your photo by its color and recolors just that region — not a flat overlay. Click any swatch below (or enter a hex code); it applies straight to your photo above with no extra save step, and downloads exactly as shown.';
@@ -1874,7 +1878,7 @@ function updateRecolorCopy(hasPhoto){
   });
 }
 
-/** Wires the "👕 Clothing Color / 🖼️ Background Color" toggle — there are
+/** Wires the "Clothing Color / Background Color" toggle — there are
  * two copies of it (results page + Harmony section) but they always act as
  * one shared switch: clicking either one changes what BOTH photos detect
  * and recolor, forces a fresh detection pass (the old sample point belonged

@@ -76,7 +76,8 @@ export default function FoundationFinderPage() {
       crumb="Foundation Shade Finder"
       appName="Foundation Shade Finder"
       description={DESCRIPTION}
-      eyebrow="🧴 Free foundation shade finder"
+      eyebrowIcon="foundation"
+      eyebrow="Free foundation shade finder"
       h1="Foundation Shade Finder:"
       h1Accent="Find Your Undertone and Depth"
       lead="Answer five quick questions to find your foundation undertone and depth range, which shade labels to look for, and how to swatch so your foundation finally matches."

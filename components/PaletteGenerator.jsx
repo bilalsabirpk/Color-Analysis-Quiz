@@ -3,6 +3,7 @@
 import { useCallback, useEffect, useId, useMemo, useRef, useState } from 'react';
 import Link from 'next/link';
 import { useSearchParams } from 'next/navigation';
+import Icon from '@/components/Icon';
 
 // Color palette generator for /color-palette-generator.
 // Three ways to build a 3–8 color palette: random, from one base color with a
@@ -359,10 +360,10 @@ export default function PaletteGenerator({ seasons }) {
             <fieldset className="pg-modes">
               <legend className="pg-label">Build palettes</legend>
               {[
-                ['random', '🎲 Random'],
-                ['color', '🎨 From a color'],
-                ['season', '🍂 From a season'],
-              ].map(([key, label]) => (
+                ['random', 'Random', 'dice'],
+                ['color', 'From a color', 'palette'],
+                ['season', 'From a season', 'autumn'],
+              ].map(([key, label, icon]) => (
                 <label key={key} className={`pg-mode${mode === key ? ' is-active' : ''}`}>
                   <input
                     type="radio"
@@ -371,7 +372,10 @@ export default function PaletteGenerator({ seasons }) {
                     checked={mode === key}
                     onChange={() => changeMode(key)}
                   />
-                  <span>{label}</span>
+                  <span>
+                    <Icon name={icon} size={18} />
+                    {label}
+                  </span>
                 </label>
               ))}
             </fieldset>

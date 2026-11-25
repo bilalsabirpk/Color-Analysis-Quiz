@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
 import { TOOLS, TOOL_GROUPS } from '@/lib/tools';
 import ThemeToggle from '@/components/ThemeToggle';
+import Icon from '@/components/Icon';
 
 // Primary nav — mirrors the classic Home / Blog / About / Contact pattern.
 // The quiz sections (#quiz, #seasons, #harmony, #undertone-test) only exist on
@@ -104,7 +105,7 @@ export default function Header() {
             <div className="nav-tools-menu" id="toolsMenu" hidden={!toolsOpen}>
               {TOOLS.filter((t) => t.featured).map((t) => (
                 <Link key={t.href} href={t.href} className="nt-featured" onClick={closeAll}>
-                  <span className="nt-icon" aria-hidden="true">{t.icon}</span>
+                  <span className="nt-icon" aria-hidden="true"><Icon name={t.icon} size={20} /></span>
                   <span className="nt-text">
                     <strong>
                       {t.title} <span className="nt-new">New</span>
@@ -120,7 +121,7 @@ export default function Header() {
                     {TOOLS.filter((t) => t.group === g.key && !t.featured).map((t) => (
                       <li key={t.href}>
                         <Link href={t.href} onClick={closeAll}>
-                          <span className="nt-icon" aria-hidden="true">{t.icon}</span>
+                          <span className="nt-icon" aria-hidden="true"><Icon name={t.icon} size={20} /></span>
                           <span className="nt-text">
                             <strong>{t.title}</strong>
                           </span>

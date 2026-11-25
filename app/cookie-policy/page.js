@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { siteConfig, adsenseClientId, gaId, OG_DEFAULTS } from '@/lib/site-config';
+import Icon from '@/components/Icon';
 
 export const metadata = {
   title: 'Cookie Policy',
@@ -42,25 +43,25 @@ export default function CookiePolicyPage() {
 
   const CATEGORIES = [
     {
-      icon: '🛡️',
+      icon: 'shield',
       title: 'Essential',
       on: true,
       text: 'Needed for the site to load and stay secure. We don’t set any essential cookies of our own; your browser and our hosting provider may use standard technical data (such as your IP address) to deliver pages safely over HTTPS.',
     },
     {
-      icon: '⭐',
+      icon: 'star-outline',
       title: 'Preferences (browser storage)',
       on: true,
       text: 'Remembers things you choose to save, like favorite results and custom palette colors. This uses your browser’s local storage, not cookies, and never leaves your device.',
     },
     {
-      icon: '📊',
+      icon: 'chart',
       title: 'Analytics',
       on: analytics,
       text: 'Helps us understand overall traffic, like which pages are popular and roughly how many people visit. It is aggregated, never linked to your photo, and only runs if analytics is switched on.',
     },
     {
-      icon: '📢',
+      icon: 'megaphone',
       title: 'Advertising',
       on: ads,
       text: 'Lets Google AdSense show ads and measure their performance, which keeps the tool free. Ads may be personalized based on your visits to this and other sites, unless you opt out.',
@@ -91,7 +92,7 @@ export default function CookiePolicyPage() {
       <main id="main" className="legal-page">
         <section className="lg-hero">
           <div className="container">
-            <span className="eyebrow">🍪 Legal</span>
+            <span className="eyebrow"><Icon name="cookie" size={16} /> Legal</span>
             <h1>Cookie Policy</h1>
             <p className="lg-lead">
               What cookies and browser storage {siteConfig.name} uses, why we use them, and
@@ -101,7 +102,7 @@ export default function CookiePolicyPage() {
               Last updated: <time dateTime={LAST_UPDATED_ISO}>{LAST_UPDATED}</time>
             </p>
             <div className="lg-summary" role="note">
-              <span className="lg-summary-icon" aria-hidden="true">🔒</span>
+              <span className="lg-summary-icon" aria-hidden="true"><Icon name="lock" size={22} /></span>
               <p>
                 <strong>The short version:</strong> your photos are never stored in cookies
                 or sent to us. We don&apos;t set our own tracking cookies. Third-party
@@ -166,7 +167,7 @@ export default function CookiePolicyPage() {
                   {CATEGORIES.map((c) => (
                     <div key={c.title} className="cp-cat">
                       <div className="cp-cat-head">
-                        <span className="cp-cat-icon" aria-hidden="true">{c.icon}</span>
+                        <span className="cp-cat-icon" aria-hidden="true"><Icon name={c.icon} size={20} /></span>
                         <h3>{c.title}</h3>
                         <Status on={c.on} />
                       </div>
@@ -230,7 +231,7 @@ export default function CookiePolicyPage() {
                 <h2><span className="lg-num">5</span>Your Rights and Choices</h2>
                 <div className="cp-choices">
                   <div>
-                    <h3>🌐 Browser settings</h3>
+                    <h3><Icon name="web" size={20} /> Browser settings</h3>
                     <p>
                       You can block or delete cookies and site data at any time. Guides:{' '}
                       <a href="https://support.google.com/chrome/answer/95647" target="_blank" rel="noopener noreferrer">Chrome</a>,{' '}
@@ -240,7 +241,7 @@ export default function CookiePolicyPage() {
                     </p>
                   </div>
                   <div>
-                    <h3>🎯 Opt out of personalized ads</h3>
+                    <h3><Icon name="target" size={20} /> Opt out of personalized ads</h3>
                     <p>
                       Use{' '}
                       <a href="https://adssettings.google.com/authenticated" target="_blank" rel="noopener noreferrer">Google Ads Settings</a>{' '}
@@ -252,7 +253,7 @@ export default function CookiePolicyPage() {
                     </p>
                   </div>
                   <div>
-                    <h3>📈 Opt out of analytics</h3>
+                    <h3><Icon name="trend" size={20} /> Opt out of analytics</h3>
                     <p>
                       Install the{' '}
                       <a href="https://tools.google.com/dlpage/gaoptout" target="_blank" rel="noopener noreferrer">Google Analytics opt-out add-on</a>{' '}
@@ -260,7 +261,7 @@ export default function CookiePolicyPage() {
                     </p>
                   </div>
                   <div>
-                    <h3>🚫 Do Not Track</h3>
+                    <h3><Icon name="cancel" size={20} /> Do Not Track</h3>
                     <p>
                       There is no common standard for &quot;Do Not Track&quot; signals, so we
                       don&apos;t respond to them. Use the options above instead.
@@ -304,14 +305,14 @@ export default function CookiePolicyPage() {
                 <p>If you have questions about this Cookie Policy, get in touch:</p>
                 <div className="lg-contact">
                   <a href={`mailto:${email}`} className="lg-contact-item">
-                    <span aria-hidden="true">✉️</span>
+                    <Icon name="email" size={18} />
                     <span>
                       <small>Email</small>
                       {email}
                     </span>
                   </a>
                   <Link href="/contact?topic=privacy" className="lg-contact-item">
-                    <span aria-hidden="true">💬</span>
+                    <Icon name="chat" size={18} />
                     <span>
                       <small>Contact form</small>
                       Send us a message

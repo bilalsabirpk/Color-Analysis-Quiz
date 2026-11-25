@@ -68,7 +68,8 @@ export default function JewelryTestPage() {
       crumb="Gold or Silver Jewelry Test"
       appName="Gold or Silver Jewelry Test"
       description={DESCRIPTION}
-      eyebrow="💍 Free jewelry metal test"
+      eyebrowIcon="ring"
+      eyebrow="Free jewelry metal test"
       h1="Gold or Silver Jewelry Test:"
       h1Accent="Which Metal Suits My Skin Tone?"
       lead="Answer six quick questions about your natural coloring to find out whether gold, silver or both flatter you, plus the metals and gemstones to try."

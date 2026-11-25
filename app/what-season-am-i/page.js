@@ -5,6 +5,7 @@ import FaqAccordion from '@/components/FaqAccordion';
 import RelatedTools from '@/components/RelatedTools';
 import RatingBox from '@/components/RatingBox';
 import ToolGuide, { guideFaqs } from '@/components/ToolGuide';
+import Icon from '@/components/Icon';
 
 // Dedicated landing page for "what season am I" / "color season quiz"
 // searches. The homepage targets the photo-based color analysis quiz; this
@@ -55,7 +56,7 @@ export const metadata = {
 const SEASON_SIGNS = [
   {
     season: 'Spring',
-    emoji: '🌷',
+    icon: 'spring',
     href: '/guides/warm-spring-color-palette',
     undertone: 'Warm',
     look: 'Light to medium, clear and bright',
@@ -64,7 +65,7 @@ const SEASON_SIGNS = [
   },
   {
     season: 'Summer',
-    emoji: '🌊',
+    icon: 'summer',
     href: '/guides/cool-summer-color-palette',
     undertone: 'Cool',
     look: 'Light to medium, soft and blended',
@@ -73,7 +74,7 @@ const SEASON_SIGNS = [
   },
   {
     season: 'Autumn',
-    emoji: '🍂',
+    icon: 'autumn',
     href: '/guides/warm-autumn-color-palette',
     undertone: 'Warm',
     look: 'Medium to deep, rich and muted',
@@ -82,7 +83,7 @@ const SEASON_SIGNS = [
   },
   {
     season: 'Winter',
-    emoji: '❄️',
+    icon: 'winter',
     href: '/guides/cool-winter-color-palette',
     undertone: 'Cool',
     look: 'High contrast, clear and bold',
@@ -94,7 +95,7 @@ const SEASON_SIGNS = [
 const BEST_COLORS = [
   {
     season: 'Spring',
-    emoji: '🌷',
+    icon: 'spring',
     href: '/guides/warm-spring-color-palette',
     swatches: ['#F6A94A', '#FF7F6E', '#2EC4B6', '#8CC084', '#FFF4DE'],
     wear: 'Clear warm colors: coral, peach, golden yellow, turquoise, warm green and ivory.',
@@ -102,7 +103,7 @@ const BEST_COLORS = [
   },
   {
     season: 'Summer',
-    emoji: '🌊',
+    icon: 'summer',
     href: '/guides/cool-summer-color-palette',
     swatches: ['#A7C6DA', '#C9A9D9', '#E58FAF', '#7F95D1', '#8E9AAF'],
     wear: 'Soft cool colors: powder blue, lavender, rose pink, periwinkle and soft navy.',
@@ -110,7 +111,7 @@ const BEST_COLORS = [
   },
   {
     season: 'Autumn',
-    emoji: '🍂',
+    icon: 'autumn',
     href: '/guides/warm-autumn-color-palette',
     swatches: ['#B7410E', '#D4A017', '#6B8E23', '#2A7F7A', '#C19A6B'],
     wear: 'Rich warm earth tones: rust, mustard, olive, teal, camel and chocolate brown.',
@@ -118,7 +119,7 @@ const BEST_COLORS = [
   },
   {
     season: 'Winter',
-    emoji: '❄️',
+    icon: 'winter',
     href: '/guides/cool-winter-color-palette',
     swatches: ['#141414', '#FAFAFA', '#D6177E', '#2541B2', '#00704A'],
     wear: 'Bold cool colors: true black, pure white, fuchsia, royal blue and emerald.',
@@ -213,7 +214,7 @@ export default function WhatSeasonAmIPage() {
             <nav aria-label="Breadcrumb" className="breadcrumb-nav">
               <Link href="/">Home</Link> / <span aria-current="page">What Season Am I?</span>
             </nav>
-            <span className="eyebrow">🎨 Color season quiz</span>
+            <span className="eyebrow"><Icon name="palette" size={16} /> Color season quiz</span>
             <h1>
               What Season Am I? <span className="grad-text">Free Color Season Quiz</span>
             </h1>
@@ -261,7 +262,7 @@ export default function WhatSeasonAmIPage() {
                   {SEASON_SIGNS.map((s) => (
                     <tr key={s.season}>
                       <th scope="row">
-                        <span aria-hidden="true">{s.emoji}</span>{' '}
+                        <Icon name={s.icon} size={18} />{' '}
                         <Link href={s.href}>{s.season}</Link>
                       </th>
                       <td>{s.undertone}</td>
@@ -293,7 +294,7 @@ export default function WhatSeasonAmIPage() {
               {BEST_COLORS.map((b) => (
                 <div key={b.season} className="wsai-best-card">
                   <h3>
-                    <span aria-hidden="true">{b.emoji}</span> {b.season}
+                    <Icon name={b.icon} size={18} /> {b.season}
                   </h3>
                   <div className="wsai-swatches" aria-hidden="true">
                     {b.swatches.map((c) => (

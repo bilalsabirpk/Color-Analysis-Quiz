@@ -42,7 +42,8 @@ export default function ConcealerFinderPage() {
       crumb="Concealer Shade Finder"
       appName="Concealer Shade Finder"
       description={DESCRIPTION}
-      eyebrow="✨ Free concealer shade finder"
+      eyebrowIcon="shimmer"
+      eyebrow="Free concealer shade finder"
       h1="Concealer Shade Finder:"
       h1Accent="Which Concealer and Corrector?"
       lead="Answer six quick questions to find your concealer undertone, whether to go lighter or match exactly, and which color corrector to use for dark circles, redness or dark spots."

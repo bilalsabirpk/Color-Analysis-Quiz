@@ -5,6 +5,7 @@ import FaqAccordion from '@/components/FaqAccordion';
 import RelatedTools from '@/components/RelatedTools';
 import RatingBox from '@/components/RatingBox';
 import ToolGuide, { guideFaqs } from '@/components/ToolGuide';
+import Icon from '@/components/Icon';
 
 // Tool page for "undertone test" / "warm or cool undertone test" searches.
 // The guide /guides/warm-vs-cool-undertones explains the tests in depth;
@@ -129,7 +130,7 @@ export default function UndertoneTestPage() {
             <nav aria-label="Breadcrumb" className="breadcrumb-nav">
               <Link href="/">Home</Link> / <span aria-current="page">Undertone Test</span>
             </nav>
-            <span className="eyebrow">🎨 Free skin undertone test</span>
+            <span className="eyebrow"><Icon name="target" size={16} /> Free skin undertone test</span>
             <h1>
               Undertone Test: <span className="grad-text">Are You Warm, Cool or Neutral?</span>
             </h1>

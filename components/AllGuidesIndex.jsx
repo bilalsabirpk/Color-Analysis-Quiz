@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { CATEGORY_ICONS } from '@/components/GuideCard';
+import Icon from '@/components/Icon';
 
 // A plain, always-visible list of every guide on /guides, grouped by topic.
 // Server component, so each guide has a real text link in the HTML that
@@ -28,7 +29,7 @@ export default function AllGuidesIndex({ guides }) {
         {cats.map((cat) => (
           <div key={cat} className="all-guides-group">
             <h3>
-              <span aria-hidden="true">{CATEGORY_ICONS[cat] || '📝'}</span> {cat}
+              <Icon name={CATEGORY_ICONS[cat] || 'blog'} size={18} /> {cat}
             </h3>
             <ul>
               {groups.get(cat).map((g) => (

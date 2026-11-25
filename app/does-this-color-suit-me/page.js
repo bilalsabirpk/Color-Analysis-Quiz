@@ -54,7 +54,8 @@ export default function ColorCheckerPage() {
       appName="Does This Color Suit Me? Color Checker"
       appCategory="DesignApplication"
       description={DESCRIPTION}
-      eyebrow="✅ Free color checker"
+      eyebrowIcon="check-circle"
+      eyebrow="Free color checker"
       h1="Does This Color Suit Me?"
       h1Accent="Check Any Color Against Your Season"
       lead="Pick any color or paste a hex code from a shop, choose your color season, and see instantly whether it suits you, which palette shades are closest and which seasons it suits best."

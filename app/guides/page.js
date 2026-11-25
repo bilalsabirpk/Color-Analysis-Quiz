@@ -4,6 +4,7 @@ import { getLatestGuides } from '@/lib/guides-data';
 import BlogList from '@/components/BlogList';
 import AllGuidesIndex from '@/components/AllGuidesIndex';
 import ShareLink from '@/components/ShareLink';
+import Icon from '@/components/Icon';
 
 const DESCRIPTION =
   'Free guides on seasonal color analysis: how the 4 seasons work, how to find your undertone, and how to use your palette for clothes, makeup, hair color and jewelry.';
@@ -47,7 +48,7 @@ export default function GuidesIndexPage() {
       <main id="main" className="blog-page">
         <section className="blog-hero">
           <div className="container">
-            <span className="eyebrow">📝 Blog</span>
+            <span className="eyebrow"><Icon name="blog" size={16} /> Blog</span>
             <h1>
               Color Analysis <span className="grad-text">Blog</span>
             </h1>

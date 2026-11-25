@@ -5,6 +5,7 @@ import { getGuide } from '@/lib/guides-data';
 import FaqAccordion from '@/components/FaqAccordion';
 import RelatedTools from '@/components/RelatedTools';
 import ToolGuide, { guideFaqs } from '@/components/ToolGuide';
+import Icon from '@/components/Icon';
 
 // One page with all 12 seasonal color palettes (hex codes as real text),
 // built from the sub-season guides so it never drifts from them. Targets
@@ -56,10 +57,10 @@ const TRAITS = {
 };
 
 const FAMILIES = [
-  { name: 'Spring', emoji: '🌷', note: 'Warm, clear and light to medium.', slugs: ['light-spring', 'warm-spring', 'bright-spring'] },
-  { name: 'Summer', emoji: '🌊', note: 'Cool, soft and light to medium.', slugs: ['light-summer', 'cool-summer', 'soft-summer'] },
-  { name: 'Autumn', emoji: '🍂', note: 'Warm, rich and muted.', slugs: ['soft-autumn', 'warm-autumn', 'deep-autumn'] },
-  { name: 'Winter', emoji: '❄️', note: 'Cool, deep and high contrast.', slugs: ['deep-winter', 'cool-winter', 'bright-winter'] },
+  { name: 'Spring', icon: 'spring', note: 'Warm, clear and light to medium.', slugs: ['light-spring', 'warm-spring', 'bright-spring'] },
+  { name: 'Summer', icon: 'summer', note: 'Cool, soft and light to medium.', slugs: ['light-summer', 'cool-summer', 'soft-summer'] },
+  { name: 'Autumn', icon: 'autumn', note: 'Warm, rich and muted.', slugs: ['soft-autumn', 'warm-autumn', 'deep-autumn'] },
+  { name: 'Winter', icon: 'winter', note: 'Cool, deep and high contrast.', slugs: ['deep-winter', 'cool-winter', 'bright-winter'] },
 ];
 
 function season(slug) {
@@ -146,7 +147,7 @@ export default function SeasonalPalettesPage() {
             <nav aria-label="Breadcrumb" className="breadcrumb-nav">
               <Link href="/">Home</Link> / <span aria-current="page">Seasonal Color Palettes</span>
             </nav>
-            <span className="eyebrow">🎨 12 season color analysis</span>
+            <span className="eyebrow"><Icon name="palette" size={16} /> 12 season color analysis</span>
             <h1>
               Seasonal Color Palettes: <span className="grad-text">All 12 Seasons with Hex Codes</span>
             </h1>
@@ -168,7 +169,7 @@ export default function SeasonalPalettesPage() {
             <div className="container">
               <div className="section-head">
                 <h2 id={`fam-${f.name}`}>
-                  <span aria-hidden="true">{f.emoji}</span> {f.name} Color Palettes
+                  <Icon name={f.icon} size={24} /> {f.name} Color Palettes
                 </h2>
                 <p>
                   {f.note}{' '}

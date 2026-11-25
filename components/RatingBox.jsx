@@ -2,6 +2,7 @@
 
 import { useEffect, useId, useState } from 'react';
 import Link from 'next/link';
+import Icon from '@/components/Icon';
 
 // "Was this tool useful?" 1–5 star rating. The rating is sent to Google
 // Analytics as a `tool_rating` event (only if GA is configured) so we can
@@ -45,7 +46,7 @@ export default function RatingBox({ tool, className = '' }) {
     <div className={`rating-box ${className}`}>
       {rating ? (
         <p className="rating-thanks" role="status">
-          <span aria-hidden="true">💜</span> Thanks for rating this tool {rating} out of 5.
+          <Icon name="heart" size={18} /> Thanks for rating this tool {rating} out of 5.
           {rating <= 3 && (
             <>
               {' '}
@@ -68,7 +69,7 @@ export default function RatingBox({ tool, className = '' }) {
                 onClick={() => rate(n)}
                 aria-label={`Rate ${n} out of 5: ${LABELS[n - 1]}`}
               >
-                <span aria-hidden="true">★</span>
+                <Icon name="star" size={28} />
               </button>
             ))}
           </div>

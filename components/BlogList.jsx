@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from 'react';
 import GuideCard, { CATEGORY_ICONS } from '@/components/GuideCard';
+import Icon from '@/components/Icon';
 
 const PAGE_SIZE = 9;
 
@@ -51,7 +52,7 @@ export default function BlogList({ guides }) {
                 aria-pressed={active === cat}
                 onClick={() => pick(cat)}
               >
-                {cat !== 'All' && <span aria-hidden="true">{CATEGORY_ICONS[cat] || '📝'}</span>}
+                {cat !== 'All' && <Icon name={CATEGORY_ICONS[cat] || 'blog'} size={15} />}
                 {cat}
                 <span className="blog-chip-count">{count}</span>
               </button>

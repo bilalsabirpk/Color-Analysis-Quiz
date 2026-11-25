@@ -3,6 +3,7 @@ import { siteConfig } from '@/lib/site-config';
 import { formatGuideDate } from '@/lib/format-date';
 import { SITE_PAGES, TOOL_LINKS, getGuidePages } from '@/lib/site-pages';
 import styles from './sitemap.module.css';
+import Icon from '@/components/Icon';
 
 export const metadata = {
   title: 'Sitemap',
@@ -23,7 +24,7 @@ export default function SitemapPage() {
     <main id="main">
       <section className="page-hero">
         <div className="container">
-          <span className="eyebrow">🗺️ Sitemap</span>
+          <span className="eyebrow"><Icon name="map" size={16} /> Sitemap</span>
           <h1>Sitemap</h1>
           <p className="lead">
             Every page on {siteConfig.name} in one place. Looking for the XML version for

@@ -14,6 +14,7 @@ import ThemeToggle from '@/components/ThemeToggle';
 // rather than crowding the top bar.
 const NAV_LINKS = [
   { href: '/', label: 'Home' },
+  { href: '/color-palette-generator', label: 'Color Palette Generator', short: 'Palette Generator' },
   { href: '/#season-types', label: 'Seasons' },
   { href: '/guides', label: 'Blog' },
   { href: '/about', label: 'About' },
@@ -126,7 +127,14 @@ export default function Header() {
           </div>
           {NAV_LINKS.slice(1).map((link) => (
             <Link key={link.href} href={link.href} onClick={closeAll}>
-              {link.label}
+              {link.short ? (
+                <>
+                  <span className="nav-label-full">{link.label}</span>
+                  <span className="nav-label-short" aria-hidden="true">{link.short}</span>
+                </>
+              ) : (
+                link.label
+              )}
             </Link>
           ))}
         </nav>

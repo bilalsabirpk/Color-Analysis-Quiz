@@ -67,7 +67,8 @@ export default function ArticleBody({ blocks, paletteImage, outfitImage, compare
               ))}
             </ul>
           );
-          if (!paletteImage) return list;
+          // The saveable chart goes under the first palette only.
+          if (!paletteImage || blocks.findIndex((b) => b.type === 'palette') !== i) return list;
           return [
             list,
             <figure key={`${i}-img`} className="palette-figure">

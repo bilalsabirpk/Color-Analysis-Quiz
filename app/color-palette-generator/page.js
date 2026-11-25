@@ -32,6 +32,17 @@ export const metadata = {
     'seasonal color palette generator',
     'personal color palette generator',
     'outfit color palette generator',
+    'color palette ideas',
+    'aesthetic color palette generator',
+    'color palette picker',
+    'random color generator',
+    'color scheme maker',
+    'color palette for clothes',
+    'wardrobe color palette generator',
+    'brand color palette generator',
+    'website color palette generator',
+    'color palette with hex codes',
+    'free color palette generator',
   ],
   alternates: { canonical: PATH },
   openGraph: { ...OG_DEFAULTS, url: PATH, title: TITLE, description: DESCRIPTION },
@@ -135,11 +146,13 @@ const PROSE = {
       </ul>
       <p>
         For single-color schemes side by side, try the <Link href="/color-harmony-generator">color harmony generator</Link>.
+        New to palettes? Read <Link href="/guides/how-to-create-a-color-palette">how to create a color palette</Link> in
+        5 steps, or start from these <Link href="/guides/color-palette-ideas">color palette ideas with hex codes</Link>.
       </p>
       <h3>Using your palette for clothes and makeup</h3>
       <p>
         Pick one main color for most of the outfit, a second color for one piece, and an accent for shoes, a
-        bag or jewelry. A palette from your own season will flatter your skin; see{' '}
+        bag or jewelry: the <Link href="/guides/60-30-10-color-rule">60-30-10 color rule</Link>. A palette from your own season will flatter your skin; see{' '}
         <Link href="/guides/outfit-color-combinations">outfit color combinations</Link> for ideas and the{' '}
         <Link href="/makeup-color-palettes">makeup color palettes</Link> for lipstick and blush shades by season.
       </p>

@@ -2,7 +2,8 @@
 
 import Script from 'next/script';
 
-// Loads public/quiz-logic.js and (re)runs its init function via onReady.
+// Loads public/quiz-logic.min.js (minified from public/quiz-logic.js by
+// scripts/minify-quiz.mjs before every build) and (re)runs its init function via onReady.
 // onReady fires after the very first load AND after every later remount of
 // this component — which is what happens when the user client-side
 // navigates away from "/" and back again (Next.js's <Script> only loads a
@@ -13,7 +14,7 @@ import Script from 'next/script';
 export default function QuizScriptLoader() {
   return (
     <Script
-      src="/quiz-logic.js"
+      src="/quiz-logic.min.js"
       strategy="afterInteractive"
       onReady={() => {
         if (typeof window !== 'undefined' && typeof window.initColorQuizApp === 'function') {

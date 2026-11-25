@@ -1892,3 +1892,11 @@ h2 > .icon,h3 > .icon{color:var(--purple);margin-right:2px;}
 .pg-mode .icon{color:var(--purple);}
 .pg-mode.is-active .icon{color:#fff;}
 .season-tab .icon,[role=tab] .icon{color:currentColor;}
+
+/* Moved from inline style attributes (SEO audit: "inline styles"). */
+.det-contrast{font-size:11px;color:var(--ink-soft);margin-top:4px;}
+#drapeBestSwatches{margin-bottom:18px;}
+#drapeAvoidSwatches{margin-bottom:6px;}
+footer .footer-logo{color:#fff;margin-bottom:12px;}
+footer .footer-tagline{color:#94a3b8;}
+footer .footer-about{font-size:13.5px;}

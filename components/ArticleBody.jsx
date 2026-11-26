@@ -29,6 +29,39 @@ export default function ArticleBody({ blocks, paletteImage, outfitImage, compare
       {blocks.map((block, i) => {
         if (block.type === 'h2') return <h2 key={i}>{block.text}</h2>;
         if (block.type === 'p') return <p key={i}>{withLinks(block.text)}</p>;
+        if (block.type === 'table') {
+          return (
+            <div key={i} className="cp-table-wrap tg-table" tabIndex={0} role="region" aria-label={block.caption}>
+              <table className="cp-table">
+                <caption className="visually-hidden">{block.caption}</caption>
+                <thead>
+                  <tr>
+                    {block.head.map((h) => (
+                      <th key={h} scope="col">
+                        {h}
+                      </th>
+                    ))}
+                  </tr>
+                </thead>
+                <tbody>
+                  {block.rows.map((row, j) => (
+                    <tr key={j}>
+                      {row.map((cell, k) =>
+                        k === 0 ? (
+                          <th key={k} scope="row">
+                            {withLinks(cell)}
+                          </th>
+                        ) : (
+                          <td key={k}>{withLinks(cell)}</td>
+                        )
+                      )}
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          );
+        }
         if (block.type === 'ul') {
           const prev = blocks[i - 1];
           const isOutfits = outfitImage && prev?.type === 'h2' && /outfit color combinations$/i.test(prev.text);

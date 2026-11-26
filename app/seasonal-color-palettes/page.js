@@ -33,6 +33,9 @@ export const metadata = {
     'color analysis palette',
     'colour analysis palette',
     'seasons color analysis',
+    'seasonal color analysis palettes',
+    'color palette season analysis',
+    'color analysis seasons chart',
     'color analysis seasons',
     'seasons color palette',
     'color palettes seasons',
@@ -159,7 +162,8 @@ export default function SeasonalPalettesPage() {
             <p className="wsai-alt">
               Don&apos;t know your season yet?{' '}
               <Link href="/#quiz">Find it with the free photo color analysis</Link> or the{' '}
-              <Link href="/what-season-am-i">six-question quiz</Link>.
+              <Link href="/what-season-am-i">six-question quiz</Link>. Want the traits side by side? See the{' '}
+              <Link href="/guides/color-analysis-seasons-chart">color analysis seasons chart</Link>.
             </p>
           </div>
         </section>

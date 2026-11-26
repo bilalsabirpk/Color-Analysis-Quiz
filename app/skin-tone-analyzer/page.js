@@ -14,7 +14,7 @@ const DESCRIPTION =
 export const metadata = {
   title: { absolute: TITLE },
   description: DESCRIPTION,
-  keywords: ['skin tone analyzer', 'what is my skin tone', 'skin tone finder', 'skin tone test', 'skin undertone analyzer', 'skin color analyzer', 'skin tone from photo', 'skin tone analysis', 'skin tone scanner online', 'skin tone scanner', 'skin color scanner', "what's my skin tone", 'whats my skin tone'],
+  keywords: ['skin tone analyzer', 'what is my skin tone', 'skin tone finder', 'skin tone test', 'skin undertone analyzer', 'skin color analyzer', 'skin tone from photo', 'skin tone analysis', 'skin tone scanner online', 'skin tone scanner', 'skin color scanner', "what's my skin tone", 'whats my skin tone', 'skin tone detector', 'skin tone checker', 'skin tone identifier', 'skin tone matcher', 'skin color detector', 'skin color finder online', 'skin tone finder online', 'skin tone checker online', 'online skin tone analyzer', 'online skin tone detector', 'free skin tone analyzer', 'skin tone analyzer online free', 'skin tone analyzer from photo', 'skin tone detector from photo', 'skin tone detector from image', 'skin undertone detector', 'skin undertone detector online', 'skin tone quiz', 'skin tone color picker', 'skin tone color palette generator', 'what skin tone am i'],
   alternates: { canonical: PATH },
   openGraph: { ...OG_DEFAULTS, url: PATH, title: TITLE, description: DESCRIPTION },
 };
@@ -33,6 +33,8 @@ const FAQS = [
   { q: 'How do I find my skin tone?', a: 'Look at your skin in daylight without makeup, ideally on your cheek or inner wrist. Its lightness is your skin tone (fair to deep) and its underlying color is your undertone. The analyzer above reads both from a photo or a color you pick.' },
   { q: 'Is my photo uploaded anywhere?', a: 'No. The photo is opened and analyzed inside your browser and is never sent to a server or stored.' },
   { q: 'How accurate is a skin tone analyzer?', a: 'Depth is usually reliable. Undertone from a photo is an estimate, because camera white balance, filters and indoor light can shift colors. Use a daylight photo with no filter, and confirm your undertone with the six-question undertone test.' },
+  { q: 'Is this a skin tone detector or checker?', a: 'Yes. It works as a free online skin tone detector, checker and finder: upload a photo or pick a color, and it detects your skin depth and undertone and shows colors that suit you. It runs in your browser, so the image is not uploaded.' },
+  { q: 'Can it detect my skin undertone from a photo?', a: 'It estimates your undertone (warm, cool, neutral or olive) from the skin color in the photo. For the most reliable result, use a daylight selfie with no filter and confirm with the undertone test.' },
   { q: 'What is the difference between skin tone and complexion?', a: 'Skin tone usually means how light or dark your skin is. Complexion often also includes texture and condition, like oily, dry or even. For choosing colors, skin tone and undertone are what matter.' },
 ];
 
@@ -48,7 +50,7 @@ export default function SkinToneAnalyzerPage() {
       h1="Skin Tone Analyzer:"
       h1Accent="Find Your Skin Tone and Undertone"
       lead="Upload a selfie and tap your cheek, or pick your skin color, to see your skin depth, your likely undertone and the colors that suit you. Everything runs on your device."
-      alt={<>No photo? Take the <Link href="/undertone-test">six-question undertone test</Link> instead.</>}
+      alt={<>No photo? Take the <Link href="/undertone-test">six-question undertone test</Link> instead, or read <Link href="/guides/how-to-find-your-skin-tone">how to find your skin tone</Link>.</>}
       tool={<SkinToneAnalyzer />}
       cards={CARDS}
       prose={{

@@ -1514,7 +1514,7 @@
   .prose ol{margin:0 0 16px;padding-left:22px;color:var(--ink-soft);line-height:1.7;}
   .prose ol li::marker{color:var(--purple);font-weight:800;}
   .tool-guide h3{margin-top:30px;}
-  .tool-guide .tg-table{margin:4px 0 22px;}
+  .tool-guide .tg-table,.prose .tg-table{margin:4px 0 22px;}
   .tool-guide .cp-table{min-width:560px;}
   .tool-guide .cp-table th[scope="row"]{background:#fff;white-space:normal;font-weight:700;border-bottom:1px solid var(--line);}
   .tool-guide .cp-table tr:last-child th{border-bottom:0;}

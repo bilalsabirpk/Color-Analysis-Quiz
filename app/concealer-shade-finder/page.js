@@ -13,7 +13,7 @@ const DESCRIPTION =
 export const metadata = {
   title: { absolute: TITLE },
   description: DESCRIPTION,
-  keywords: ['concealer shade finder', 'what concealer shade am i', 'concealer color finder', 'color corrector for dark circles', 'what color corrector do i need', 'concealer for dark skin', 'concealer undertone'],
+  keywords: ['concealer shade finder', 'what concealer shade am i', 'concealer color finder', 'color corrector for dark circles', 'what color corrector do i need', 'concealer for dark skin', 'concealer undertone', 'concealer match finder', 'concealer shade quiz', 'concealer quiz', 'concealer finder', 'concealer matcher', 'shade finder concealer', 'concealer color finder quiz'],
   alternates: { canonical: PATH },
   openGraph: { ...OG_DEFAULTS, url: PATH, title: TITLE, description: DESCRIPTION },
 };
@@ -57,7 +57,9 @@ export default function ConcealerFinderPage() {
             A corrector changes the color of a dark area; a concealer then matches it to your
             skin. Using both, in thin layers, covers better than piling on concealer. Your
             concealer undertone should match your foundation, so check it with the{' '}
-            <Link href="/undertone-test">undertone test</Link> if you are unsure.
+            <Link href="/undertone-test">undertone test</Link> if you are unsure. For a full
+            walkthrough, read <Link href="/guides/how-to-find-your-concealer-shade">how to find your
+            concealer shade</Link>.
           </p>
         ),
       }}
